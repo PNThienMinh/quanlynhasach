@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bookstore_Manager.Properties
+namespace GUI.Properties
 {
 
 
