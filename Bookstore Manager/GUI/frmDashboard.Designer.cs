@@ -38,27 +38,30 @@
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.ProfilePanel = new System.Windows.Forms.Panel();
+            this.Separator = new Bunifu.Framework.UI.BunifuSeparator();
+            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
+            this.MinimizeButton = new Bunifu.Framework.UI.BunifuImageButton();
+            this.QuitButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.Container = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.Separator = new Bunifu.Framework.UI.BunifuSeparator();
-            this.QuitButton = new Bunifu.Framework.UI.BunifuImageButton();
-            this.MinimizeButton = new Bunifu.Framework.UI.BunifuImageButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.bunifuFlatButton7 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Sidebar.SuspendLayout();
             this.ProfilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).BeginInit();
             this.SuspendLayout();
             // 
             // Sidebar
             // 
             this.Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.Sidebar.Controls.Add(this.bunifuFlatButton7);
             this.Sidebar.Controls.Add(this.bunifuFlatButton6);
             this.Sidebar.Controls.Add(this.bunifuFlatButton5);
             this.Sidebar.Controls.Add(this.bunifuFlatButton4);
@@ -301,6 +304,43 @@
             this.ProfilePanel.Size = new System.Drawing.Size(202, 169);
             this.ProfilePanel.TabIndex = 0;
             // 
+            // Separator
+            // 
+            this.Separator.BackColor = System.Drawing.Color.Transparent;
+            this.Separator.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Separator.LineThickness = 3;
+            this.Separator.Location = new System.Drawing.Point(2, 163);
+            this.Separator.Name = "Separator";
+            this.Separator.Size = new System.Drawing.Size(200, 13);
+            this.Separator.TabIndex = 4;
+            this.Separator.Transparency = 255;
+            this.Separator.Vertical = false;
+            // 
+            // bunifuThinButton21
+            // 
+            this.bunifuThinButton21.ActiveBorderThickness = 1;
+            this.bunifuThinButton21.ActiveCornerRadius = 20;
+            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
+            this.bunifuThinButton21.ButtonText = "Edit Profile";
+            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton21.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.IdleBorderThickness = 1;
+            this.bunifuThinButton21.IdleCornerRadius = 20;
+            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.Silver;
+            this.bunifuThinButton21.Location = new System.Drawing.Point(34, 126);
+            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton21.Name = "bunifuThinButton21";
+            this.bunifuThinButton21.Size = new System.Drawing.Size(121, 32);
+            this.bunifuThinButton21.TabIndex = 3;
+            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -343,6 +383,34 @@
             this.Header.Size = new System.Drawing.Size(633, 35);
             this.Header.TabIndex = 1;
             // 
+            // MinimizeButton
+            // 
+            this.MinimizeButton.BackColor = System.Drawing.Color.White;
+            this.MinimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeButton.Image")));
+            this.MinimizeButton.ImageActive = null;
+            this.MinimizeButton.Location = new System.Drawing.Point(548, 5);
+            this.MinimizeButton.Name = "MinimizeButton";
+            this.MinimizeButton.Size = new System.Drawing.Size(37, 26);
+            this.MinimizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MinimizeButton.TabIndex = 0;
+            this.MinimizeButton.TabStop = false;
+            this.MinimizeButton.Zoom = 10;
+            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+            // 
+            // QuitButton
+            // 
+            this.QuitButton.BackColor = System.Drawing.Color.White;
+            this.QuitButton.Image = ((System.Drawing.Image)(resources.GetObject("QuitButton.Image")));
+            this.QuitButton.ImageActive = null;
+            this.QuitButton.Location = new System.Drawing.Point(591, 5);
+            this.QuitButton.Name = "QuitButton";
+            this.QuitButton.Size = new System.Drawing.Size(37, 26);
+            this.QuitButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.QuitButton.TabIndex = 0;
+            this.QuitButton.TabStop = false;
+            this.QuitButton.Zoom = 10;
+            this.QuitButton.Click += new System.EventHandler(this.QuitButton_Click);
+            // 
             // Container
             // 
             this.Container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
@@ -361,70 +429,45 @@
             this.bunifuDragControl1.TargetControl = this.Header;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // bunifuThinButton21
+            // backgroundWorker1
             // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "Edit Profile";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 20;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.Silver;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(34, 126);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(121, 32);
-            this.bunifuThinButton21.TabIndex = 3;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
-            // Separator
+            // bunifuFlatButton7
             // 
-            this.Separator.BackColor = System.Drawing.Color.Transparent;
-            this.Separator.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Separator.LineThickness = 3;
-            this.Separator.Location = new System.Drawing.Point(2, 163);
-            this.Separator.Name = "Separator";
-            this.Separator.Size = new System.Drawing.Size(200, 13);
-            this.Separator.TabIndex = 4;
-            this.Separator.Transparency = 255;
-            this.Separator.Vertical = false;
-            // 
-            // QuitButton
-            // 
-            this.QuitButton.BackColor = System.Drawing.Color.White;
-            this.QuitButton.Image = ((System.Drawing.Image)(resources.GetObject("QuitButton.Image")));
-            this.QuitButton.ImageActive = null;
-            this.QuitButton.Location = new System.Drawing.Point(591, 5);
-            this.QuitButton.Name = "QuitButton";
-            this.QuitButton.Size = new System.Drawing.Size(37, 26);
-            this.QuitButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.QuitButton.TabIndex = 0;
-            this.QuitButton.TabStop = false;
-            this.QuitButton.Zoom = 10;
-            this.QuitButton.Click += new System.EventHandler(this.QuitButton_Click);
-            // 
-            // MinimizeButton
-            // 
-            this.MinimizeButton.BackColor = System.Drawing.Color.White;
-            this.MinimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeButton.Image")));
-            this.MinimizeButton.ImageActive = null;
-            this.MinimizeButton.Location = new System.Drawing.Point(548, 5);
-            this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(37, 26);
-            this.MinimizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MinimizeButton.TabIndex = 0;
-            this.MinimizeButton.TabStop = false;
-            this.MinimizeButton.Zoom = 10;
-            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+            this.bunifuFlatButton7.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.bunifuFlatButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.bunifuFlatButton7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton7.BorderRadius = 0;
+            this.bunifuFlatButton7.ButtonText = "      Log out";
+            this.bunifuFlatButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton7.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bunifuFlatButton7.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton7.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton7.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton7.Iconimage")));
+            this.bunifuFlatButton7.Iconimage_right = null;
+            this.bunifuFlatButton7.Iconimage_right_Selected = null;
+            this.bunifuFlatButton7.Iconimage_Selected = null;
+            this.bunifuFlatButton7.IconMarginLeft = 0;
+            this.bunifuFlatButton7.IconMarginRight = 0;
+            this.bunifuFlatButton7.IconRightVisible = true;
+            this.bunifuFlatButton7.IconRightZoom = 0D;
+            this.bunifuFlatButton7.IconVisible = true;
+            this.bunifuFlatButton7.IconZoom = 50D;
+            this.bunifuFlatButton7.IsTab = true;
+            this.bunifuFlatButton7.Location = new System.Drawing.Point(0, 427);
+            this.bunifuFlatButton7.Name = "bunifuFlatButton7";
+            this.bunifuFlatButton7.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.bunifuFlatButton7.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.bunifuFlatButton7.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton7.selected = false;
+            this.bunifuFlatButton7.Size = new System.Drawing.Size(202, 43);
+            this.bunifuFlatButton7.TabIndex = 7;
+            this.bunifuFlatButton7.Text = "      Log out";
+            this.bunifuFlatButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton7.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuFlatButton7.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // frmDashboard
             // 
@@ -443,8 +486,8 @@
             this.ProfilePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Header.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,7 +499,6 @@
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.Panel Container;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
@@ -469,5 +511,8 @@
         private Bunifu.Framework.UI.BunifuSeparator Separator;
         private Bunifu.Framework.UI.BunifuImageButton MinimizeButton;
         private Bunifu.Framework.UI.BunifuImageButton QuitButton;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton7;
+        public Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 }
