@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmBookstall : Form
+    public partial class FrmBookstall : Form
     {
-        public frmBookstall()
+        public FrmBookstall()
         {
             InitializeComponent();
         }

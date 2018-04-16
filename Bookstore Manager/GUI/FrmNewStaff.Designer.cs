@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class FrmBookstall
+    partial class FrmNewStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // frmBookstall
+            // frmNewStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 530);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmBookstall";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
-            this.Text = "frmBookstall";
+            this.ClientSize = new System.Drawing.Size(716, 379);
+            this.MaximizeBox = false;
+            this.Name = "FrmNewStaff";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Create New Staff";
             this.ResumeLayout(false);
 
         }

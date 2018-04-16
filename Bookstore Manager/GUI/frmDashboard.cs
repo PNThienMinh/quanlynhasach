@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmDashboard : Form
+    public partial class FrmDashboard : Form
     {
-        public frmDashboard()
+        public FrmDashboard()
         {
             InitializeComponent();
         }
@@ -27,9 +27,21 @@ namespace GUI
             this.Close();
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void StaffTab_Click(object sender, EventArgs e)
         {
-
+            DisplayStaffTab();
         }
+
+        private void DisplayStaffTab()
+        {
+            Container.Controls.Clear();
+            FrmStaff frmStaff = new FrmStaff();
+            frmStaff.TopLevel = false;
+            frmStaff.AutoScroll = true;
+            Container.Controls.Add(frmStaff);
+            frmStaff.Show();
+        }
+
+
     }
 }

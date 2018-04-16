@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmDashboard
+    partial class FrmDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboard));
             this.Sidebar = new System.Windows.Forms.Panel();
             this.bunifuFlatButton7 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.StaffTab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -49,7 +49,6 @@
             this.QuitButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.Container = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Sidebar.SuspendLayout();
             this.ProfilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,7 +61,7 @@
             // 
             this.Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
             this.Sidebar.Controls.Add(this.bunifuFlatButton7);
-            this.Sidebar.Controls.Add(this.bunifuFlatButton6);
+            this.Sidebar.Controls.Add(this.StaffTab);
             this.Sidebar.Controls.Add(this.bunifuFlatButton5);
             this.Sidebar.Controls.Add(this.bunifuFlatButton4);
             this.Sidebar.Controls.Add(this.bunifuFlatButton3);
@@ -111,41 +110,42 @@
             this.bunifuFlatButton7.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunifuFlatButton7.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // bunifuFlatButton6
+            // StaffTab
             // 
-            this.bunifuFlatButton6.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.bunifuFlatButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
-            this.bunifuFlatButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton6.BorderRadius = 0;
-            this.bunifuFlatButton6.ButtonText = "      Staff";
-            this.bunifuFlatButton6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton6.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuFlatButton6.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton6.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton6.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton6.Iconimage")));
-            this.bunifuFlatButton6.Iconimage_right = null;
-            this.bunifuFlatButton6.Iconimage_right_Selected = null;
-            this.bunifuFlatButton6.Iconimage_Selected = null;
-            this.bunifuFlatButton6.IconMarginLeft = 0;
-            this.bunifuFlatButton6.IconMarginRight = 0;
-            this.bunifuFlatButton6.IconRightVisible = true;
-            this.bunifuFlatButton6.IconRightZoom = 0D;
-            this.bunifuFlatButton6.IconVisible = true;
-            this.bunifuFlatButton6.IconZoom = 50D;
-            this.bunifuFlatButton6.IsTab = true;
-            this.bunifuFlatButton6.Location = new System.Drawing.Point(0, 384);
-            this.bunifuFlatButton6.Name = "bunifuFlatButton6";
-            this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
-            this.bunifuFlatButton6.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.bunifuFlatButton6.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton6.selected = false;
-            this.bunifuFlatButton6.Size = new System.Drawing.Size(202, 43);
-            this.bunifuFlatButton6.TabIndex = 6;
-            this.bunifuFlatButton6.Text = "      Staff";
-            this.bunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton6.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuFlatButton6.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffTab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.StaffTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.StaffTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StaffTab.BorderRadius = 0;
+            this.StaffTab.ButtonText = "      Staff";
+            this.StaffTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffTab.DisabledColor = System.Drawing.Color.Gray;
+            this.StaffTab.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StaffTab.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffTab.Iconcolor = System.Drawing.Color.Transparent;
+            this.StaffTab.Iconimage = ((System.Drawing.Image)(resources.GetObject("StaffTab.Iconimage")));
+            this.StaffTab.Iconimage_right = null;
+            this.StaffTab.Iconimage_right_Selected = null;
+            this.StaffTab.Iconimage_Selected = null;
+            this.StaffTab.IconMarginLeft = 0;
+            this.StaffTab.IconMarginRight = 0;
+            this.StaffTab.IconRightVisible = true;
+            this.StaffTab.IconRightZoom = 0D;
+            this.StaffTab.IconVisible = true;
+            this.StaffTab.IconZoom = 50D;
+            this.StaffTab.IsTab = true;
+            this.StaffTab.Location = new System.Drawing.Point(0, 384);
+            this.StaffTab.Name = "StaffTab";
+            this.StaffTab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.StaffTab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.StaffTab.OnHoverTextColor = System.Drawing.Color.White;
+            this.StaffTab.selected = false;
+            this.StaffTab.Size = new System.Drawing.Size(202, 43);
+            this.StaffTab.TabIndex = 6;
+            this.StaffTab.Text = "      Staff";
+            this.StaffTab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StaffTab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.StaffTab.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffTab.Click += new System.EventHandler(this.StaffTab_Click);
             // 
             // bunifuFlatButton5
             // 
@@ -450,7 +450,6 @@
             // Container
             // 
             this.Container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Container.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Container.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Container.Location = new System.Drawing.Point(202, 35);
@@ -465,11 +464,7 @@
             this.bunifuDragControl1.TargetControl = this.Header;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // frmDashboard
+            // FrmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -478,7 +473,7 @@
             this.Controls.Add(this.Header);
             this.Controls.Add(this.Sidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmDashboard";
+            this.Name = "FrmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDashboard";
             this.Sidebar.ResumeLayout(false);
@@ -497,9 +492,8 @@
         private System.Windows.Forms.Panel Sidebar;
         private System.Windows.Forms.Panel ProfilePanel;
         private System.Windows.Forms.Panel Header;
-        private System.Windows.Forms.Panel Container;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
+        private Bunifu.Framework.UI.BunifuFlatButton StaffTab;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
@@ -511,8 +505,8 @@
         private Bunifu.Framework.UI.BunifuSeparator Separator;
         private Bunifu.Framework.UI.BunifuImageButton MinimizeButton;
         private Bunifu.Framework.UI.BunifuImageButton QuitButton;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton7;
         public Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.Panel Container;
     }
 }

@@ -9,15 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Business;
+using Contract;
+using DTO;
 
 namespace GUI
 {
-    public partial class frmLogin : MaterialForm
+    public partial class FrmLogin : MaterialForm, ILoginContract
     {
-        public frmLogin()
+
+        private ILoginFormToLoginInfo _loginFormToLoginInfo;
+
+        public FrmLogin()
         {
             InitializeComponent();
             InitializeUI();
+            InitializeLogic();
+        }
+
+        private void InitializeLogic()
+        {
+            _loginFormToLoginInfo = new LoginInfo(this);
         }
 
         private void InitializeUI()
@@ -33,6 +45,41 @@ namespace GUI
                 MaterialSkin.TextShade.WHITE
                 );
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = lblUsername.Text.Trim().ToString();
+            string password = lblPassword.Text.Trim().ToString();
+
+            _loginFormToLoginInfo.ValidateUser(username, password);
+        }
+
+        public void OnLoginSuccess(User user)
+        {
+            // TODO: Display user's info in dashboard
+            FrmDashboard frmDashboard = new FrmDashboard();
+            this.Hide();
+            frmDashboard.ShowDialog();
+            this.Close();
+
+        }
+
+        public void OnLoginFail(string error)
+        {
+            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void lblUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnLogin.PerformClick();
+        }
+
+        private void lblPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnLogin.PerformClick();
         }
     }
 }

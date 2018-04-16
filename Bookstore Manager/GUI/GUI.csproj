@@ -60,28 +60,55 @@
     <Compile Include="frmBookstall.Designer.cs">
       <DependentUpon>frmBookstall.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDashboard.cs">
+    <Compile Include="FrmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDashboard.Designer.cs">
-      <DependentUpon>frmDashboard.cs</DependentUpon>
+    <Compile Include="FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewStaff.Designer.cs">
+      <DependentUpon>FrmNewStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaff.Designer.cs">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffDetail.Designer.cs">
+      <DependentUpon>FrmStaffDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBookstall.resx">
       <DependentUpon>frmBookstall.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDashboard.resx">
-      <DependentUpon>frmDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDashboard.resx">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewStaff.resx">
+      <DependentUpon>FrmNewStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaff.resx">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffDetail.resx">
+      <DependentUpon>FrmStaffDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,8 +118,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.Function.datasource" />
+    <None Include="Properties\DataSources\DTO.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,6 +135,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{80642841-11b9-4c36-bdc9-597a6b77b159}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contract\Contract.csproj">
+      <Project>{8e7a3d61-581f-45aa-9477-33bb95957eac}</Project>
+      <Name>Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{f1b20a84-3c89-4c80-bfb8-f78e599c4763}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu 2_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
