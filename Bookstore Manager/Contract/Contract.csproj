@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILoginDbToLoginInfo.cs" />
+    <Compile Include="INewStaff.cs" />
     <Compile Include="IStaffContract.cs" />
     <Compile Include="IStaffDbToStaffInfo.cs" />
     <Compile Include="IStaffDetail.cs" />

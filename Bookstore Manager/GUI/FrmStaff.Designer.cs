@@ -37,17 +37,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStaff));
             this.tbSearch = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.dgvListStaffs = new System.Windows.Forms.DataGridView();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rowOption = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.funtionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.itemDetail = new MaterialSkin.Controls.MaterialToolStripMenuItem();
             this.itemDelete = new MaterialSkin.Controls.MaterialToolStripMenuItem();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnNewStaff = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.funtionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListStaffs)).BeginInit();
             this.rowOption.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -150,15 +151,78 @@
             this.dgvListStaffs.TabIndex = 1;
             this.dgvListStaffs.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvListStaffs_MouseDown);
             // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            this.Username.Visible = false;
+            this.Username.Width = 102;
+            // 
+            // BirthDate
+            // 
+            this.BirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BirthDate.DataPropertyName = "BirthDate";
+            this.BirthDate.HeaderText = "BirthDate";
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.ReadOnly = true;
+            this.BirthDate.Width = 90;
+            // 
             // rowOption
             // 
             this.rowOption.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemRefresh,
             this.itemDetail,
             this.itemDelete});
             this.rowOption.Name = "rowOption";
             this.rowOption.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.rowOption.Size = new System.Drawing.Size(108, 64);
+            this.rowOption.Size = new System.Drawing.Size(153, 116);
             this.rowOption.Text = "Detail";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // phoneNumDataGridViewTextBoxColumn
+            // 
+            this.phoneNumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.phoneNumDataGridViewTextBoxColumn.DataPropertyName = "PhoneNum";
+            this.phoneNumDataGridViewTextBoxColumn.HeaderText = "PhoneNum";
+            this.phoneNumDataGridViewTextBoxColumn.Name = "phoneNumDataGridViewTextBoxColumn";
+            this.phoneNumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.phoneNumDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // funtionDataGridViewTextBoxColumn
+            // 
+            this.funtionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.funtionDataGridViewTextBoxColumn.DataPropertyName = "Funtion";
+            this.funtionDataGridViewTextBoxColumn.HeaderText = "Funtion";
+            this.funtionDataGridViewTextBoxColumn.Name = "funtionDataGridViewTextBoxColumn";
+            this.funtionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemRefresh
+            // 
+            this.itemRefresh.AutoSize = false;
+            this.itemRefresh.Image = global::GUI.Properties.Resources.Available_Updates_16px;
+            this.itemRefresh.Name = "itemRefresh";
+            this.itemRefresh.Size = new System.Drawing.Size(120, 30);
+            this.itemRefresh.Text = "Refresh";
+            this.itemRefresh.Click += new System.EventHandler(this.itemRefresh_Click);
             // 
             // itemDetail
             // 
@@ -218,59 +282,6 @@
             this.btnNewStaff.TextFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewStaff.Click += new System.EventHandler(this.btnNewStaff_Click);
             // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            this.Username.Visible = false;
-            this.Username.Width = 102;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // BirthDate
-            // 
-            this.BirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.BirthDate.DataPropertyName = "BirthDate";
-            this.BirthDate.HeaderText = "BirthDate";
-            this.BirthDate.Name = "BirthDate";
-            this.BirthDate.ReadOnly = true;
-            this.BirthDate.Width = 90;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // phoneNumDataGridViewTextBoxColumn
-            // 
-            this.phoneNumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.phoneNumDataGridViewTextBoxColumn.DataPropertyName = "PhoneNum";
-            this.phoneNumDataGridViewTextBoxColumn.HeaderText = "PhoneNum";
-            this.phoneNumDataGridViewTextBoxColumn.Name = "phoneNumDataGridViewTextBoxColumn";
-            this.phoneNumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneNumDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // funtionDataGridViewTextBoxColumn
-            // 
-            this.funtionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.funtionDataGridViewTextBoxColumn.DataPropertyName = "Funtion";
-            this.funtionDataGridViewTextBoxColumn.HeaderText = "Funtion";
-            this.funtionDataGridViewTextBoxColumn.Name = "funtionDataGridViewTextBoxColumn";
-            this.funtionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // FrmStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,5 +317,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn funtionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem itemRefresh;
     }
 }

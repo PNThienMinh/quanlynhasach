@@ -7,14 +7,18 @@ using DTO;
 
 namespace Contract
 {
-    public interface IStaffDetail
+    public interface INewStaff
     {
         void LoadListFunctionToUI(List<Function> functions);
 
         void HandleGetFunctionsFail(string error);
 
-        void RefreshUIAfterUpdate();
+        void ValidateUserNotExists();
 
-        void NotifyUpdateFail(string error);
+        void UserIsExists();
+
+        void CreateStaffSuccessful();
+
+        void FailToCreateStaff(string error);
     }
 }

@@ -156,6 +156,12 @@
   <ItemGroup>
     <None Include="Resources\Close Window_48px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Available Updates_16px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

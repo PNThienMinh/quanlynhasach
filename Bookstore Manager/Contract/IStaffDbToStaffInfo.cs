@@ -20,5 +20,17 @@ namespace Contract
         void OnGetAllFunctionSuccessful(List<Function> functions);
 
         void OnGetAllFunctionsFail(string error);
+
+        void OnUpdateInfoSuccessful(string msg);
+
+        void OnUpdateInfoFail(string error);
+
+        void OnUserNotExists();
+
+        void OnUserIsExists();
+
+        void OnInsertNewStaffSuccessful();
+
+        void OnInsertNewStaffFail(string error);
     }
 }

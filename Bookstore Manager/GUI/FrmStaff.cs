@@ -71,7 +71,6 @@ namespace GUI
         public void DisplayListUsersToUI(List<User> users)
         {
             userBindingSource.DataSource = users;
-
         }
 
         public void OnFetchDataFailure(string error)
@@ -145,6 +144,13 @@ namespace GUI
             {
                 // Do nothing!
             }
+        }
+
+        private void itemRefresh_Click(object sender, EventArgs e)
+        {
+            _business.GetListUsersExists();
+            dgvListStaffs.Update();
+            dgvListStaffs.Refresh();
         }
     }
 }

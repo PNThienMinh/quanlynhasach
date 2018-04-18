@@ -50,6 +50,7 @@ namespace DatabaseModel
                             user.Username = username;
                             user.Password = password;
                             user.IDFunc = (int) reader["MaCV"];
+                            user.ID = (int) reader["MaNV"];
                             _listener.OnGetUserFromDatabaseSuccess(user);
                         }
                     }

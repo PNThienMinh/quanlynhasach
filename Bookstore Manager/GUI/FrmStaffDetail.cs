@@ -68,6 +68,16 @@ namespace GUI
             // TODO: Handle error when can't fetch
         }
 
+        public void RefreshUIAfterUpdate()
+        {
+            this.Close();
+        }
+
+        public void NotifyUpdateFail(string error)
+        {
+            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void Assign(Control control)
         {
             foreach (Control ctrl in control.Controls)
@@ -93,6 +103,31 @@ namespace GUI
         {
             Assign(this);
             btnUpdate.Enabled = false;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            User user = new User();
+            user.Username = _user.Username;
+            user.Name = tbName.Text;
+            user.Sex = tbSex.Text;
+            user.BirthDate = datePicker.Value;
+            user.Email = tbEmail.Text;
+            user.IDFunc = ((Function)cbFunc.SelectedItem).ID;
+            user.MId = tbUID.Text;
+            user.PhoneNum = tbPhoneNo.Text;
+            user.ID = this._user.ID;
+
+            if (!tbNewPassword.Text.Equals(tbConfirmPassword.Text))
+            {
+                tbConfirmPassword.ResetText();
+                tbConfirmPassword.Focus();
+
+            }
+
+            user.Password = tbNewPassword.Text;
+
+            _business.UpdateUserInfo(user);
         }
     }
 }

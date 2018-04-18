@@ -43,12 +43,17 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.tbEmail = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.lbTitle = new MaterialSkin.Controls.MaterialLabel();
             this.btnUpdate = new MaterialSkin.Controls.MaterialFlatButton();
             this.datePicker = new Bunifu.Framework.UI.BunifuDatepicker();
             this.cbFunc = new System.Windows.Forms.ComboBox();
             this.functionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.tbNewPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.tbConfirmPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.functionBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +63,7 @@
             this.QuitButton.BackColor = System.Drawing.Color.White;
             this.QuitButton.Image = ((System.Drawing.Image)(resources.GetObject("QuitButton.Image")));
             this.QuitButton.ImageActive = null;
-            this.QuitButton.Location = new System.Drawing.Point(700, 3);
+            this.QuitButton.Location = new System.Drawing.Point(707, 12);
             this.QuitButton.Name = "QuitButton";
             this.QuitButton.Size = new System.Drawing.Size(37, 26);
             this.QuitButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -253,18 +258,6 @@
             this.materialLabel7.TabIndex = 4;
             this.materialLabel7.Text = "Function";
             // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(30, 59);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(681, 35);
-            this.bunifuSeparator1.TabIndex = 5;
-            this.bunifuSeparator1.Transparency = 255;
-            this.bunifuSeparator1.Vertical = false;
-            // 
             // lbTitle
             // 
             this.lbTitle.Depth = 0;
@@ -291,15 +284,16 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnUpdate.Location = new System.Drawing.Point(593, 404);
+            this.btnUpdate.Location = new System.Drawing.Point(647, 521);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Primary = false;
             this.btnUpdate.Size = new System.Drawing.Size(64, 36);
-            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // datePicker
             // 
@@ -310,8 +304,8 @@
             this.datePicker.FormatCustom = null;
             this.datePicker.Location = new System.Drawing.Point(480, 185);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(177, 36);
-            this.datePicker.TabIndex = 9;
+            this.datePicker.Size = new System.Drawing.Size(231, 36);
+            this.datePicker.TabIndex = 2;
             this.datePicker.Value = new System.DateTime(2018, 4, 16, 19, 58, 35, 317);
             this.datePicker.onValueChanged += new System.EventHandler(this.UpdateInfo);
             // 
@@ -328,22 +322,113 @@
             this.cbFunc.Location = new System.Drawing.Point(549, 333);
             this.cbFunc.Name = "cbFunc";
             this.cbFunc.Size = new System.Drawing.Size(162, 23);
-            this.cbFunc.TabIndex = 10;
+            this.cbFunc.TabIndex = 6;
             this.cbFunc.SelectedValueChanged += new System.EventHandler(this.UpdateInfo);
             // 
             // functionBindingSource
             // 
             this.functionBindingSource.DataSource = typeof(DTO.Function);
             // 
+            // bunifuSeparator2
+            // 
+            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator2.LineThickness = 1;
+            this.bunifuSeparator2.Location = new System.Drawing.Point(88, 410);
+            this.bunifuSeparator2.Name = "bunifuSeparator2";
+            this.bunifuSeparator2.Size = new System.Drawing.Size(578, 23);
+            this.bunifuSeparator2.TabIndex = 11;
+            this.bunifuSeparator2.Transparency = 255;
+            this.bunifuSeparator2.Vertical = false;
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(88, 84);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(578, 25);
+            this.bunifuSeparator1.TabIndex = 11;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(41, 467);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(108, 19);
+            this.materialLabel8.TabIndex = 4;
+            this.materialLabel8.Text = "New password";
+            // 
+            // tbNewPassword
+            // 
+            this.tbNewPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbNewPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNewPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbNewPassword.HintForeColor = System.Drawing.Color.Empty;
+            this.tbNewPassword.HintText = "";
+            this.tbNewPassword.isPassword = true;
+            this.tbNewPassword.LineFocusedColor = System.Drawing.Color.Blue;
+            this.tbNewPassword.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbNewPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.tbNewPassword.LineThickness = 4;
+            this.tbNewPassword.Location = new System.Drawing.Point(156, 442);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNewPassword.Name = "tbNewPassword";
+            this.tbNewPassword.Size = new System.Drawing.Size(182, 44);
+            this.tbNewPassword.TabIndex = 7;
+            this.tbNewPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // tbConfirmPassword
+            // 
+            this.tbConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbConfirmPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConfirmPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbConfirmPassword.HintForeColor = System.Drawing.Color.Empty;
+            this.tbConfirmPassword.HintText = "";
+            this.tbConfirmPassword.isPassword = true;
+            this.tbConfirmPassword.LineFocusedColor = System.Drawing.Color.Blue;
+            this.tbConfirmPassword.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbConfirmPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.tbConfirmPassword.LineThickness = 4;
+            this.tbConfirmPassword.Location = new System.Drawing.Point(528, 442);
+            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbConfirmPassword.Name = "tbConfirmPassword";
+            this.tbConfirmPassword.Size = new System.Drawing.Size(194, 44);
+            this.tbConfirmPassword.TabIndex = 8;
+            this.tbConfirmPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(389, 467);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(132, 19);
+            this.materialLabel9.TabIndex = 4;
+            this.materialLabel9.Text = "Confirm password";
+            // 
             // FrmStaffDetail
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(740, 473);
+            this.ClientSize = new System.Drawing.Size(756, 572);
+            this.Controls.Add(this.bunifuSeparator1);
+            this.Controls.Add(this.bunifuSeparator2);
             this.Controls.Add(this.cbFunc);
             this.Controls.Add(this.datePicker);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lbTitle);
-            this.Controls.Add(this.bunifuSeparator1);
+            this.Controls.Add(this.materialLabel9);
+            this.Controls.Add(this.materialLabel8);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.materialLabel5);
@@ -353,6 +438,8 @@
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.tbPhoneNo);
             this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbConfirmPassword);
+            this.Controls.Add(this.tbNewPassword);
             this.Controls.Add(this.tbUID);
             this.Controls.Add(this.tbSex);
             this.Controls.Add(this.tbName);
@@ -385,11 +472,16 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbEmail;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private MaterialSkin.Controls.MaterialLabel lbTitle;
         private MaterialSkin.Controls.MaterialFlatButton btnUpdate;
         private Bunifu.Framework.UI.BunifuDatepicker datePicker;
         private System.Windows.Forms.ComboBox cbFunc;
         private System.Windows.Forms.BindingSource functionBindingSource;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbNewPassword;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbConfirmPassword;
     }
 }

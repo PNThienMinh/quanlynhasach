@@ -30,5 +30,7 @@ namespace DTO
 
         public string Password { get; set; }
 
+        public int ID { get; set; }
+
     }
 }
