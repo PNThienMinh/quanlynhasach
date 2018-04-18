@@ -58,7 +58,7 @@ namespace GUI
         public void OnLoginSuccess(User user)
         {
             // TODO: Display user's info in dashboard
-            FrmDashboard frmDashboard = new FrmDashboard();
+            FrmDashboard frmDashboard = new FrmDashboard(user);
             this.Hide();
             frmDashboard.ShowDialog();
             this.Close();
