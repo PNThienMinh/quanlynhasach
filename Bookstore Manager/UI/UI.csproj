@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7F2D5348-679A-4053-B8B9-A279F82FA932}</ProjectGuid>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8F9517B-F00E-4E6F-B4F1-FA90898B9C61}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GUI</RootNamespace>
-    <AssemblyName>GUI</AssemblyName>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,41 +36,47 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\..\SourceCode\Lib\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.BonusSkins.v16.1" />
+    <Reference Include="DevExpress.CodeParser.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v16.1" />
+    <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.1" />
+    <Reference Include="DevExpress.Sparkline.v16.1.Core" />
+    <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.1" />
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBookstall.cs">
+    <Compile Include="FrmImportBooks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBookstall.Designer.cs">
-      <DependentUpon>frmBookstall.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDashboard.Designer.cs">
-      <DependentUpon>FrmDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmImport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmImport.Designer.cs">
-      <DependentUpon>FrmImport.cs</DependentUpon>
+    <Compile Include="FrmImportBooks.Designer.cs">
+      <DependentUpon>FrmImportBooks.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -84,34 +90,25 @@
     <Compile Include="FrmNewStaff.Designer.cs">
       <DependentUpon>FrmNewStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmStaff.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmStaff.Designer.cs">
-      <DependentUpon>FrmStaff.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmStaffDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmStaffDetail.Designer.cs">
       <DependentUpon>FrmStaffDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmStore.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmStore.Designer.cs">
-      <DependentUpon>FrmStore.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmBookstall.resx">
-      <DependentUpon>frmBookstall.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="FrmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDashboard.Designer.cs">
+      <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmImport.resx">
-      <DependentUpon>FrmImport.cs</DependentUpon>
+    <EmbeddedResource Include="FrmImportBooks.resx">
+      <DependentUpon>FrmImportBooks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -119,15 +116,10 @@
     <EmbeddedResource Include="FrmNewStaff.resx">
       <DependentUpon>FrmNewStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStaff.resx">
-      <DependentUpon>FrmStaff.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffDetail.resx">
       <DependentUpon>FrmStaffDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStore.resx">
-      <DependentUpon>FrmStore.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -138,9 +130,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DTO.Book.datasource" />
-    <None Include="Properties\DataSources\DTO.Function.datasource" />
     <None Include="Properties\DataSources\DTO.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -151,9 +143,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
@@ -174,16 +163,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\gradientgreendatabar_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\morefunctions_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bocustomer_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bodepartment_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\morefunctions_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alignjustify_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Menu 2_48px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Close Window_48px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Refresh_50px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Available Updates_16px.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -215,7 +216,7 @@
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

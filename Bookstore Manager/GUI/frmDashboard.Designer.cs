@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboard));
             this.Sidebar = new System.Windows.Forms.Panel();
             this.btnLogOut = new Bunifu.Framework.UI.BunifuFlatButton();
             this.StaffTab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.StoreTab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.ProfilePanel = new System.Windows.Forms.Panel();
@@ -48,7 +47,7 @@
             this.MinimizeButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.QuitButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.Container = new System.Windows.Forms.Panel();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl();
             this.Sidebar.SuspendLayout();
             this.ProfilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,7 +63,7 @@
             this.Sidebar.Controls.Add(this.StaffTab);
             this.Sidebar.Controls.Add(this.bunifuFlatButton5);
             this.Sidebar.Controls.Add(this.bunifuFlatButton4);
-            this.Sidebar.Controls.Add(this.bunifuFlatButton3);
+            this.Sidebar.Controls.Add(this.StoreTab);
             this.Sidebar.Controls.Add(this.bunifuFlatButton2);
             this.Sidebar.Controls.Add(this.bunifuFlatButton1);
             this.Sidebar.Controls.Add(this.ProfilePanel);
@@ -220,41 +219,42 @@
             this.bunifuFlatButton4.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // bunifuFlatButton3
+            // StoreTab
             // 
-            this.bunifuFlatButton3.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.bunifuFlatButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
-            this.bunifuFlatButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton3.BorderRadius = 0;
-            this.bunifuFlatButton3.ButtonText = "      Store";
-            this.bunifuFlatButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton3.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuFlatButton3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton3.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton3.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton3.Iconimage")));
-            this.bunifuFlatButton3.Iconimage_right = null;
-            this.bunifuFlatButton3.Iconimage_right_Selected = null;
-            this.bunifuFlatButton3.Iconimage_Selected = null;
-            this.bunifuFlatButton3.IconMarginLeft = 0;
-            this.bunifuFlatButton3.IconMarginRight = 0;
-            this.bunifuFlatButton3.IconRightVisible = true;
-            this.bunifuFlatButton3.IconRightZoom = 0D;
-            this.bunifuFlatButton3.IconVisible = true;
-            this.bunifuFlatButton3.IconZoom = 50D;
-            this.bunifuFlatButton3.IsTab = true;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(0, 255);
-            this.bunifuFlatButton3.Name = "bunifuFlatButton3";
-            this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
-            this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton3.selected = false;
-            this.bunifuFlatButton3.Size = new System.Drawing.Size(202, 43);
-            this.bunifuFlatButton3.TabIndex = 3;
-            this.bunifuFlatButton3.Text = "      Store";
-            this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton3.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoreTab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.StoreTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.StoreTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StoreTab.BorderRadius = 0;
+            this.StoreTab.ButtonText = "      Store";
+            this.StoreTab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StoreTab.DisabledColor = System.Drawing.Color.Gray;
+            this.StoreTab.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StoreTab.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoreTab.Iconcolor = System.Drawing.Color.Transparent;
+            this.StoreTab.Iconimage = ((System.Drawing.Image)(resources.GetObject("StoreTab.Iconimage")));
+            this.StoreTab.Iconimage_right = null;
+            this.StoreTab.Iconimage_right_Selected = null;
+            this.StoreTab.Iconimage_Selected = null;
+            this.StoreTab.IconMarginLeft = 0;
+            this.StoreTab.IconMarginRight = 0;
+            this.StoreTab.IconRightVisible = true;
+            this.StoreTab.IconRightZoom = 0D;
+            this.StoreTab.IconVisible = true;
+            this.StoreTab.IconZoom = 50D;
+            this.StoreTab.IsTab = true;
+            this.StoreTab.Location = new System.Drawing.Point(0, 255);
+            this.StoreTab.Name = "StoreTab";
+            this.StoreTab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(88)))), ((int)(((byte)(173)))));
+            this.StoreTab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.StoreTab.OnHoverTextColor = System.Drawing.Color.White;
+            this.StoreTab.selected = false;
+            this.StoreTab.Size = new System.Drawing.Size(202, 43);
+            this.StoreTab.TabIndex = 3;
+            this.StoreTab.Text = "      Store";
+            this.StoreTab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StoreTab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.StoreTab.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoreTab.Click += new System.EventHandler(this.StoreTab_Click);
             // 
             // bunifuFlatButton2
             // 
@@ -498,7 +498,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton StaffTab;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
+        private Bunifu.Framework.UI.BunifuFlatButton StoreTab;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private System.Windows.Forms.Label lbFunc;
         private System.Windows.Forms.Label lblName;
@@ -508,7 +508,7 @@
         private Bunifu.Framework.UI.BunifuImageButton MinimizeButton;
         private Bunifu.Framework.UI.BunifuImageButton QuitButton;
         private Bunifu.Framework.UI.BunifuFlatButton btnLogOut;
-        public Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Panel Container;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
     }
 }

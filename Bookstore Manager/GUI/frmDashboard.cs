@@ -45,17 +45,22 @@ namespace GUI
 
         private void StaffTab_Click(object sender, EventArgs e)
         {
-            DisplayStaffTab();
-        }
-
-        private void DisplayStaffTab()
-        {
             Container.Controls.Clear();
             FrmStaff frmStaff = new FrmStaff();
             frmStaff.TopLevel = false;
             frmStaff.AutoScroll = true;
             Container.Controls.Add(frmStaff);
             frmStaff.Show();
+        }
+
+        private void StoreTab_Click(object sender, EventArgs e)
+        {
+            Container.Controls.Clear();
+            FrmStore frmStore = new FrmStore(user);
+            frmStore.TopLevel = false;
+            frmStore.AutoScroll = true;
+            Container.Controls.Add(frmStore);
+            frmStore.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -70,5 +75,7 @@ namespace GUI
             }
 
         }
+
+
     }
 }
