@@ -1,40 +1,33 @@
-Phần mềm ứng dụng quản lý nhà sách
+**PHẦN MỀM ỨNG DỤNG QUẢN LÍ NHÀ SÁCH**
 
-Description
+**Phần mềm có các chức năng cơ bản của nhà sách:**
 
-Phần mềm có các chức năng cơ bản của nhà sách:
+*I. Quản lý tài khoản*
+- Nhân viên được cấp tài khoản và được kiểm soát bởi quản lí  
+- Quản lí dữ liệu có trong nhà sách (hàng tồn, hàng có sẵn,...)
 
-                                                    Quản lý tài khoản
+*II. Quản lý hóa đơn*
+- Hóa đơn được quyền tạo và xóa.
+- Chỉ có quản lí mới xem được lịch sử những đơn hàng đã bị xóa)
 
-Nhân viên được cấp tài khoản và được kiểm soát bởi quản lí  
+*III. Xuất/Nhập kho*
+- Nhập hàng từ đơn vị đối tác
+- Xuất hàng số lượng lớn cho các đại lí
 
-Quản lí dữ liệu có trong nhà sách (hàng tồn, hàng có sẵn,...)
+*IV. Lập báo cáo*
+- Lập báo cáo theo tháng
+- Thống kê hàng tồn kho
 
-                                                    Quản lý hóa đơn
+**Technology**
+- Ngôn ngữ : C#,XAML
+- Công nghệ : Winform, Entity Framework, SQLServer
 
-Hóa đơn được quyền tạo và xóa. (chỉ có quản lí mới xem được lịch sử những đơn hàng đã bị xóa)
-
-
-                                                    Technology
-
-Các công nghệ được sử dụng trong phần mềm
-
-Ngôn ngữ : C#,XAML
-Công nghệ : WPF.NET, Entity Framework, SQLServer
-Environment
-
-                                                    Phần mềm
-
-
-
-                                                    Phần cứng
-
-
-
-                                                    Author
+ **Author**
 
 Leader: Nguyễn Duy Minh
 
 Designer : Nguyễn Duy Minh + Phạm Nguyễn Thiện Minh
 
 Developer : Hà Nguyễn Hoàng Dương + Đào Văn Đức
+
+<img src="https://imgur.com/k2bI3RV">
