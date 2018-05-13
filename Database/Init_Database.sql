@@ -56,12 +56,14 @@ CREATE TABLE NHAXUATBAN
 CREATE TABLE SACH
 (
 	MaSach int identity(1000,1),
-	TenSach nvarchar(255) NOT NULL,
-	TheLoai nvarchar(100) NOT NULL,
+	TenSach nvarchar(Max) NOT NULL,
+	TheLoai nvarchar(max) NOT NULL,
 	NgayXuatBan datetime NOT NULL,
 	DonGiaNhap money NOT NULL,
+	SoLuongTon int NOT NULL,
 	MaTG int NOT NULL,
 	MaNXB int NOT NULL,
+
 
 	constraint PK_SACH primary key (MaSach),
 	constraint FK_SACH_TACGIA foreign key (MaTG) references TACGIA(MaTG),
@@ -71,7 +73,7 @@ CREATE TABLE SACH
 CREATE TABLE THONGTINTONKHO
 (
 	MaChiTietTon int identity(1000,1),
-	ThoiGian datetime NOT NULL,
+	ThoiGian date NOT NULL,
 	TonDau int NOT NULL,
 	TonPhatSinh int NOT NULL,
 	TonCuoi int NOT NULL,
@@ -89,6 +91,7 @@ CREATE TABLE KHACHHANG
 	DiaChi nvarchar(250) NOT NULL,
 	Email nvarchar(100) NOT NULL,
 	SDT varchar(15),
+	SoTienNo int NOT NULL,
 
 	constraint PK_KHACHHANG primary key (MaKH)
 )
@@ -96,7 +99,7 @@ CREATE TABLE KHACHHANG
 CREATE TABLE THONGTINNO
 (
 	MaChiTietNo int identity(1000,1),
-	NgayNo datetime NOT NULL,
+	NgayNo date NOT NULL,
 	NoDau money NOT NULL,
 	NoPhatSinh money NOT NULL,
 	NoCuoi money NOT NULL,
@@ -171,3 +174,4 @@ CREATE TABLE THAMSOQUYDINH
 	SoTienNoToiDa money NOT NULL,
 	QuyDinhThuTienKhachHang bit NOT NULL
 )
+

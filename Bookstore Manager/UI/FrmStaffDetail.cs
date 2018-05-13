@@ -12,6 +12,7 @@ using Business;
 using Contract;
 using DevExpress.XtraEditors;
 using DTO;
+using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace UI
 {
@@ -85,11 +86,23 @@ namespace UI
                     TextBox tb = (TextBox)ctrl;
                     tb.TextChanged += new EventHandler(UpdateInfo);
                 }
+                else if (ctrl is DateTimePicker)
+                {
+                    DateTimePicker dtp = (DateTimePicker)ctrl;
+                    dtp.ValueChanged += new EventHandler(UpdateInfo);
+                }
+                else if (ctrl is ComboBox)
+                {
+                    ComboBox cb = (ComboBox) ctrl;
+                    cb.SelectionChangeCommitted += new EventHandler(UpdateInfo);
+                } 
                 else
                 {
                     Assign(ctrl);
                 }
             }
+
+           
         }
 
         private void UpdateInfo(object sender, EventArgs e)

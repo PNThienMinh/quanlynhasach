@@ -94,3 +94,62 @@ BEGIN
 	WHERE TenDangNhap = @username
 	END
 END
+
+-- 
+
+
+CREATE PROC addBook
+@bookId int,
+@bookName nvarchar(MAX),
+@bookType nvarchar(MAX),
+@datePublished datetime,
+@price money,
+@authorName nvarchar(100),
+@publisher nvarchar(100)
+AS
+BEGIN
+
+DECLARE	@NewPublisherId int,
+		@NewAuthorId int;
+		
+	SELECT @NewPublisherId = NHAXUATBAN.MaNXB FROM NHAXUATBAN WHERE NHAXUATBAN.TenNXB = @publisher
+	IF (@NewPublisherId IS NULL)
+		BEGIN INSERT INTO NHAXUATBAN VALUES (@publisher, null)
+		SELECT @NewPublisherId = SCOPE_IDENTITY();
+		END
+
+	SELECT @NewAuthorId = TACGIA.MaTG FROM TACGIA WHERE TACGIA.TenTG = @authorName
+	IF (@NewAuthorId IS NULL)
+		BEGIN INSERT INTO TACGIA VALUES (@authorName, null)
+		SELECT @NewAuthorId = SCOPE_IDENTITY();
+		END
+
+		
+		INSERT INTO SACH (TenSach, TheLoai, NgayXuatBan, DonGiaNhap, MaTG, MaNXB, MaDinhDanh)
+		VALUES (@bookName, @bookType, @datePublished, @price, @NewAuthorId, @NewPublisherId, @bookId)
+		
+END
+
+CREATE PROC getAllBooks
+AS
+BEGIN
+	SELECT TenSach, TheLoai, NgayXuatBan, DonGiaNhap, MaDinhDanh, TenTG, TenNXB, SoLuongTon
+	FROM SACH, TACGIA, NHAXUATBAN 
+	WHERE SACH.MaTG = TACGIA.MaTG AND SACH.MaNXB = NHAXUATBAN.MaNXB
+END
+
+CREATE PROC getStockContract
+AS
+BEGIN
+SELECT SoLuongNhapItNhat, SoLuongTonToiDaTruocNhap
+FROM THAMSOQUYDINH
+END
+
+CREATE PROC changeStockContract
+@minImport int,
+@maxInventory int
+AS
+BEGIN
+UPDATE THAMSOQUYDINH
+SET SoLuongNhapItNhat = @minImport, SoLuongTonToiDaTruocNhap = @maxInventory
+END

@@ -32,6 +32,7 @@
             this.cbRememberUser = new MaterialSkin.Controls.MaterialCheckBox();
             this.lblPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.ssmLogin = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.WaitForm1), true, true, true);
             this.SuspendLayout();
             // 
             // btnLogin
@@ -95,6 +96,10 @@
             this.lblUsername.UseSystemPasswordChar = false;
             this.lblUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lblUsername_KeyDown);
             // 
+            // ssmLogin
+            // 
+            this.ssmLogin.ClosingDelay = 500;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,5 +124,6 @@
         private MaterialSkin.Controls.MaterialCheckBox cbRememberUser;
         private MaterialSkin.Controls.MaterialSingleLineTextField lblPassword;
         private MaterialSkin.Controls.MaterialSingleLineTextField lblUsername;
+        private DevExpress.XtraSplashScreen.SplashScreenManager ssmLogin;
     }
 }

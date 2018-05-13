@@ -52,6 +52,8 @@ namespace UI
             string username = lblUsername.Text.Trim().ToString();
             string password = lblPassword.Text.Trim().ToString();
 
+            //ssmLogin.SetWaitFormDescription("Đang đăng nhập...");
+            ssmLogin.ShowWaitForm();
             _loginFormToLoginInfo.ValidateUser(username, password);
         }
 
@@ -71,11 +73,13 @@ namespace UI
         {
             FrmDashboard frmDashboard = new FrmDashboard(user);
             frmDashboard.Show();
+            ssmLogin.CloseWaitForm();
             this.Hide();
         }
 
         public void OnLoginFail(string error)
         {
+            ssmLogin.CloseWaitForm();
             MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

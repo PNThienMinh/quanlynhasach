@@ -30,29 +30,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement14 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement15 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboard));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroupTables = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.employeesTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.customersTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.bookstallTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.stockTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.custommerTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.staffTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.statisticsTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.dashboardNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.employeesLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.bookstallNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.customerNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.storeNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.stockNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.btnImport = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnAdd = new MaterialSkin.Controls.MaterialFlatButton();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.colName1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colType = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -75,11 +76,13 @@
             this.colDetail = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.btnDetail = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.ssmLoading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
             this.dashboardNavigationPage.SuspendLayout();
             this.bookstallNavigationPage.SuspendLayout();
-            this.storeNavigationPage.SuspendLayout();
+            this.stockNavigationPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.staffNavigationPage.SuspendLayout();
@@ -105,7 +108,7 @@
             this.tileBar.ItemPadding = new System.Windows.Forms.Padding(8, 6, 12, 6);
             this.tileBar.Location = new System.Drawing.Point(0, 0);
             this.tileBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tileBar.MaxId = 6;
+            this.tileBar.MaxId = 7;
             this.tileBar.MaximumSize = new System.Drawing.Size(0, 110);
             this.tileBar.MinimumSize = new System.Drawing.Size(100, 110);
             this.tileBar.Name = "tileBar";
@@ -115,7 +118,7 @@
             this.tileBar.SelectionBorderWidth = 2;
             this.tileBar.SelectionColorMode = DevExpress.XtraBars.Navigation.SelectionColorMode.UseItemBackColor;
             this.tileBar.ShowGroupText = false;
-            this.tileBar.Size = new System.Drawing.Size(859, 110);
+            this.tileBar.Size = new System.Drawing.Size(1025, 110);
             this.tileBar.TabIndex = 1;
             this.tileBar.Text = "tileBar";
             this.tileBar.WideTileWidth = 150;
@@ -124,10 +127,11 @@
             // tileBarGroupTables
             // 
             this.tileBarGroupTables.Items.Add(this.employeesTileBarItem);
-            this.tileBarGroupTables.Items.Add(this.customersTileBarItem);
-            this.tileBarGroupTables.Items.Add(this.tileBarItem1);
-            this.tileBarGroupTables.Items.Add(this.tileBarItem2);
-            this.tileBarGroupTables.Items.Add(this.tileBarItem3);
+            this.tileBarGroupTables.Items.Add(this.bookstallTileBarItem);
+            this.tileBarGroupTables.Items.Add(this.stockTileBarItem);
+            this.tileBarGroupTables.Items.Add(this.custommerTileBarItem);
+            this.tileBarGroupTables.Items.Add(this.staffTileBarItem);
+            this.tileBarGroupTables.Items.Add(this.statisticsTileBarItem);
             this.tileBarGroupTables.Name = "tileBarGroupTables";
             this.tileBarGroupTables.Text = "TABLES";
             // 
@@ -143,92 +147,110 @@
             this.employeesTileBarItem.AppearanceItem.Selected.Options.UseTextOptions = true;
             this.employeesTileBarItem.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
             this.employeesTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement11.Image = global::UI.Properties.Resources.gradientgreendatabar_32x32;
-            tileItemElement11.ImageUri.Uri = "ListBullets";
-            tileItemElement11.Text = "Bảng điều khiển";
-            this.employeesTileBarItem.Elements.Add(tileItemElement11);
+            tileItemElement1.Image = global::UI.Properties.Resources.gradientgreendatabar_32x32;
+            tileItemElement1.ImageUri.Uri = "ListBullets";
+            tileItemElement1.Text = "Bảng điều khiển";
+            this.employeesTileBarItem.Elements.Add(tileItemElement1);
             this.employeesTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Default;
             this.employeesTileBarItem.Name = "employeesTileBarItem";
             // 
-            // customersTileBarItem
+            // bookstallTileBarItem
             // 
-            this.customersTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.customersTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.customersTileBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.customersTileBarItem.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customersTileBarItem.AppearanceItem.Selected.Options.UseBorderColor = true;
-            this.customersTileBarItem.AppearanceItem.Selected.Options.UseFont = true;
-            this.customersTileBarItem.AppearanceItem.Selected.Options.UseImage = true;
-            this.customersTileBarItem.AppearanceItem.Selected.Options.UseTextOptions = true;
-            this.customersTileBarItem.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
-            this.customersTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement12.Image = global::UI.Properties.Resources.morefunctions_32x32;
-            tileItemElement12.ImageUri.Uri = "Copy";
-            tileItemElement12.Text = "Quầy sách";
-            this.customersTileBarItem.Elements.Add(tileItemElement12);
-            this.customersTileBarItem.Id = 2;
-            this.customersTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.customersTileBarItem.Name = "customersTileBarItem";
+            this.bookstallTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.bookstallTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.bookstallTileBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.bookstallTileBarItem.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bookstallTileBarItem.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.bookstallTileBarItem.AppearanceItem.Selected.Options.UseFont = true;
+            this.bookstallTileBarItem.AppearanceItem.Selected.Options.UseImage = true;
+            this.bookstallTileBarItem.AppearanceItem.Selected.Options.UseTextOptions = true;
+            this.bookstallTileBarItem.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
+            this.bookstallTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement2.Image = global::UI.Properties.Resources.morefunctions_32x32;
+            tileItemElement2.ImageUri.Uri = "Copy";
+            tileItemElement2.Text = "Quầy sách";
+            this.bookstallTileBarItem.Elements.Add(tileItemElement2);
+            this.bookstallTileBarItem.Id = 2;
+            this.bookstallTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.bookstallTileBarItem.Name = "bookstallTileBarItem";
             // 
-            // tileBarItem1
+            // stockTileBarItem
             // 
-            this.tileBarItem1.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.tileBarItem1.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem1.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseBorderColor = true;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseFont = true;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseTextOptions = true;
-            this.tileBarItem1.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
-            this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement13.Image = global::UI.Properties.Resources.open_32x32;
-            tileItemElement13.Text = "Kho";
-            this.tileBarItem1.Elements.Add(tileItemElement13);
-            this.tileBarItem1.Id = 3;
-            this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem1.Name = "tileBarItem1";
+            this.stockTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.stockTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.stockTileBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.stockTileBarItem.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stockTileBarItem.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.stockTileBarItem.AppearanceItem.Selected.Options.UseFont = true;
+            this.stockTileBarItem.AppearanceItem.Selected.Options.UseTextOptions = true;
+            this.stockTileBarItem.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
+            this.stockTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement3.Image = global::UI.Properties.Resources.open_32x32;
+            tileItemElement3.Text = "Kho";
+            this.stockTileBarItem.Elements.Add(tileItemElement3);
+            this.stockTileBarItem.Id = 3;
+            this.stockTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.stockTileBarItem.Name = "stockTileBarItem";
             // 
-            // tileBarItem2
+            // custommerTileBarItem
             // 
-            this.tileBarItem2.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.tileBarItem2.AppearanceItem.Normal.BackColor = System.Drawing.Color.Gray;
-            this.tileBarItem2.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem2.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem2.AppearanceItem.Selected.Options.UseBorderColor = true;
-            this.tileBarItem2.AppearanceItem.Selected.Options.UseFont = true;
-            this.tileBarItem2.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
-            this.tileBarItem2.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement14.Image = global::UI.Properties.Resources.bocustomer_32x32;
-            tileItemElement14.Text = "Khách hàng";
-            this.tileBarItem2.Elements.Add(tileItemElement14);
-            this.tileBarItem2.Id = 4;
-            this.tileBarItem2.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem2.Name = "tileBarItem2";
+            this.custommerTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.custommerTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.Gray;
+            this.custommerTileBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.custommerTileBarItem.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custommerTileBarItem.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.custommerTileBarItem.AppearanceItem.Selected.Options.UseFont = true;
+            this.custommerTileBarItem.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
+            this.custommerTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement4.Image = global::UI.Properties.Resources.bocustomer_32x32;
+            tileItemElement4.Text = "Khách hàng";
+            this.custommerTileBarItem.Elements.Add(tileItemElement4);
+            this.custommerTileBarItem.Id = 4;
+            this.custommerTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.custommerTileBarItem.Name = "custommerTileBarItem";
             // 
-            // tileBarItem3
+            // staffTileBarItem
             // 
-            this.tileBarItem3.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.tileBarItem3.AppearanceItem.Normal.BackColor = System.Drawing.Color.Teal;
-            this.tileBarItem3.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem3.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem3.AppearanceItem.Selected.Options.UseBorderColor = true;
-            this.tileBarItem3.AppearanceItem.Selected.Options.UseFont = true;
-            this.tileBarItem3.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
-            this.tileBarItem3.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement15.Image = global::UI.Properties.Resources.bodepartment_32x32;
-            tileItemElement15.Text = "Nhân viên";
-            this.tileBarItem3.Elements.Add(tileItemElement15);
-            this.tileBarItem3.Id = 5;
-            this.tileBarItem3.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem3.Name = "tileBarItem3";
+            this.staffTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.staffTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.Teal;
+            this.staffTileBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.staffTileBarItem.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffTileBarItem.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.staffTileBarItem.AppearanceItem.Selected.Options.UseFont = true;
+            this.staffTileBarItem.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
+            this.staffTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement5.Image = global::UI.Properties.Resources.bodepartment_32x32;
+            tileItemElement5.Text = "Nhân viên";
+            this.staffTileBarItem.Elements.Add(tileItemElement5);
+            this.staffTileBarItem.Id = 5;
+            this.staffTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.staffTileBarItem.Name = "staffTileBarItem";
+            // 
+            // statisticsTileBarItem
+            // 
+            this.statisticsTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.statisticsTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.statisticsTileBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.statisticsTileBarItem.AppearanceItem.Normal.Options.UseFont = true;
+            this.statisticsTileBarItem.AppearanceItem.Selected.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.statisticsTileBarItem.AppearanceItem.Selected.Options.UseFont = true;
+            this.statisticsTileBarItem.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
+            this.statisticsTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement6.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement6.Image")));
+            tileItemElement6.Text = "Thống kê";
+            this.statisticsTileBarItem.Elements.Add(tileItemElement6);
+            this.statisticsTileBarItem.Id = 6;
+            this.statisticsTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.statisticsTileBarItem.Name = "statisticsTileBarItem";
             // 
             // navigationFrame
             // 
             this.navigationFrame.Controls.Add(this.dashboardNavigationPage);
             this.navigationFrame.Controls.Add(this.bookstallNavigationPage);
             this.navigationFrame.Controls.Add(this.customerNavigationPage);
-            this.navigationFrame.Controls.Add(this.storeNavigationPage);
+            this.navigationFrame.Controls.Add(this.stockNavigationPage);
             this.navigationFrame.Controls.Add(this.staffNavigationPage);
+            this.navigationFrame.Controls.Add(this.navigationPage1);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame.Location = new System.Drawing.Point(0, 110);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -236,20 +258,24 @@
             this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.dashboardNavigationPage,
             this.bookstallNavigationPage,
-            this.storeNavigationPage,
+            this.stockNavigationPage,
             this.customerNavigationPage,
-            this.staffNavigationPage});
+            this.staffNavigationPage,
+            this.navigationPage1});
             this.navigationFrame.SelectedPage = this.dashboardNavigationPage;
-            this.navigationFrame.Size = new System.Drawing.Size(859, 451);
+            this.navigationFrame.Size = new System.Drawing.Size(1025, 451);
             this.navigationFrame.TabIndex = 0;
             this.navigationFrame.Text = "navigationFrame";
+            this.navigationFrame.TransitionAnimationProperties.FrameCount = 500;
+            this.navigationFrame.TransitionAnimationProperties.FrameInterval = 5000;
+            this.navigationFrame.TransitionType = DevExpress.Utils.Animation.Transitions.Fade;
             // 
             // dashboardNavigationPage
             // 
             this.dashboardNavigationPage.Caption = "dashboardNavigationPage";
             this.dashboardNavigationPage.Controls.Add(this.employeesLabelControl);
             this.dashboardNavigationPage.Name = "dashboardNavigationPage";
-            this.dashboardNavigationPage.Size = new System.Drawing.Size(859, 451);
+            this.dashboardNavigationPage.Size = new System.Drawing.Size(1025, 451);
             // 
             // employeesLabelControl
             // 
@@ -261,16 +287,15 @@
             this.employeesLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeesLabelControl.Location = new System.Drawing.Point(0, 0);
             this.employeesLabelControl.Name = "employeesLabelControl";
-            this.employeesLabelControl.Size = new System.Drawing.Size(859, 451);
+            this.employeesLabelControl.Size = new System.Drawing.Size(1025, 451);
             this.employeesLabelControl.TabIndex = 2;
-            this.employeesLabelControl.Text = "Bảng điều khiển";
             // 
             // bookstallNavigationPage
             // 
             this.bookstallNavigationPage.Caption = "bookstallNavigationPage";
             this.bookstallNavigationPage.Controls.Add(this.customersLabelControl);
             this.bookstallNavigationPage.Name = "bookstallNavigationPage";
-            this.bookstallNavigationPage.Size = new System.Drawing.Size(859, 451);
+            this.bookstallNavigationPage.Size = new System.Drawing.Size(1025, 451);
             // 
             // customersLabelControl
             // 
@@ -282,7 +307,7 @@
             this.customersLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customersLabelControl.Location = new System.Drawing.Point(0, 0);
             this.customersLabelControl.Name = "customersLabelControl";
-            this.customersLabelControl.Size = new System.Drawing.Size(859, 451);
+            this.customersLabelControl.Size = new System.Drawing.Size(1025, 451);
             this.customersLabelControl.TabIndex = 2;
             this.customersLabelControl.Text = "Customers";
             // 
@@ -290,24 +315,24 @@
             // 
             this.customerNavigationPage.Caption = "customerNavigationPage";
             this.customerNavigationPage.Name = "customerNavigationPage";
-            this.customerNavigationPage.Size = new System.Drawing.Size(859, 451);
+            this.customerNavigationPage.Size = new System.Drawing.Size(1025, 451);
             // 
-            // storeNavigationPage
+            // stockNavigationPage
             // 
-            this.storeNavigationPage.AllowTouchScroll = true;
-            this.storeNavigationPage.Caption = "storeNavigationPage";
-            this.storeNavigationPage.Controls.Add(this.btnImport);
-            this.storeNavigationPage.Controls.Add(this.btnAdd);
-            this.storeNavigationPage.Controls.Add(this.treeList1);
-            this.storeNavigationPage.Name = "storeNavigationPage";
-            this.storeNavigationPage.Size = new System.Drawing.Size(859, 451);
+            this.stockNavigationPage.AllowTouchScroll = true;
+            this.stockNavigationPage.Caption = "stockNavigationPage";
+            this.stockNavigationPage.Controls.Add(this.btnImport);
+            this.stockNavigationPage.Controls.Add(this.treeList1);
+            this.stockNavigationPage.Name = "stockNavigationPage";
+            this.stockNavigationPage.Size = new System.Drawing.Size(1025, 451);
             // 
             // btnImport
             // 
             this.btnImport.AutoSize = true;
             this.btnImport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnImport.Depth = 0;
-            this.btnImport.Location = new System.Drawing.Point(731, 6);
+            this.btnImport.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnImport.Location = new System.Drawing.Point(923, 6);
             this.btnImport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnImport.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnImport.Name = "btnImport";
@@ -319,24 +344,6 @@
             this.btnImport.UseCompatibleTextRendering = true;
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoSize = true;
-            this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAdd.Depth = 0;
-            this.btnAdd.Location = new System.Drawing.Point(634, 6);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Primary = false;
-            this.btnAdd.Size = new System.Drawing.Size(89, 36);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Thêm sách";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnAdd.UseCompatibleTextRendering = true;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // treeList1
             // 
@@ -355,7 +362,7 @@
             this.treeList1.Name = "treeList1";
             this.treeList1.OptionsFind.AllowFindPanel = true;
             this.treeList1.OptionsFind.AlwaysVisible = true;
-            this.treeList1.Size = new System.Drawing.Size(859, 451);
+            this.treeList1.Size = new System.Drawing.Size(1025, 451);
             this.treeList1.TabIndex = 0;
             // 
             // colName1
@@ -368,7 +375,7 @@
             // 
             // colType
             // 
-            this.colType.FieldName = "Type";
+            this.colType.FieldName = "Category";
             this.colType.Name = "colType";
             this.colType.Visible = true;
             this.colType.VisibleIndex = 1;
@@ -424,7 +431,7 @@
             this.staffNavigationPage.Controls.Add(this.btnNewStaff);
             this.staffNavigationPage.Controls.Add(this.treeListStaff);
             this.staffNavigationPage.Name = "staffNavigationPage";
-            this.staffNavigationPage.Size = new System.Drawing.Size(859, 451);
+            this.staffNavigationPage.Size = new System.Drawing.Size(1025, 451);
             // 
             // btnNewStaff
             // 
@@ -484,7 +491,7 @@
             this.treeListStaff.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeListStaff.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnDetail});
-            this.treeListStaff.Size = new System.Drawing.Size(859, 451);
+            this.treeListStaff.Size = new System.Drawing.Size(1025, 451);
             this.treeListStaff.TabIndex = 0;
             this.treeListStaff.VisibleChanged += new System.EventHandler(this.LoadStaff);
             // 
@@ -567,7 +574,7 @@
             // 
             this.btnDetail.AutoHeight = false;
             this.btnDetail.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDetail.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDetail.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDetail.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDetail_ButtonClick);
@@ -576,22 +583,33 @@
             // 
             this.userBindingSource.DataSource = typeof(DTO.User);
             // 
+            // navigationPage1
+            // 
+            this.navigationPage1.Caption = "navigationPage1";
+            this.navigationPage1.Name = "navigationPage1";
+            this.navigationPage1.Size = new System.Drawing.Size(1025, 451);
+            // 
+            // ssmLoading
+            // 
+            this.ssmLoading.ClosingDelay = 500;
+            // 
             // FrmDashboard
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 561);
+            this.ClientSize = new System.Drawing.Size(1025, 561);
             this.Controls.Add(this.navigationFrame);
             this.Controls.Add(this.tileBar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmDashboard";
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).EndInit();
             this.navigationFrame.ResumeLayout(false);
             this.dashboardNavigationPage.ResumeLayout(false);
             this.bookstallNavigationPage.ResumeLayout(false);
-            this.storeNavigationPage.ResumeLayout(false);
-            this.storeNavigationPage.PerformLayout();
+            this.stockNavigationPage.ResumeLayout(false);
+            this.stockNavigationPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.staffNavigationPage.ResumeLayout(false);
@@ -608,15 +626,15 @@
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroupTables;
         private DevExpress.XtraBars.Navigation.TileBarItem employeesTileBarItem;
-        private DevExpress.XtraBars.Navigation.TileBarItem customersTileBarItem;
+        private DevExpress.XtraBars.Navigation.TileBarItem bookstallTileBarItem;
         private DevExpress.XtraBars.Navigation.NavigationPage dashboardNavigationPage;
         private DevExpress.XtraBars.Navigation.NavigationPage bookstallNavigationPage;
         private DevExpress.XtraEditors.LabelControl employeesLabelControl;
         private DevExpress.XtraEditors.LabelControl customersLabelControl;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem1;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem2;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem3;
-        private DevExpress.XtraBars.Navigation.NavigationPage storeNavigationPage;
+        private DevExpress.XtraBars.Navigation.TileBarItem stockTileBarItem;
+        private DevExpress.XtraBars.Navigation.TileBarItem custommerTileBarItem;
+        private DevExpress.XtraBars.Navigation.TileBarItem staffTileBarItem;
+        private DevExpress.XtraBars.Navigation.NavigationPage stockNavigationPage;
         private DevExpress.XtraBars.Navigation.NavigationPage customerNavigationPage;
         private DevExpress.XtraBars.Navigation.NavigationPage staffNavigationPage;
         private System.Windows.Forms.BindingSource userBindingSource;
@@ -631,7 +649,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colDetail;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDetail;
         private Bunifu.Framework.UI.BunifuThinButton2 btnNewStaff;
-        private MaterialSkin.Controls.MaterialFlatButton btnAdd;
         private DevExpress.XtraTreeList.TreeList treeList1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colName1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colType;
@@ -642,5 +659,8 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colIdentifier;
         private System.Windows.Forms.BindingSource bookBindingSource;
         private MaterialSkin.Controls.MaterialFlatButton btnImport;
+        private DevExpress.XtraBars.Navigation.TileBarItem statisticsTileBarItem;
+        private DevExpress.XtraSplashScreen.SplashScreenManager ssmLoading;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
     }
 }

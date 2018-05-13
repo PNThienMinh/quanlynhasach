@@ -50,9 +50,11 @@
     <Compile Include="ILoginFormToLoginInfo.cs" />
     <Compile Include="ILoginDb.cs" />
     <Compile Include="IStaffDb.cs" />
-    <Compile Include="IStoreDb.cs" />
-    <Compile Include="IStoreDbToStoreInfo.cs" />
-    <Compile Include="IStoreInfo.cs" />
+    <Compile Include="IStockContract.cs" />
+    <Compile Include="IStockContractInformation.cs" />
+    <Compile Include="IStockDb.cs" />
+    <Compile Include="IStockDbToStockInfo.cs" />
+    <Compile Include="IStockInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

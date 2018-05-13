@@ -41,11 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
-    <Compile Include="ExcelFileHandler.cs" />
     <Compile Include="LoginDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffDb.cs" />
-    <Compile Include="StoreDb.cs" />
+    <Compile Include="StockDb.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Contract\Contract.csproj">
