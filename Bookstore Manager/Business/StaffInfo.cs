@@ -9,15 +9,15 @@ using DTO;
 
 namespace Business
 {
-    public class StaffInfo : IStaffToStaffInfo, IStaffDbToStaffInfo
+    public class StaffInfo : IStaffInfo, IStaffDbToStaffInfo
     {
 
-        private IStaffContract _staffView;
+        private IStaffView _staffView;
         private IStaffDb _staffDb;
         private IStaffDetail _staffDetail = null;
         private INewStaff _newStaff = null;
 
-        public StaffInfo(IStaffContract view)
+        public StaffInfo(IStaffView view)
         {
             _staffView = view;
             _staffDb = new StaffDb(this);
@@ -53,7 +53,19 @@ namespace Business
 
         public void UpdateUserInfo(User user)
         {
-            _staffDb.UpdateUserInfo(user);
+            string notValidField = "";
+            if (!user.Name.Contains(' ') || user.Name.Length < 5)
+                notValidField += "Họ và tên | ";
+            if (!user.Email.Contains('@') || !user.Email.Contains('.'))
+                notValidField += "Email | ";
+            if (user.PhoneNum.Length < 10 || user.PhoneNum.Length > 11)
+                notValidField += "Số điện thoại | ";
+            
+            if (notValidField.Length > 0)
+                _staffDetail.NotifyStaffInfoNotValid(notValidField);
+
+            else
+                _staffDb.UpdateUserInfo(user);
         }
 
         public void ValidateUser(string username)
@@ -63,7 +75,19 @@ namespace Business
 
         public void CreateNewStaff(User user)
         {
-            _staffDb.InsertNewStaff(user);
+            string notValidField = "";
+            if (!user.Name.Contains(' ') || user.Name.Length < 5)
+                notValidField += "Họ và tên | ";
+            if (!user.Email.Contains('@') || !user.Email.Contains('.'))
+                notValidField += "Email | ";
+            if (user.PhoneNum.Length < 10 || user.PhoneNum.Length > 11)
+                notValidField += "Số điện thoại | ";
+
+            if (notValidField.Length > 0)
+                _newStaff.NotifyStaffInfoNotValid(notValidField);
+
+            else
+                _staffDb.InsertNewStaff(user);
         }
 
         public void OnGetAllUsersFromDatabaseSuccess(List<User> users)

@@ -9,7 +9,7 @@ using DevExpress.XtraWaitForm;
 
 namespace UI
 {
-    public partial class WaitForm1 : WaitForm
+    public partial class WaitForm1 : DevExpress.XtraWaitForm.WaitForm
     {
         public WaitForm1()
         {

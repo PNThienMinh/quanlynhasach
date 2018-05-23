@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 
 namespace UI
 {
-    public partial class FrmBooksReceipt : DevExpress.XtraBars.Ribbon.RibbonForm, IStockContract
+    public partial class FrmBooksReceipt : DevExpress.XtraBars.Ribbon.RibbonForm, IStockImport
     {
         private User _user;
 
@@ -35,6 +35,10 @@ namespace UI
         private List<Book> _booksLoaded;
 
         private List<Book> _booksInDocket = new List<Book>();
+
+        private List<string> _booksNotMeetRequirement = new List<string>();
+
+        private int minImport = 0, maxInventory = 0;
 
         public FrmBooksReceipt(User user)
         {
@@ -54,11 +58,6 @@ namespace UI
         private void LoadData()
         {
             _business.LoadAllBooks();
-        }
-
-        void bbiPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            tlBookInDocket.ShowRibbonPrintPreview();
         }
 
         private void InitWorkers()
@@ -93,7 +92,7 @@ namespace UI
 
         private void _workerImport_DoWork(object sender, DoWorkEventArgs e)
         {
-          
+
             ExcelRead(_filePath);
         }
 
@@ -108,7 +107,7 @@ namespace UI
             {
                 _filePath = openFileDialog.FileName;
                 pgbAdding.Visible = true;
-                pgbAdding.Position = 0;_workerImport.RunWorkerAsync();
+                pgbAdding.Position = 0; _workerImport.RunWorkerAsync();
 
             }
         }
@@ -189,6 +188,18 @@ namespace UI
             // TODO:
         }
 
+        public void LoadStockContractsSuccessful(int minImport, int maxInventory)
+        {
+            this.minImport = minImport;
+            this.maxInventory = maxInventory;
+
+        }
+
+        public void ShowReceiptPreview(string path)
+        {
+            ssmWaiting.CloseWaitForm();
+            MessageBox.Show("File xuất đã lưu " + path, "Thành công!", MessageBoxButtons.OK);}
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (!tbSearch.Text.Equals(""))
@@ -242,6 +253,59 @@ namespace UI
             FrmStockContractInformation frmStockContract = new FrmStockContractInformation(editableFlag);
             frmStockContract.ShowDialog();
 
+        }
+
+        private void ShowErrorDialog()
+        {
+            string booksNotMeetRequirement = null;
+            foreach (string identifier in _booksNotMeetRequirement)
+            {
+                booksNotMeetRequirement += " | " + identifier;
+            }
+
+            MessageBox.Show(
+                "Những sách sau không đủ điều kiện nhập: \n " + booksNotMeetRequirement,
+                "Lỗi",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+
+        private void bbiExportBooksReceiptNote_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (_booksInDocket.Count == 0)
+                return;
+
+            ssmWaiting.ShowWaitForm();
+            _business.LoadStockContractInformations();
+
+            CheckIfDocketIsMeetRequirement();
+
+            if (_booksNotMeetRequirement.Count > 0)
+            {
+                ssmWaiting.CloseWaitForm();
+                ShowErrorDialog();
+                return;
+            }
+
+            else
+            {
+                _business.AddBooksReceiptNote(_user.Name, _booksInDocket);
+            }
+        }
+
+        private void bbiClear_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            _booksInDocket.Clear();
+            tlBookInDocket.RefreshDataSource();}
+
+        private void CheckIfDocketIsMeetRequirement()
+        {
+            _booksNotMeetRequirement.Clear();
+            foreach (Book book in _booksInDocket)
+            {
+                if (book.Count < minImport || book.Inventory > maxInventory)
+                    _booksNotMeetRequirement.Add(book.Identifier.ToString());
+            }
         }
     }
 }

@@ -149,7 +149,6 @@ CREATE TABLE PHIEUNHAP
 (
 	MaPhieuNhap int identity(1000,1),
 	NgayNhap datetime NOT NULL,
-	SoLuongNhap int NOT NULL,
 	MaNV int NOT NULL,
 
 	constraint PK_PHIEUNHAP primary key (MaPhieuNhap),

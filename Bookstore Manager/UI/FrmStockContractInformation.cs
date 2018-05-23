@@ -74,6 +74,7 @@ namespace UI
         public void NotifyUpdateContractsSuccessful()
         {
             MessageBox.Show("Cập nhật thành công!", "", MessageBoxButtons.OK);
+            this.Close();
         }
 
         private void FrmStockContractInformation_Load(object sender, EventArgs e)

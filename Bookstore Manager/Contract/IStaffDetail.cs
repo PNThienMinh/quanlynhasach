@@ -15,6 +15,8 @@ namespace Contract
 
         void RefreshUIAfterUpdate();
 
+        void NotifyStaffInfoNotValid(string notValidFields);
+
         void NotifyUpdateFail(string error);
     }
 }

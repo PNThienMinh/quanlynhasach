@@ -20,5 +20,7 @@ namespace Contract
         void CreateStaffSuccessful();
 
         void FailToCreateStaff(string error);
+
+        void NotifyStaffInfoNotValid(string notValidField);
     }
 }

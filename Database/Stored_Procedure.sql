@@ -153,3 +153,77 @@ BEGIN
 UPDATE THAMSOQUYDINH
 SET SoLuongNhapItNhat = @minImport, SoLuongTonToiDaTruocNhap = @maxInventory
 END
+
+CREATE PROC createBooksReceiptNote
+@dateCreate datetime,
+@staffName nvarchar(MAX)
+AS
+BEGIN
+INSERT INTO PHIEUNHAP (NgayNhap, MaNV) VALUES (@dateCreate, (SELECT MaNV FROM NHANVIEN WHERE HoTen = @staffName))
+END
+
+
+CREATE PROC [dbo].[addBookIntoBooksReceiptNote]
+@identifier int,
+@count int,
+@dateCreate date,
+@inventoryCount int
+AS
+BEGIN
+	DECLARE @booksReceiptNoteId int,
+			@bookId int;
+
+	SELECT @bookId = MaSach FROM SACH WHERE MaDinhDanh = @identifier
+
+	SELECT @booksReceiptNoteId = SCOPE_IDENTITY();
+
+	INSERT INTO CTPN (MaSach, MaPhieuNhap, SoLuong)
+	VALUES ((SELECT MaSach FROM SACH WHERE MaDinhDanh = @identifier), @booksReceiptNoteId, @count)
+
+	DECLARE @inventoryReportMonth date;
+	SELECT @inventoryReportMonth = ThoiGian FROM THONGTINTONKHO WHERE (MONTH(ThoiGian) = MONTH(@dateCreate)) AND (YEAR(ThoiGian) = YEAR(@dateCreate)) AND MaSach = @bookId
+	IF (@inventoryReportMonth IS NULL)
+	BEGIN
+
+	INSERT INTO THONGTINTONKHO (ThoiGian, TonDau, TonPhatSinh, TonCuoi, MaSach)
+	VALUES (@dateCreate, 0, 0, 0, (SELECT MaSach FROM SACH WHERE MaDinhDanh = @identifier))
+
+	DECLARE @inventoryOfLastMonth int;
+	SELECT @inventoryOfLastMonth = TonCuoi FROM THONGTINTONKHO
+	WHERE ThoiGian = (SELECT MAX(ThoiGian) FROM THONGTINTONKHO WHERE @bookId = MaSach)
+
+	IF (@inventoryOfLastMonth IS NOT NULL)
+		UPDATE THONGTINTONKHO
+		SET TonDau = @inventoryOfLastMonth
+		WHERE MaSach = @bookId;
+
+	IF (((@inventoryCount = 0) AND @inventoryOfLastMonth IS NULL) OR @inventoryCount = @inventoryOfLastMonth)
+		UPDATE THONGTINTONKHO 
+		SET TonPhatSinh = 0, TonCuoi = @inventoryCount
+		WHERE MaChiTietTon = SCOPE_IDENTITY();
+
+	UPDATE THONGTINTONKHO
+	SET TonPhatSinh = TonPhatSinh + @count, TonCuoi = TonCuoi + @count
+	WHERE MaChiTietTon = SCOPE_IDENTITY();
+
+	UPDATE SACH
+	SET SoLuongTon = SoLuongTon + @count
+	WHERE MaDinhDanh = @identifier;
+	END
+
+	ELSE
+	BEGIN
+	DECLARE @inventoryReportId int
+	SELECT @inventoryReportId = MaChiTietTon FROM THONGTINTONKHO
+	WHERE (MONTH(ThoiGian) = MONTH(@dateCreate)) AND (YEAR(ThoiGian) = YEAR(@dateCreate)) AND MaSach = @bookId
+
+	UPDATE THONGTINTONKHO
+	SET TonPhatSinh = TonPhatSinh + @count, TonCuoi = TonCuoi + @count
+	WHERE MaChiTietTon = @inventoryReportId
+
+	UPDATE SACH
+	SET SoLuongTon = SoLuongTon + @count
+	WHERE MaDinhDanh = @identifier;
+	END
+	
+END

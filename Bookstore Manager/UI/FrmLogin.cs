@@ -52,7 +52,6 @@ namespace UI
             string username = lblUsername.Text.Trim().ToString();
             string password = lblPassword.Text.Trim().ToString();
 
-            //ssmLogin.SetWaitFormDescription("Đang đăng nhập...");
             ssmLogin.ShowWaitForm();
             _loginFormToLoginInfo.ValidateUser(username, password);
         }

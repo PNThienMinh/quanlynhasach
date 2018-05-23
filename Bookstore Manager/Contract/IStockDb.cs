@@ -16,5 +16,11 @@ namespace Contract
         void GetStockContracts();
 
         void UpdateStockContracts(int newMinImport, int newMaxInventory);
+
+        void InsertBooksReceipNote(string staffName, List<Book> books);
+
+        void DeleteBookWithId(int idInDb);
+
+        void UpdateBookInfo(Book newBookInfo);
     }
 }

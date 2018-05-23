@@ -4,11 +4,15 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Contract;
 using DTO;
+using Excel = Microsoft.Office.Interop.Excel;
 
 
 namespace DatabaseModel
@@ -18,9 +22,11 @@ namespace DatabaseModel
         private SqlConnection _connection;
         private IStockDbToStockInfo _listener;
 
-
         private BackgroundWorker sqlWorker;
 
+        private const string receiptNotePath = "e:\\QuanLyNhaSach\\Data\\PhieuNhap\\";
+
+        private string _staffName;
 
         public StockDb(IStockDbToStockInfo listener)
         {
@@ -69,8 +75,8 @@ namespace DatabaseModel
         public void GetAllBookInDb()
         {
             sqlWorker = new BackgroundWorker();
-            sqlWorker.DoWork += sqlWorker_DoWork;
-            sqlWorker.RunWorkerCompleted += sqlWorker_Completed;
+            sqlWorker.DoWork += sqlWorker_DoWork_GetAllBooks;
+            sqlWorker.RunWorkerCompleted += sqlWorker_Completed_GetAllBooks;
             sqlWorker.RunWorkerAsync();
         }
 
@@ -92,8 +98,8 @@ namespace DatabaseModel
                         {
                             while (reader.Read())
                             {
-                                int minImport = (int) reader["SoLuongNhapItNhat"];
-                                int maxInventory = (int) reader["SoLuongTonToiDaTruocNhap"];
+                                int minImport = (int)reader["SoLuongNhapItNhat"];
+                                int maxInventory = (int)reader["SoLuongTonToiDaTruocNhap"];
                                 _listener.OnGetContractSuccess(minImport, maxInventory);
                             }
                         }
@@ -120,11 +126,11 @@ namespace DatabaseModel
                 {
                     _connection.Open();
                     SqlCommand cmdUpdate = new SqlCommand("changeStockContract", _connection)
-                        { CommandType = CommandType.StoredProcedure };
+                    { CommandType = CommandType.StoredProcedure };
 
                     cmdUpdate.Parameters.Add(new SqlParameter("@minImport", newMinImport));
                     cmdUpdate.Parameters.Add(new SqlParameter("@maxInventory", newMaxInventory));
-                    
+
                     int rowsAffected = cmdUpdate.ExecuteNonQuery();
                     if (rowsAffected > 0)
                         _listener.OnUpdateStockContractsSuccessful();
@@ -147,8 +153,210 @@ namespace DatabaseModel
             }
         }
 
-        private void sqlWorker_Completed(object sender, RunWorkerCompletedEventArgs e)
+        public void InsertBooksReceipNote(string staffName, List<Book> books)
         {
+            sqlWorker = new BackgroundWorker();
+            sqlWorker.WorkerSupportsCancellation = true; sqlWorker.DoWork += sqlWorker_DoWork_AddNewBooksReceiptNote;
+            sqlWorker.RunWorkerCompleted += sqlWorker_Completed_AddNewBooksReceiptNote;
+            this._staffName = staffName;
+            sqlWorker.RunWorkerAsync(books);
+        }
+
+        public void DeleteBookWithId(int idInDb)
+        {
+            using (_connection = new SqlConnection(Config.ConnectionString))
+            {
+                try
+                {
+                    _connection.Open();
+                    SqlCommand cmdDeleteBook =
+                        new SqlCommand("deleteBookWithId", _connection) { CommandType = CommandType.StoredProcedure };
+
+                    cmdDeleteBook.Parameters.Add(new SqlParameter("@bookId", idInDb));
+
+
+                    int rowsEffect = cmdDeleteBook.ExecuteNonQuery();
+
+                }
+                catch (Exception exception)
+                {
+                    Trace.AutoFlush = true;
+                    Trace.TraceInformation("Error Occur");
+                    Trace.TraceError(exception.Message);
+                    Trace.TraceWarning("Careful!");
+                    Trace.Listeners.Add(new TextWriterTraceListener("log.txt"));
+                }
+
+            }
+
+        }
+
+        public void UpdateBookInfo(Book newBookInfo)
+        {
+            using (_connection = new SqlConnection(Config.ConnectionString))
+            {
+                try
+                {
+                    _connection.Open();
+                    SqlCommand cmdUpdate = new SqlCommand("updateBookInfo", _connection)
+                        { CommandType = CommandType.StoredProcedure };
+
+                    cmdUpdate.Parameters.Add(new SqlParameter("@bookId", newBookInfo.ID));
+                    cmdUpdate.Parameters.Add(new SqlParameter("@name", newBookInfo.Name));
+                    cmdUpdate.Parameters.Add(new SqlParameter("@category", newBookInfo.Category));
+                    cmdUpdate.Parameters.Add(new SqlParameter("@cost", newBookInfo.Cost));
+
+                    int rowsAffected = cmdUpdate.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                        _listener.OnUpdateBookInfoSuccessful();
+                    else
+                    {
+                        _listener.OnUpdateBookInfoFailure("Cập nhật cơ sở dữ liệu thất bại!");
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Trace.AutoFlush = true;
+                    Trace.TraceInformation("Error Occur");
+                    Trace.TraceError(e.Message);
+                    Trace.TraceWarning("Careful!");
+                    Trace.Listeners.Add(new TextWriterTraceListener("log.txt"));
+                    _listener.OnUpdateBookInfoFailure(e.Message);
+                }
+
+            }
+        }
+
+        private void sqlWorker_Completed_AddNewBooksReceiptNote(object sender, RunWorkerCompletedEventArgs e)
+        {
+            sqlWorker = null;
+            if (e.Cancelled)
+            {
+                _listener.OnAddBookToReceiptNoteFail(e.Result.ToString());
+            }
+            else
+                _listener.OnAddBookToReceiptNoteSuccessful(e.Result.ToString());
+        }
+
+        private void sqlWorker_DoWork_AddNewBooksReceiptNote(object sender, DoWorkEventArgs e)
+        {
+            List<Book> booksReceipt = (List<Book>)e.Argument;
+
+            using (_connection = new SqlConnection(Config.ConnectionString))
+            {
+                try
+                {
+                    _connection.Open();
+                    SqlCommand cmdInsertBooksreceiptNote = new SqlCommand("createBooksReceiptNote", _connection)
+                    { CommandType = CommandType.StoredProcedure };
+                    SqlParameter returnParameter = cmdInsertBooksreceiptNote.Parameters.Add("receiptNoteId", SqlDbType.Int);
+                    returnParameter.Direction = ParameterDirection.ReturnValue;
+
+                    cmdInsertBooksreceiptNote.Parameters.Add(new SqlParameter("@dateCreate", DateTime.Today));
+                    cmdInsertBooksreceiptNote.Parameters.Add(new SqlParameter("@staffName", _staffName));
+
+                    int rowsAffected = cmdInsertBooksreceiptNote.ExecuteNonQuery();
+                    int receiptNoteId = (int)returnParameter.Value;
+
+                    if (rowsAffected > 0)
+                    {
+                        Excel.Application xlApp = new
+                            Microsoft.Office.Interop.Excel.Application();
+
+                        Excel.Workbook xlWorkBook;
+                        Excel.Worksheet xlWorkSheet;
+                        object misValue = System.Reflection.Missing.Value;
+
+
+                        xlWorkBook = xlApp.Workbooks.Add(misValue);
+                        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                        xlWorkSheet.Range[xlWorkSheet.Cells[1, 1], xlWorkSheet.Cells[2, 8]].Merge();
+                        xlWorkSheet.Range[xlWorkSheet.Cells[1, 1], xlWorkSheet.Cells[2, 8]].Style.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                        xlWorkSheet.Cells[1, 1] = "PHIẾU NHẬP";
+                        xlWorkSheet.Range[xlWorkSheet.Cells[4, 1], xlWorkSheet.Cells[4, 3]].Merge();
+                        xlWorkSheet.Range[xlWorkSheet.Cells[4, 1], xlWorkSheet.Cells[4, 3]].Style.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                        xlWorkSheet.Cells[4, 1] = "Tên NV: " + _staffName;
+                        xlWorkSheet.Range[xlWorkSheet.Cells[4, 6], xlWorkSheet.Cells[4, 8]].Merge();
+                        xlWorkSheet.Range[xlWorkSheet.Cells[4, 6], xlWorkSheet.Cells[4, 8]].Style.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                        xlWorkSheet.Cells[4, 6] = "Ngày nhập: " + DateTime.Today.ToString("dd-MM-yyyy");
+
+                        xlWorkSheet.Cells[5, 1] = "Mã sách";
+                        xlWorkSheet.Cells[5, 2] = "Tên sách";
+                        xlWorkSheet.Cells[5, 3] = "Thể loại";
+                        xlWorkSheet.Cells[5, 4] = "Ngày xuất bản";
+                        xlWorkSheet.Cells[5, 5] = "Giá nhập";
+                        xlWorkSheet.Cells[5, 6] = "Tác giả";
+                        xlWorkSheet.Cells[5, 7] = "Nhà xuất bản";
+                        xlWorkSheet.Cells[5, 8] = "Số lượng nhập";
+                        int rowIndex = 6;
+
+                        foreach (Book book in booksReceipt)
+                        {
+                            SqlCommand cmdInsertStock = new SqlCommand("addBookIntoBooksReceiptNote", _connection)
+                            {
+                                CommandType = CommandType.StoredProcedure
+                            };
+
+                            cmdInsertStock.Parameters.Add(new SqlParameter("@bookId", book.ID));
+                            cmdInsertStock.Parameters.Add(new SqlParameter("@count", book.Count));
+                            cmdInsertStock.Parameters.Add(new SqlParameter("@dateCreate", DateTime.Today));
+
+                            if (cmdInsertStock.ExecuteNonQuery() < 3)
+                                sqlWorker.CancelAsync();
+                            xlWorkSheet.Cells[rowIndex, 1] = book.Identifier;
+                            xlWorkSheet.Cells[rowIndex, 2] = book.Name;
+                            xlWorkSheet.Cells[rowIndex, 3] = book.Category;
+                            xlWorkSheet.Cells[rowIndex, 4] = book.PublishedDate.ToString("dd-MM-yyyy");
+                            xlWorkSheet.Cells[rowIndex, 5] = book.Cost.ToString();
+                            xlWorkSheet.Cells[rowIndex, 6] = book.Author;
+                            xlWorkSheet.Cells[rowIndex, 7] = book.Publisher;
+                            xlWorkSheet.Cells[rowIndex, 8] = book.Count;
+                            rowIndex++;
+                        }
+
+                        xlWorkSheet.Columns.AutoFit();
+
+                        if (!Directory.Exists(receiptNotePath))
+                        {
+                            Directory.CreateDirectory(receiptNotePath);
+                        }
+
+                        xlWorkBook.SaveAs(receiptNotePath + "PN" + receiptNoteId + ".xlsx", Excel.XlFileFormat.xlOpenXMLWorkbook, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                        xlWorkBook.Close(true, misValue, misValue);
+                        xlApp.Quit();
+
+                        Marshal.ReleaseComObject(xlWorkSheet);
+                        Marshal.ReleaseComObject(xlWorkBook);
+                        Marshal.ReleaseComObject(xlApp);
+
+                        e.Result = receiptNotePath + "PN" + receiptNoteId + ".xlsx";
+                    }
+                    else
+                    {
+                        sqlWorker.CancelAsync();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Trace.AutoFlush = true;
+                    Trace.TraceInformation("Error Occur");
+                    Trace.TraceError(ex.Message);
+                    Trace.TraceWarning("Careful!");
+                    Trace.Listeners.Add(new TextWriterTraceListener("log.txt"));
+                    e.Result = ex.Message;
+                    sqlWorker.CancelAsync();
+                }
+
+            }
+        }
+
+        private void sqlWorker_Completed_GetAllBooks(object sender, RunWorkerCompletedEventArgs e)
+        {
+            sqlWorker = null;
             if (e.Cancelled)
             {
                 _listener.OnGetAllBookFail((string)e.Result);
@@ -158,7 +366,7 @@ namespace DatabaseModel
 
         }
 
-        private void sqlWorker_DoWork(object sender, DoWorkEventArgs e)
+        private void sqlWorker_DoWork_GetAllBooks(object sender, DoWorkEventArgs e)
         {
             using (_connection = new SqlConnection(Config.ConnectionString))
             {
@@ -177,6 +385,7 @@ namespace DatabaseModel
                             while (reader.Read())
                             {
                                 Book book = new Book();
+                                book.ID = (int)reader["MaSach"];
                                 book.Name = (string)reader["TenSach"];
                                 book.Category = (string)reader["Theloai"];
                                 book.PublishedDate = ((DateTime)reader["NgayXuatBan"]);
@@ -208,4 +417,6 @@ namespace DatabaseModel
             }
         }
     }
+
+
 }

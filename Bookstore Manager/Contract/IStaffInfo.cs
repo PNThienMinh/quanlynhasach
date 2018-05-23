@@ -7,7 +7,7 @@ using DTO;
 
 namespace Contract
 {
-    public interface IStaffToStaffInfo
+    public interface IStaffInfo
     {
         void GetListUsersExists();
 

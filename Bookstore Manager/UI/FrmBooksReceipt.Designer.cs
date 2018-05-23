@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBooksReceipt));
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.bbiPrintPreview = new DevExpress.XtraBars.BarButtonItem();
-            this.bsiRecordsCount = new DevExpress.XtraBars.BarStaticItem();
+            this.bbiExportBooksReceiptNote = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAdd = new DevExpress.XtraBars.BarButtonItem();
             this.bbiContract = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiClear = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -63,6 +62,7 @@
             this.btnRemove = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAdd = new System.Windows.Forms.Button();
+            this.ssmWaiting = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pgbAdding.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlBookInDocket)).BeginInit();
@@ -72,42 +72,36 @@
             // 
             // ribbonControl
             // 
+            this.ribbonControl.AllowMinimizeRibbon = false;
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
-            this.bbiPrintPreview,
-            this.bsiRecordsCount,
+            this.bbiExportBooksReceiptNote,
             this.bbiAdd,
             this.bbiContract,
             this.bbiDelete,
-            this.bbiRefresh,
+            this.bbiClear,
             this.barStaticItem1});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 1;
+            this.ribbonControl.MaxItemId = 3;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.Size = new System.Drawing.Size(864, 143);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // bbiPrintPreview
+            // bbiExportBooksReceiptNote
             // 
-            this.bbiPrintPreview.Caption = "Xem trước";
-            this.bbiPrintPreview.Id = 14;
-            this.bbiPrintPreview.ImageUri.Uri = "Preview";
-            this.bbiPrintPreview.Name = "bbiPrintPreview";
-            this.bbiPrintPreview.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrintPreview_ItemClick);
-            // 
-            // bsiRecordsCount
-            // 
-            this.bsiRecordsCount.Caption = "RECORDS : 0";
-            this.bsiRecordsCount.Id = 15;
-            this.bsiRecordsCount.Name = "bsiRecordsCount";
-            this.bsiRecordsCount.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.bbiExportBooksReceiptNote.Caption = "Xuất phiếu nhập";
+            this.bbiExportBooksReceiptNote.Id = 14;
+            this.bbiExportBooksReceiptNote.ImageUri.Uri = "ExportFile";
+            this.bbiExportBooksReceiptNote.Name = "bbiExportBooksReceiptNote";
+            this.bbiExportBooksReceiptNote.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExportBooksReceiptNote_ItemClick);
             // 
             // bbiAdd
             // 
@@ -115,9 +109,9 @@
             this.bbiAdd.Id = 16;
             this.bbiAdd.ImageUri.Uri = "ExportToXLS";
             this.bbiAdd.Name = "bbiAdd";
-            toolTipTitleItem3.Text = "Thêm sách từ file Excel";
-            superToolTip3.Items.Add(toolTipTitleItem3);
-            this.bbiAdd.SuperTip = superToolTip3;
+            toolTipTitleItem1.Text = "Thêm sách từ file Excel";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            this.bbiAdd.SuperTip = superToolTip1;
             this.bbiAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAdd_ItemClick);
             // 
             // bbiContract
@@ -128,9 +122,9 @@
             this.bbiContract.ImageUri.Uri = "Paste";
             this.bbiContract.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiContract.LargeGlyph")));
             this.bbiContract.Name = "bbiContract";
-            toolTipTitleItem4.Text = "Quy định về số lượng nhập sách";
-            superToolTip4.Items.Add(toolTipTitleItem4);
-            this.bbiContract.SuperTip = superToolTip4;
+            toolTipTitleItem2.Text = "Quy định về số lượng nhập sách";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            this.bbiContract.SuperTip = superToolTip2;
             this.bbiContract.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiContract_ItemClick);
             // 
             // bbiDelete
@@ -140,12 +134,13 @@
             this.bbiDelete.ImageUri.Uri = "Delete";
             this.bbiDelete.Name = "bbiDelete";
             // 
-            // bbiRefresh
+            // bbiClear
             // 
-            this.bbiRefresh.Caption = "Làm mới";
-            this.bbiRefresh.Id = 19;
-            this.bbiRefresh.ImageUri.Uri = "Refresh";
-            this.bbiRefresh.Name = "bbiRefresh";
+            this.bbiClear.Caption = "Xoá hết";
+            this.bbiClear.Id = 19;
+            this.bbiClear.ImageUri.Uri = "Delete";
+            this.bbiClear.Name = "bbiClear";
+            this.bbiClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiClear_ItemClick);
             // 
             // barStaticItem1
             // 
@@ -168,7 +163,7 @@
             this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiAdd);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiContract);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiRefresh);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiClear);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Tasks";
@@ -176,7 +171,7 @@
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.AllowTextClipping = false;
-            this.ribbonPageGroup2.ItemLinks.Add(this.bbiPrintPreview);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiExportBooksReceiptNote);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Print and Export";
@@ -190,7 +185,7 @@
             // 
             // pgbAdding
             // 
-            this.pgbAdding.Location = new System.Drawing.Point(440, 575);
+            this.pgbAdding.Location = new System.Drawing.Point(497, 574);
             this.pgbAdding.MenuManager = this.ribbonControl;
             this.pgbAdding.Name = "pgbAdding";
             this.pgbAdding.Properties.EndColor = System.Drawing.Color.Lime;
@@ -234,7 +229,7 @@
             this.colInventory,
             this.colCount,
             this.colRemove});
-            this.tlBookInDocket.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlBookInDocket.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tlBookInDocket.DataSource = this.bookBindingSource;
             this.tlBookInDocket.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlBookInDocket.Location = new System.Drawing.Point(0, 143);
@@ -353,7 +348,7 @@
             this.btnRemove.Appearance.Options.UseImage = true;
             this.btnRemove.AutoHeight = false;
             this.btnRemove.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnRemove.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnRemove.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnRemove.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnRemove_ButtonClick);
@@ -370,7 +365,7 @@
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAdd.Location = new System.Drawing.Point(636, 81);
+            this.btnAdd.Location = new System.Drawing.Point(629, 77);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(98, 31);
             this.btnAdd.TabIndex = 20;
@@ -378,8 +373,13 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // ssmWaiting
+            // 
+            this.ssmWaiting.ClosingDelay = 500;
+            // 
             // FrmBooksReceipt
             // 
+            this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 599);
@@ -389,6 +389,7 @@
             this.Controls.Add(this.pgbAdding);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmBooksReceipt";
             this.Ribbon = this.ribbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -408,14 +409,13 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem bbiPrintPreview;
+        private DevExpress.XtraBars.BarButtonItem bbiExportBooksReceiptNote;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarStaticItem bsiRecordsCount;
         private DevExpress.XtraBars.BarButtonItem bbiAdd;
         private DevExpress.XtraBars.BarButtonItem bbiContract;
         private DevExpress.XtraBars.BarButtonItem bbiDelete;
-        private DevExpress.XtraBars.BarButtonItem bbiRefresh;
+        private DevExpress.XtraBars.BarButtonItem bbiClear;
         private DevExpress.XtraEditors.ProgressBarControl pgbAdding;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbSearch;
         private DevExpress.XtraTreeList.TreeList tlBookInDocket;
@@ -433,5 +433,6 @@
         private System.Windows.Forms.Button btnAdd;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colInventory;
         private System.Windows.Forms.BindingSource bookBindingSource;
+        private DevExpress.XtraSplashScreen.SplashScreenManager ssmWaiting;
     }
 }

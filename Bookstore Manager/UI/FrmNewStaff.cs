@@ -16,14 +16,55 @@ namespace UI
 {
     public partial class FrmNewStaff : DevExpress.XtraEditors.XtraForm, INewStaff
     {
-
-        private IStaffToStaffInfo _business;
+        private IStaffInfo _business;
 
         public FrmNewStaff()
         {
             InitializeComponent();
             _business = new StaffInfo(this);
             _business.GetListFunctions();
+            datePicker.Format = DateTimePickerFormat.Custom;
+            datePicker.FormatCustom = "dd/MM/yyyy";
+        }
+
+        public void LoadListFunctionToUI(List<Function> functions)
+        {
+            functionBindingSource.DataSource = functions;
+        }
+
+        public void HandleGetFunctionsFail(string error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ValidateUserNotExists()
+        {
+            btnCreate.Enabled = true;
+            btnValidate.Hide();
+        }
+
+        public void UserIsExists()
+        {
+            tbUsername.Text = "";
+            tbUsername.HintText = "Tên tài khoản đã tồn tại!";
+            tbUsername.Focus();
+        }
+
+        public void CreateStaffSuccessful()
+        {
+            MessageBox.Show("Thêm nhân viên thành công!", "Hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        public void FailToCreateStaff(string error)
+        {
+            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void NotifyStaffInfoNotValid(string notValidField)
+        {
+            MessageBox.Show("Trường " + notValidField + "không hợp lê!", "Nhắc nhở", MessageBoxButtons.OK);
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -44,44 +85,28 @@ namespace UI
                 tbConfirmPassword.Focus();
             }
 
-
             SubmitUserToDatabase();
         }
 
         private void SubmitUserToDatabase()
         {
             User user = new User();
-            user.Name = tbName.Text;
-            user.Sex = cbSex.Text;
-            user.Email = tbEmail.Text;
-            user.PhoneNum = tbPhoneNo.Text;
+            user.Name = tbName.Text.Trim();
+            user.Sex = cbSex.Text.Trim();
+            user.Email = tbEmail.Text.Trim();
+            user.PhoneNum = tbPhoneNo.Text.Trim();
             user.BirthDate = datePicker.Value;
             user.IDFunc = ((Function)cbFunc.SelectedItem).ID;
-            user.Username = tbUsername.Text;
-            user.Password = tbPassword.Text;
-            user.MId = tbUID.Text;
+            user.Username = tbUsername.Text.Trim();
+            user.Password = tbPassword.Text.Trim();
+            user.MId = tbUID.Text.Trim();
 
             _business.CreateNewStaff(user);
-        }
-
-        public void LoadListFunctionToUI(List<Function> functions)
-        {
-            functionBindingSource.DataSource = functions;
-        }
-
-        public void HandleGetFunctionsFail(string error)
-        {
-            // TODO: ...
         }
 
         private void ValidateUser(string username)
         {
             _business.ValidateUser(username);
-        }
-
-        private void QuitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
@@ -90,30 +115,6 @@ namespace UI
                 UserIsExists();
             else
                 ValidateUser(tbUsername.Text);
-        }
-
-        public void ValidateUserNotExists()
-        {
-            btnCreate.Enabled = true;
-            btnValidate.Hide();
-        }
-
-        public void UserIsExists()
-        {
-            tbUsername.Text = "";
-            tbUsername.HintText = "Username is exists!";
-            tbUsername.Focus();
-        }
-
-        public void CreateStaffSuccessful()
-        {
-            MessageBox.Show("Create successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
-        }
-
-        public void FailToCreateStaff(string error)
-        {
-            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

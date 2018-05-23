@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="functionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnValidate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -179,21 +182,6 @@
         FkXE0aKIOFoUEUeLIuJoUUQcLYqIo0URcbQoIo4WRcTRoog4WhQRR4si4mhRRBwtioijRRFxtCgijhZF
         xNGiiDhaFBFHiyLiaFFEHC2KiKNFEXG0KCKOFkXE0aKIOFoUEUeLIuJoUUQcLYqIo0URMdt3+j81Kgk9
         Vu+NkQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="functionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="functionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="QuitButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAONJREFUSEvt
-        lOsKgkAUhPcRigq6vVVY3lh83owyf2T1LlEzMIZUxKr4bz84eDxzdlZ3V43HMyxpmm6iKJrq9gtq7NFt
-        O5Ik2SEeMDgHQTBT+Q1r0Ev1bFV2J47jMQYfEE/kN2vtSpJhzho19rBXUju4BDDgU9LoTmNc18xV625e
-        g9dfwKiS4UXBvMqybK62fjTWm8aM8te+dAZLM4HpqZ4Ab3VkTXI/tA+FzJtLVPw7wk6EYbisTwuuOTdU
-        kWuSK3vU3o6Po7jHho4kGeasUWMPeyW5g8HDfmgEA4f7VXg8jhjzAoFNlWg/lDupAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

@@ -24,5 +24,14 @@ namespace Contract
         void OnUpdateStockContractsSuccessful();
 
         void OnUpdateStockContractsFailure(string error);
+
+        void OnAddBookToReceiptNoteSuccessful(string path);
+
+        void OnAddBookToReceiptNoteFail(string msg);
+
+        void OnUpdateBookInfoSuccessful();
+
+        void OnUpdateBookInfoFailure(string msg);
+
     }
 }

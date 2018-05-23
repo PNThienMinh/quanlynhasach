@@ -11,19 +11,33 @@ namespace Business
 {
     public class StockInfo : IStockInfo, IStockDbToStockInfo
     {
-        private IStockContract _stockContract;
         private IStockDb _db;
+        private IStockImport _stockImport;
         private IStockContractInformation _stockContractInformation;
+        private IStockView _stockView;
+        private IBookDetail _bookDetail;
 
-        public StockInfo(IStockContract stockContract)
+        public StockInfo(IStockImport stockImport)
         {
-            this._stockContract = stockContract;
+            this._stockImport = stockImport;
             _db = new StockDb(this);
         }
 
         public StockInfo(IStockContractInformation stockContractInformation)
         {
             this._stockContractInformation = stockContractInformation;
+            _db = new StockDb(this);
+        }
+
+        public StockInfo(IStockView _stockView)
+        {
+            this._stockView = _stockView;
+            _db = new StockDb(this);
+        }
+
+        public StockInfo(IBookDetail _bookDetail)
+        {
+            this._bookDetail = _bookDetail;
             _db = new StockDb(this);
         }
 
@@ -34,7 +48,8 @@ namespace Business
 
         public void LoadAllBooks()
         {
-           _db.GetAllBookInDb();}
+            _db.GetAllBookInDb();
+        }
 
         public void LoadStockContractInformations()
         {
@@ -43,32 +58,54 @@ namespace Business
 
         public void ChangeStockContracts(int newMinImport, int newMaxInventory)
         {
-            _db.UpdateStockContracts(newMinImport, newMaxInventory);   
+            _db.UpdateStockContracts(newMinImport, newMaxInventory);
         }
+
+        public void AddBooksReceiptNote(string staffName, List<Book> books)
+        {
+            _db.InsertBooksReceipNote(staffName, books);
+        }
+
+        public void DeleteBookFromStock(int idInDb)
+        {
+            _db.DeleteBookWithId(idInDb);
+        }
+
+        public void EditBookInfor(Book newBookInfo)
+        {
+            _db.UpdateBookInfo(newBookInfo);
+        }
+
 
         public void OnInsertBookToDbSuccessful()
         {
-            _stockContract.DisplayPercentProgress();
+            _stockImport.DisplayPercentProgress();
         }
 
         public void OnInsertBookToDbFail(string error)
         {
-            _stockContract.ReportFailure(error);
+            _stockImport.ReportFailure(error);
         }
 
         public void OnGetAllBookSuccess(List<Book> books)
         {
-            _stockContract.AllBooksLoaded(books);
+            if (_stockImport != null)
+                _stockImport.AllBooksLoaded(books);
+            else if (_stockView != null)
+                _stockView.DisplayBooksToUI(books);
         }
 
         public void OnGetAllBookFail(string error)
         {
-            _stockContract.GetListBooksFail(error);
+            _stockImport.GetListBooksFail(error);
         }
 
         public void OnGetContractSuccess(int minImport, int maxInventory)
         {
-            _stockContractInformation.DisplayView(minImport, maxInventory);
+            if (_stockContractInformation != null)
+                _stockContractInformation.DisplayView(minImport, maxInventory);
+            else if (_stockImport != null)
+                _stockImport.LoadStockContractsSuccessful(minImport, maxInventory);
         }
 
         public void OnGetContractFailure(string error)
@@ -84,6 +121,26 @@ namespace Business
         public void OnUpdateStockContractsFailure(string error)
         {
             //TODO
+        }
+
+        public void OnAddBookToReceiptNoteSuccessful(string path)
+        {
+            _stockImport.ShowReceiptPreview(path);
+        }
+
+        public void OnAddBookToReceiptNoteFail(string msg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnUpdateBookInfoSuccessful()
+        {
+            _bookDetail.NotifyUpdateBookInfoSuccess();
+        }
+
+        public void OnUpdateBookInfoFailure(string msg)
+        {
+            //TODO:
         }
     }
 }

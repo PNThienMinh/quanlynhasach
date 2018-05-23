@@ -40,21 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBookDetail.cs" />
+    <Compile Include="ICustomerDb.cs" />
+    <Compile Include="ICustomerDbToCustomerInfo.cs" />
+    <Compile Include="ICustomerDetail.cs" />
+    <Compile Include="ICustomerInfo.cs" />
+    <Compile Include="ICustomerView.cs" />
     <Compile Include="ILoginDbToLoginInfo.cs" />
     <Compile Include="INewStaff.cs" />
-    <Compile Include="IStaffContract.cs" />
+    <Compile Include="IStaffView.cs" />
     <Compile Include="IStaffDbToStaffInfo.cs" />
     <Compile Include="IStaffDetail.cs" />
-    <Compile Include="IStaffToStaffInfo.cs" />
+    <Compile Include="IStaffInfo.cs" />
     <Compile Include="ILoginContract.cs" />
     <Compile Include="ILoginFormToLoginInfo.cs" />
     <Compile Include="ILoginDb.cs" />
     <Compile Include="IStaffDb.cs" />
-    <Compile Include="IStockContract.cs" />
+    <Compile Include="IStockImport.cs" />
     <Compile Include="IStockContractInformation.cs" />
     <Compile Include="IStockDb.cs" />
     <Compile Include="IStockDbToStockInfo.cs" />
     <Compile Include="IStockInfo.cs" />
+    <Compile Include="IStockView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

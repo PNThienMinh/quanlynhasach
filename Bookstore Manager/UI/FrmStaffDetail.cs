@@ -5,26 +5,25 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Linq;
-using System.ServiceModel.PeerResolvers;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
 using Contract;
 using DevExpress.XtraEditors;
 using DTO;
-using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace UI
 {
     public partial class FrmStaffDetail : DevExpress.XtraEditors.XtraForm, IStaffDetail
     {
-        private IStaffToStaffInfo _business;
+        private IStaffInfo _business;
         private User _user;
 
         public FrmStaffDetail()
         {
             InitializeComponent();
         }
+
         public FrmStaffDetail(User user)
         {
             InitializeComponent();
@@ -32,6 +31,7 @@ namespace UI
             DisplayStaffInfo(user);
             InitBusiness();
         }
+
         public void InitBusiness()
         {
             _business = new StaffInfo(this);
@@ -51,11 +51,6 @@ namespace UI
             datePicker.FormatCustom = "dd/MM/yyyy";
         }
 
-        private void QuitButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         public void LoadListFunctionToUI(List<Function> functions)
         {
             functionBindingSource.DataSource = functions;
@@ -69,7 +64,14 @@ namespace UI
 
         public void RefreshUIAfterUpdate()
         {
+            MessageBox.Show("Cập nhật thành công", "Hoàn tất", MessageBoxButtons.OK);
+            this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        public void NotifyStaffInfoNotValid(string notValidFields)
+        {
+            MessageBox.Show("Trường " + notValidFields + "không hợp lê!", "Nhắc nhở", MessageBoxButtons.OK);
         }
 
         public void NotifyUpdateFail(string error)
@@ -77,56 +79,17 @@ namespace UI
             MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void Assign(Control control)
-        {
-            foreach (Control ctrl in control.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    TextBox tb = (TextBox)ctrl;
-                    tb.TextChanged += new EventHandler(UpdateInfo);
-                }
-                else if (ctrl is DateTimePicker)
-                {
-                    DateTimePicker dtp = (DateTimePicker)ctrl;
-                    dtp.ValueChanged += new EventHandler(UpdateInfo);
-                }
-                else if (ctrl is ComboBox)
-                {
-                    ComboBox cb = (ComboBox) ctrl;
-                    cb.SelectionChangeCommitted += new EventHandler(UpdateInfo);
-                } 
-                else
-                {
-                    Assign(ctrl);
-                }
-            }
-
-           
-        }
-
-        private void UpdateInfo(object sender, EventArgs e)
-        {
-            btnUpdate.Enabled = true;
-        }
-
-        private void FrmStaffDetail_Load(object sender, EventArgs e)
-        {
-            Assign(this);
-            btnUpdate.Enabled = false;
-        }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             User user = new User();
-            user.Username = _user.Username;
-            user.Name = tbName.Text;
-            user.Sex = tbSex.Text;
+            user.Username = _user.Username.Trim();
+            user.Name = tbName.Text.Trim();
+            user.Sex = tbSex.Text.Trim();
             user.BirthDate = datePicker.Value;
-            user.Email = tbEmail.Text;
+            user.Email = tbEmail.Text.Trim();
             user.IDFunc = ((Function)cbFunc.SelectedItem).ID;
-            user.MId = tbUID.Text;
-            user.PhoneNum = tbPhone.Text;
+            user.MId = tbUID.Text.Trim();
+            user.PhoneNum = tbPhone.Text.Trim();
             user.ID = this._user.ID;
 
             if (!tbNewPassword.Text.Equals(tbConfirmPassword.Text))
@@ -135,10 +98,22 @@ namespace UI
                 tbConfirmPassword.Focus();
 
             }
-
             user.Password = tbNewPassword.Text;
 
             _business.UpdateUserInfo(user);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            tbName.Enabled = true;
+            tbConfirmPassword.Enabled = true;
+            tbEmail.Enabled = true;
+            tbNewPassword.Enabled = true;
+            tbPhone.Enabled = true;
+            tbSex.Enabled = true;
+            tbUID.Enabled = true;
+            cbFunc.Enabled = true;
+            btnUpdate.Enabled = true;
         }
     }
 }

@@ -7,7 +7,7 @@ using DTO;
 
 namespace Contract
 {
-    public interface IStockContract
+    public interface IStockImport
     {
         void DisplayPercentProgress();
 
@@ -16,5 +16,9 @@ namespace Contract
         void AllBooksLoaded(List<Book> books);
 
         void GetListBooksFail(string error);
+
+        void LoadStockContractsSuccessful(int minImport, int maxInventory);
+
+        void ShowReceiptPreview(string path);
     }
 }

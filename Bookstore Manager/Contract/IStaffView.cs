@@ -7,7 +7,7 @@ using DTO;
 
 namespace Contract
 {
-    public interface IStaffContract
+    public interface IStaffView
     {
         void DisplayListUsersToUI(List<User> users);
 
