@@ -7,18 +7,18 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
 using Contract;
 using DevExpress.XtraEditors;
+using Services;
 
 namespace UI
 {
-    public partial class FrmStockContractInformation : DevExpress.XtraEditors.XtraForm, IStockContractInformation
+    public partial class FrmStockContractInformation : DevExpress.XtraEditors.XtraForm, IStockContractInfoView
     {
 
         private bool _editPermission = false;
 
-        private IStockInfo _business;
+        private IStockService _business;
 
         public FrmStockContractInformation(bool editPermission)
         {
@@ -31,7 +31,7 @@ namespace UI
 
         private void InitializeInstances()
         {
-            _business = new StockInfo(this);
+            _business = new StockService(this);
         }
 
         private void SetViewMode()
@@ -93,12 +93,7 @@ namespace UI
 
         private void tbMinQuantityImport_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar)
-                && !char.IsDigit(e.KeyChar)
-                && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
+            
 
         }
 

@@ -7,16 +7,16 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
 using Contract;
 using DevExpress.XtraEditors;
 using DTO;
+using Services;
 
 namespace UI
 {
-    public partial class FrmNewCustomer : DevExpress.XtraEditors.XtraForm, ICustomerDetail
+    public partial class FrmNewCustomer : DevExpress.XtraEditors.XtraForm, ICustomerDetailListener
     {
-        private ICustomerInfo _customerInfo;
+        private ICustomerService _customerInfo;
         private int flagMode;
         private Customer _customer;
 
@@ -51,7 +51,7 @@ namespace UI
         {
             InitComboBox();
             FillData();
-            _customerInfo = new CustomerInfo(this);
+            _customerInfo = new CustomerService(this);
             btnEdit.Visible = true;
             btnCreate.Enabled = false;
             btnCreate.Text = "Cập nhật";
@@ -91,7 +91,7 @@ namespace UI
 
         private void InitComponentsForNewCustomer()
         {
-            InitComboBox();_customerInfo = new CustomerInfo(this);
+            InitComboBox();_customerInfo = new CustomerService(this);
             cbSex.Text = "--Chọn--";
         }
 

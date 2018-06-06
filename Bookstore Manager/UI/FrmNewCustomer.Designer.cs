@@ -290,7 +290,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmNewCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNewCustomer";
+            this.Text = "Thông tin khách hàng";
             this.ResumeLayout(false);
             this.PerformLayout();
 

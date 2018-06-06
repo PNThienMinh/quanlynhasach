@@ -7,16 +7,16 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
 using Contract;
 using DevExpress.XtraEditors;
 using DTO;
+using Services;
 
 namespace UI
 {
-    public partial class FrmStaffDetail : DevExpress.XtraEditors.XtraForm, IStaffDetail
+    public partial class FrmStaffDetail : DevExpress.XtraEditors.XtraForm, IStaffDetailView
     {
-        private IStaffInfo _business;
+        private IStaffService _business;
         private User _user;
 
         public FrmStaffDetail()
@@ -34,7 +34,7 @@ namespace UI
 
         public void InitBusiness()
         {
-            _business = new StaffInfo(this);
+            _business = new StaffService(this);
             _business.GetListFunctions();
         }
 

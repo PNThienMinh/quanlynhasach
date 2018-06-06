@@ -9,6 +9,6 @@ namespace Contract
 {
     public interface IStockView
     {
-        void DisplayBooksToUI(List<Book> books);
+        void FillDataSource(List<Book> books);
     }
 }

@@ -13,8 +13,5 @@ namespace Contract
 
         void OnFetchDataFailure(string error);
 
-        void NotifyDeleteSuccessful();
-
-        void ShowErrorDeleteFailure(string error);
     }
 }

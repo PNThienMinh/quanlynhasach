@@ -7,24 +7,25 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
 using Contract;
 using DevExpress.XtraEditors;
 using DTO;
+using Services;
 
 namespace UI
 {
-    public partial class FrmNewStaff : DevExpress.XtraEditors.XtraForm, INewStaff
+    public partial class FrmNewStaff : DevExpress.XtraEditors.XtraForm, INewStaffView
     {
-        private IStaffInfo _business;
+        private IStaffService _business;
 
         public FrmNewStaff()
         {
             InitializeComponent();
-            _business = new StaffInfo(this);
+            _business = new StaffService(this);
             _business.GetListFunctions();
             datePicker.Format = DateTimePickerFormat.Custom;
             datePicker.FormatCustom = "dd/MM/yyyy";
+            
         }
 
         public void LoadListFunctionToUI(List<Function> functions)

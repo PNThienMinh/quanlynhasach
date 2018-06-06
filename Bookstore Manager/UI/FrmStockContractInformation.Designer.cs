@@ -132,7 +132,7 @@
             this.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.Name = "FrmStockContractInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmContractInfomation";
+            this.Text = "Quy định nhập sách";
             this.Load += new System.EventHandler(this.FrmStockContractInformation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

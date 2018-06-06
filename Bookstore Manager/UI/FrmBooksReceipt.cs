@@ -1,23 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
 using Contract;
-using DatabaseModel;
-using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
 using DTO;
-using Excel = Microsoft.Office.Interop.Excel;
-using Microsoft.Office.Interop.Excel;
-using System.Runtime.InteropServices;
+using Services;
+
 
 namespace UI
 {
@@ -25,7 +17,7 @@ namespace UI
     {
         private User _user;
 
-        private IStockInfo _business;
+        private IStockService _business;
 
         private BackgroundWorker _workerImport;
         private string _filePath;
@@ -51,7 +43,7 @@ namespace UI
 
         private void InitializeInstances()
         {
-            _business = new StockInfo(this);
+            _business = new StockService(this);
             tlBookInDocket.DataSource = _booksInDocket;
         }
 
@@ -181,6 +173,7 @@ namespace UI
         public void AllBooksLoaded(List<Book> books)
         {
             _booksLoaded = books;
+            gridLookUpBook.Properties.DataSource = _booksLoaded;
         }
 
         public void GetListBooksFail(string error)
@@ -198,48 +191,12 @@ namespace UI
         public void ShowReceiptPreview(string path)
         {
             ssmWaiting.CloseWaitForm();
-            MessageBox.Show("File xuất đã lưu " + path, "Thành công!", MessageBoxButtons.OK);}
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (!tbSearch.Text.Equals(""))
-            {
-                int id = 0;
-                if (Int32.TryParse(tbSearch.Text, out id))
-                    AddBookToDocket(id);
-                tbSearch.Text = "";
-                tbSearch.Focus();
-            }
-            else
-            {
-                tbSearch.Refresh();
-            }
-        }
-        private void AddBookToDocket(int id)
-        {
-            var book = _booksLoaded.Select(b => b).Where(b => b.Identifier == id);
-            if (book.Count() != 0)
-            {
-                if (_booksInDocket.Select(b => b).Count(b => b.Identifier == book.ElementAt(0).Identifier) == 0)
-                {
-                    _booksInDocket.Add(book.ElementAt(0));
-                    tlBookInDocket.RefreshDataSource();
-                }
-            }
-
+            MessageBox.Show("File xuất đã lưu " + path, "Thành công!", MessageBoxButtons.OK);
         }
 
         private void btnRemove_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             tlBookInDocket.DeleteSelectedNodes();
-        }
-
-        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnAdd.PerformClick();
-            }
         }
 
         private void bbiContract_ItemClick(object sender, ItemClickEventArgs e)
@@ -296,7 +253,22 @@ namespace UI
         private void bbiClear_ItemClick(object sender, ItemClickEventArgs e)
         {
             _booksInDocket.Clear();
-            tlBookInDocket.RefreshDataSource();}
+            tlBookInDocket.RefreshDataSource();
+        }
+
+        private void gridLookUpBook_EditValueChanged(object sender, EventArgs e)
+        {
+            Book book = (Book)gridLookUpBook.GetSelectedDataRow();
+            if (book != null)
+            {
+                if (_booksInDocket.Count(b => b.Identifier == book.Identifier) == 0)
+                {
+                    _booksInDocket.Add(book);
+                    tlBookInDocket.RefreshDataSource();
+                }
+            }
+            gridLookUpBook.ResetText();
+        }
 
         private void CheckIfDocketIsMeetRequirement()
         {

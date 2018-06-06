@@ -13,7 +13,5 @@ namespace Contract
 
         void ErrorOccurWhenLoadCustomers(string msg);
 
-        void NotifyDeleteCustomerSuccessful();
-
     }
 }

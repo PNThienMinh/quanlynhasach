@@ -35,6 +35,7 @@
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiExportBooksReceiptNote = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -47,7 +48,6 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.pgbAdding = new DevExpress.XtraEditors.ProgressBarControl();
-            this.tbSearch = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tlBookInDocket = new DevExpress.XtraTreeList.TreeList();
             this.colName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colType = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -58,16 +58,32 @@
             this.colIdentifier = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colInventory = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colCount = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colRemove = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.btnRemove = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnAdd = new System.Windows.Forms.Button();
             this.ssmWaiting = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.WaitForm1), true, true);
+            this.gridLookUpBook = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpBookView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCategory = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pgbAdding.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlBookInDocket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRemove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpBook.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpBookView)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -93,7 +109,6 @@
             this.ribbonControl.Size = new System.Drawing.Size(864, 143);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
-            this.ribbonControl.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // bbiExportBooksReceiptNote
             // 
@@ -196,26 +211,6 @@
             this.pgbAdding.TabIndex = 4;
             this.pgbAdding.Visible = false;
             // 
-            // tbSearch
-            // 
-            this.tbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbSearch.HintForeColor = System.Drawing.Color.Empty;
-            this.tbSearch.HintText = "Nhập mã sách";
-            this.tbSearch.isPassword = false;
-            this.tbSearch.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbSearch.LineIdleColor = System.Drawing.Color.Gray;
-            this.tbSearch.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbSearch.LineThickness = 3;
-            this.tbSearch.Location = new System.Drawing.Point(303, 68);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(298, 44);
-            this.tbSearch.TabIndex = 7;
-            this.tbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
-            // 
             // tlBookInDocket
             // 
             this.tlBookInDocket.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
@@ -229,13 +224,14 @@
             this.colInventory,
             this.colCount,
             this.colRemove});
-            this.tlBookInDocket.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tlBookInDocket.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tlBookInDocket.DataSource = this.bookBindingSource;
             this.tlBookInDocket.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlBookInDocket.Location = new System.Drawing.Point(0, 143);
             this.tlBookInDocket.Name = "tlBookInDocket";
             this.tlBookInDocket.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnRemove});
+            this.btnRemove,
+            this.repositoryItemSpinEdit1});
             this.tlBookInDocket.Size = new System.Drawing.Size(864, 425);
             this.tlBookInDocket.TabIndex = 11;
             // 
@@ -247,7 +243,7 @@
             this.colName.OptionsColumn.ReadOnly = true;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 1;
-            this.colName.Width = 139;
+            this.colName.Width = 192;
             // 
             // colType
             // 
@@ -255,8 +251,6 @@
             this.colType.FieldName = "Category";
             this.colType.Name = "colType";
             this.colType.OptionsColumn.ReadOnly = true;
-            this.colType.Visible = true;
-            this.colType.VisibleIndex = 2;
             this.colType.Width = 93;
             // 
             // colPublishedDate
@@ -267,18 +261,18 @@
             this.colPublishedDate.Format.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colPublishedDate.Name = "colPublishedDate";
             this.colPublishedDate.OptionsColumn.ReadOnly = true;
-            this.colPublishedDate.Visible = true;
-            this.colPublishedDate.VisibleIndex = 3;
             this.colPublishedDate.Width = 81;
             // 
             // colCost
             // 
             this.colCost.Caption = "Giá nhập";
             this.colCost.FieldName = "Cost";
+            this.colCost.Format.FormatString = "#,#";
+            this.colCost.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colCost.Name = "colCost";
             this.colCost.Visible = true;
-            this.colCost.VisibleIndex = 4;
-            this.colCost.Width = 58;
+            this.colCost.VisibleIndex = 2;
+            this.colCost.Width = 77;
             // 
             // colAuthor
             // 
@@ -287,8 +281,8 @@
             this.colAuthor.Name = "colAuthor";
             this.colAuthor.OptionsColumn.ReadOnly = true;
             this.colAuthor.Visible = true;
-            this.colAuthor.VisibleIndex = 5;
-            this.colAuthor.Width = 82;
+            this.colAuthor.VisibleIndex = 3;
+            this.colAuthor.Width = 101;
             // 
             // colPublisher
             // 
@@ -297,8 +291,8 @@
             this.colPublisher.Name = "colPublisher";
             this.colPublisher.OptionsColumn.ReadOnly = true;
             this.colPublisher.Visible = true;
-            this.colPublisher.VisibleIndex = 6;
-            this.colPublisher.Width = 121;
+            this.colPublisher.VisibleIndex = 4;
+            this.colPublisher.Width = 141;
             // 
             // colIdentifier
             // 
@@ -308,7 +302,7 @@
             this.colIdentifier.OptionsColumn.ReadOnly = true;
             this.colIdentifier.Visible = true;
             this.colIdentifier.VisibleIndex = 0;
-            this.colIdentifier.Width = 63;
+            this.colIdentifier.Width = 87;
             // 
             // colInventory
             // 
@@ -317,18 +311,37 @@
             this.colInventory.Name = "colInventory";
             this.colInventory.OptionsColumn.ReadOnly = true;
             this.colInventory.Visible = true;
-            this.colInventory.VisibleIndex = 7;
-            this.colInventory.Width = 76;
+            this.colInventory.VisibleIndex = 5;
+            this.colInventory.Width = 96;
             // 
             // colCount
             // 
             this.colCount.Caption = "Số lượng nhập";
+            this.colCount.ColumnEdit = this.repositoryItemSpinEdit1;
             this.colCount.FieldName = "Count";
+            this.colCount.Format.FormatString = "#,#";
             this.colCount.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colCount.Name = "colCount";
             this.colCount.Visible = true;
-            this.colCount.VisibleIndex = 8;
-            this.colCount.Width = 89;
+            this.colCount.VisibleIndex = 6;
+            this.colCount.Width = 108;
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.MaxValue = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.repositoryItemSpinEdit1.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
             // 
             // colRemove
             // 
@@ -339,7 +352,7 @@
             this.colRemove.OptionsColumn.FixedWidth = true;
             this.colRemove.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowAlways;
             this.colRemove.Visible = true;
-            this.colRemove.VisibleIndex = 9;
+            this.colRemove.VisibleIndex = 7;
             this.colRemove.Width = 44;
             // 
             // btnRemove
@@ -357,25 +370,126 @@
             // 
             this.bookBindingSource.DataSource = typeof(DTO.Book);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.White;
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAdd.Location = new System.Drawing.Point(629, 77);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(98, 31);
-            this.btnAdd.TabIndex = 20;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // ssmWaiting
             // 
             this.ssmWaiting.ClosingDelay = 500;
+            // 
+            // gridLookUpBook
+            // 
+            this.gridLookUpBook.EditValue = "Tìm sách";
+            this.gridLookUpBook.Location = new System.Drawing.Point(314, 89);
+            this.gridLookUpBook.MenuManager = this.ribbonControl;
+            this.gridLookUpBook.Name = "gridLookUpBook";
+            this.gridLookUpBook.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridLookUpBook.Properties.Appearance.Options.UseFont = true;
+            this.gridLookUpBook.Properties.AutoComplete = false;
+            this.gridLookUpBook.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.gridLookUpBook.Properties.DataSource = this.bookBindingSource;
+            this.gridLookUpBook.Properties.DisplayMember = "Name";
+            this.gridLookUpBook.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.gridLookUpBook.Properties.ValueMember = "ID";
+            this.gridLookUpBook.Properties.View = this.gridLookUpBookView;
+            this.gridLookUpBook.Size = new System.Drawing.Size(311, 22);
+            this.gridLookUpBook.TabIndex = 23;
+            this.gridLookUpBook.EditValueChanged += new System.EventHandler(this.gridLookUpBook_EditValueChanged);
+            // 
+            // gridLookUpBookView
+            // 
+            this.gridLookUpBookView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID,
+            this.gridColumn1,
+            this.colCategory,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn8});
+            this.gridLookUpBookView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpBookView.Name = "gridLookUpBookView";
+            this.gridLookUpBookView.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
+            this.gridLookUpBookView.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpBookView.OptionsView.ShowGroupPanel = false;
+            // 
+            // colID
+            // 
+            this.colID.FieldName = "ID";
+            this.colID.Name = "colID";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Tên sách";
+            this.gridColumn1.FieldName = "Name";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 402;
+            // 
+            // colCategory
+            // 
+            this.colCategory.FieldName = "Category";
+            this.colCategory.Name = "colCategory";
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.FieldName = "PublishedDate";
+            this.gridColumn2.Name = "gridColumn2";
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.FieldName = "Cost";
+            this.gridColumn3.Name = "gridColumn3";
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.FieldName = "Author";
+            this.gridColumn4.Name = "gridColumn4";
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.FieldName = "Publisher";
+            this.gridColumn5.Name = "gridColumn5";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Mã sách";
+            this.gridColumn6.FieldName = "Identifier";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.OptionsColumn.ReadOnly = true;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 0;
+            this.gridColumn6.Width = 152;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.FieldName = "Count";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Width = 215;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Số lượng tồn";
+            this.gridColumn8.FieldName = "Inventory";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
+            this.gridColumn8.OptionsColumn.ReadOnly = true;
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 2;
+            this.gridColumn8.Width = 142;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(311, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Tìm sách";
             // 
             // FrmBooksReceipt
             // 
@@ -383,13 +497,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 599);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.gridLookUpBook);
             this.Controls.Add(this.tlBookInDocket);
-            this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.pgbAdding);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmBooksReceipt";
             this.Ribbon = this.ribbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -398,8 +513,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pgbAdding.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlBookInDocket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRemove)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpBook.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpBookView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,7 +535,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiDelete;
         private DevExpress.XtraBars.BarButtonItem bbiClear;
         private DevExpress.XtraEditors.ProgressBarControl pgbAdding;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox tbSearch;
         private DevExpress.XtraTreeList.TreeList tlBookInDocket;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colName;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colType;
@@ -430,9 +547,22 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colRemove;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnRemove;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private System.Windows.Forms.Button btnAdd;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colInventory;
         private System.Windows.Forms.BindingSource bookBindingSource;
         private DevExpress.XtraSplashScreen.SplashScreenManager ssmWaiting;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraEditors.GridLookUpEdit gridLookUpBook;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpBookView;
+        private DevExpress.XtraGrid.Columns.GridColumn colID;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCategory;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private System.Windows.Forms.Label label1;
     }
 }

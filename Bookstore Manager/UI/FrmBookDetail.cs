@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
 using Contract;
 using DTO;
+using Services;
 
 namespace UI
 {
@@ -17,13 +17,13 @@ namespace UI
     {
         private Book _bookInEditer;
 
-        private IStockInfo _stockInfo;
+        private IStockService _stockInfo;
 
         public FrmBookDetail(Book book)
         {
             _bookInEditer = book;
             InitializeComponent();
-            _stockInfo = new StockInfo(this);
+            _stockInfo = new StockService(this);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

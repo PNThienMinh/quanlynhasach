@@ -7,18 +7,18 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
 using Contract;
 using DevExpress.XtraEditors;
 using DTO;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Services;
 
 namespace UI
 {
-    public partial class FrmLogin : MaterialForm, ILoginContract
+    public partial class FrmLogin : MaterialForm, ILoginView
     {
-        private ILoginFormToLoginInfo _loginFormToLoginInfo;
+        private ILoginService _loginFormToLoginInfo;
 
         public FrmLogin()
         {
@@ -29,7 +29,7 @@ namespace UI
 
         private void InitializeLogic()
         {
-            _loginFormToLoginInfo = new LoginInfo(this);
+            _loginFormToLoginInfo = new LoginService(this);
         }
 
         private void InitializeUI()

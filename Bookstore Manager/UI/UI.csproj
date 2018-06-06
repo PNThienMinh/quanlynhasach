@@ -98,6 +98,12 @@
     <Compile Include="FrmNewStaff.Designer.cs">
       <DependentUpon>FrmNewStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReceive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReceive.Designer.cs">
+      <DependentUpon>FrmReceive.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStaffDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     <EmbeddedResource Include="FrmNewStaff.resx">
       <DependentUpon>FrmNewStaff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReceive.resx">
+      <DependentUpon>FrmReceive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffDetail.resx">
       <DependentUpon>FrmStaffDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +187,8 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DTO.Book.datasource" />
     <None Include="Properties\DataSources\DTO.Customer.datasource" />
+    <None Include="Properties\DataSources\DTO.IndebtednessReport.datasource" />
+    <None Include="Properties\DataSources\DTO.InventoryReport.datasource" />
     <None Include="Properties\DataSources\DTO.Publisher.datasource" />
     <None Include="Properties\DataSources\DTO.User.datasource" />
     <None Include="Properties\Settings.settings">
@@ -191,17 +202,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business\Business.csproj">
+    <ProjectReference Include="..\Business\Services.csproj">
       <Project>{80642841-11b9-4c36-bdc9-597a6b77b159}</Project>
-      <Name>Business</Name>
+      <Name>Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Contract\Contract.csproj">
       <Project>{8e7a3d61-581f-45aa-9477-33bb95957eac}</Project>
       <Name>Contract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DatabaseModel\DatabaseModel.csproj">
+    <ProjectReference Include="..\DatabaseModel\Data.csproj">
       <Project>{8EBA4152-F35F-4839-8F68-B0C0553BDBE5}</Project>
-      <Name>DatabaseModel</Name>
+      <Name>Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{f1b20a84-3c89-4c80-bfb8-f78e599c4763}</Project>

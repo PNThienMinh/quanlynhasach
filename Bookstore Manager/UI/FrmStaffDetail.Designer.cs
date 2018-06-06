@@ -432,6 +432,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmStaffDetail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin nhân viên";
             ((System.ComponentModel.ISupportInitialize)(this.functionBindingSource)).EndInit();
             this.ResumeLayout(false);
