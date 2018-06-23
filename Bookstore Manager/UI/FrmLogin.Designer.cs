@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.btnLogin = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lblPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.ssmLogin = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.WaitForm1), true, true, true);
+            this.ssmLogin = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.FrmWaiting), true, true, true);
             this.SuspendLayout();
             // 
             // btnLogin
@@ -91,6 +92,7 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -36,6 +36,7 @@
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.ssmWaiting = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.FrmWaiting), true, true);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiExportBooksReceiptNote = new DevExpress.XtraBars.BarButtonItem();
             this.bbiAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -62,7 +63,6 @@
             this.colRemove = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.btnRemove = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ssmWaiting = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.WaitForm1), true, true);
             this.gridLookUpBook = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpBookView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -85,6 +85,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpBook.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpBookView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ssmWaiting
+            // 
+            this.ssmWaiting.ClosingDelay = 500;
             // 
             // ribbonControl
             // 
@@ -370,10 +374,6 @@
             // 
             this.bookBindingSource.DataSource = typeof(DTO.Book);
             // 
-            // ssmWaiting
-            // 
-            this.ssmWaiting.ClosingDelay = 500;
-            // 
             // gridLookUpBook
             // 
             this.gridLookUpBook.EditValue = "Tìm sách";
@@ -485,6 +485,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(311, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
@@ -507,6 +509,8 @@
             this.MaximizeBox = false;
             this.Name = "FrmBooksReceipt";
             this.Ribbon = this.ribbonControl;
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Phiếu nhập sách";
@@ -549,7 +553,6 @@
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colInventory;
         private System.Windows.Forms.BindingSource bookBindingSource;
-        private DevExpress.XtraSplashScreen.SplashScreenManager ssmWaiting;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraEditors.GridLookUpEdit gridLookUpBook;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpBookView;
@@ -564,5 +567,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private System.Windows.Forms.Label label1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager ssmWaiting;
     }
 }

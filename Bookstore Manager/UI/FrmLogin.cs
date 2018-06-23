@@ -18,21 +18,21 @@ namespace UI
 {
     public partial class FrmLogin : MaterialForm, ILoginView
     {
-        private ILoginService _loginFormToLoginInfo;
+        private ILoginService _loginService;
 
         public FrmLogin()
         {
             InitializeComponent();
-            InitializeUI();
-            InitializeLogic();
+            InitUI();
+            InitInstances();
         }
 
-        private void InitializeLogic()
+        private void InitInstances()
         {
-            _loginFormToLoginInfo = new LoginService(this);
+            _loginService = new LoginService(this);
         }
 
-        private void InitializeUI()
+        private void InitUI()
         {
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
@@ -49,11 +49,14 @@ namespace UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = lblUsername.Text.Trim().ToString();
-            string password = lblPassword.Text.Trim().ToString();
+            string username = lblUsername.Text.Trim();
+            string password = lblPassword.Text.Trim();
+
+            if (username.Equals("") || password.Equals(""))
+                return;
 
             ssmLogin.ShowWaitForm();
-            _loginFormToLoginInfo.ValidateUser(username, password);
+            _loginService.ValidateUser(username, password);
         }
 
         private void lblUsername_KeyDown(object sender, KeyEventArgs e)

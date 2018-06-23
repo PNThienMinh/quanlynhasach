@@ -54,6 +54,9 @@
             this.tbUsername = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.lbNameError = new System.Windows.Forms.Label();
+            this.lbEmailError = new System.Windows.Forms.Label();
+            this.lbPhoneError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.functionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnValidate)).BeginInit();
             this.SuspendLayout();
@@ -130,9 +133,9 @@
             this.materialLabel7.Location = new System.Drawing.Point(462, 275);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(73, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(63, 19);
             this.materialLabel7.TabIndex = 65;
-            this.materialLabel7.Text = "Function*";
+            this.materialLabel7.Text = "Chức vụ";
             // 
             // materialLabel5
             // 
@@ -143,9 +146,9 @@
             this.materialLabel5.Location = new System.Drawing.Point(337, 207);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(111, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(98, 19);
             this.materialLabel5.TabIndex = 62;
-            this.materialLabel5.Text = "Phone number*";
+            this.materialLabel5.Text = "Số điện thoại";
             // 
             // materialLabel4
             // 
@@ -156,9 +159,9 @@
             this.materialLabel4.Location = new System.Drawing.Point(337, 134);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(69, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(75, 19);
             this.materialLabel4.TabIndex = 63;
-            this.materialLabel4.Text = "Birthday*";
+            this.materialLabel4.Text = "Ngày sinh";
             // 
             // materialLabel2
             // 
@@ -169,9 +172,9 @@
             this.materialLabel2.Location = new System.Drawing.Point(29, 207);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(33, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(75, 19);
             this.materialLabel2.TabIndex = 61;
-            this.materialLabel2.Text = "UID";
+            this.materialLabel2.Text = "Số CMND";
             // 
             // materialLabel3
             // 
@@ -182,9 +185,9 @@
             this.materialLabel3.Location = new System.Drawing.Point(29, 134);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(39, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(65, 19);
             this.materialLabel3.TabIndex = 60;
-            this.materialLabel3.Text = "Sex*";
+            this.materialLabel3.Text = "Giới tính";
             // 
             // tbPhoneNo
             // 
@@ -204,6 +207,8 @@
             this.tbPhoneNo.Size = new System.Drawing.Size(231, 44);
             this.tbPhoneNo.TabIndex = 58;
             this.tbPhoneNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbPhoneNo.OnValueChanged += new System.EventHandler(this.tbPhoneNo_OnValueChanged);
+            this.tbPhoneNo.Leave += new System.EventHandler(this.tbPhoneNo_Leave);
             // 
             // tbEmail
             // 
@@ -223,6 +228,8 @@
             this.tbEmail.Size = new System.Drawing.Size(306, 44);
             this.tbEmail.TabIndex = 66;
             this.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbEmail.OnValueChanged += new System.EventHandler(this.tbEmail_OnValueChanged);
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
             // 
             // tbUID
             // 
@@ -261,6 +268,8 @@
             this.tbName.Size = new System.Drawing.Size(453, 44);
             this.tbName.TabIndex = 55;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbName.OnValueChanged += new System.EventHandler(this.tbName_OnValueChanged);
+            this.tbName.Leave += new System.EventHandler(this.tbName_Leave);
             // 
             // materialLabel1
             // 
@@ -271,9 +280,9 @@
             this.materialLabel1.Location = new System.Drawing.Point(29, 59);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(55, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(73, 19);
             this.materialLabel1.TabIndex = 59;
-            this.materialLabel1.Text = "Name*";
+            this.materialLabel1.Text = "Họ và tên";
             // 
             // btnValidate
             // 
@@ -322,9 +331,9 @@
             this.materialLabel9.Location = new System.Drawing.Point(764, 252);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(138, 19);
+            this.materialLabel9.Size = new System.Drawing.Size(136, 19);
             this.materialLabel9.TabIndex = 71;
-            this.materialLabel9.Text = "Confirm password*";
+            this.materialLabel9.Text = "Xác nhận mật khẩu";
             // 
             // materialLabel10
             // 
@@ -335,9 +344,9 @@
             this.materialLabel10.Location = new System.Drawing.Point(762, 50);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(83, 19);
+            this.materialLabel10.Size = new System.Drawing.Size(107, 19);
             this.materialLabel10.TabIndex = 70;
-            this.materialLabel10.Text = "Username*";
+            this.materialLabel10.Text = "Tên đăng nhập";
             // 
             // materialLabel8
             // 
@@ -348,9 +357,9 @@
             this.materialLabel8.Location = new System.Drawing.Point(764, 159);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(81, 19);
+            this.materialLabel8.Size = new System.Drawing.Size(71, 19);
             this.materialLabel8.TabIndex = 69;
-            this.materialLabel8.Text = "Password*";
+            this.materialLabel8.Text = "Mật khẩu";
             // 
             // tbConfirmPassword
             // 
@@ -421,11 +430,50 @@
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = true;
             // 
+            // lbNameError
+            // 
+            this.lbNameError.AutoSize = true;
+            this.lbNameError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbNameError.ForeColor = System.Drawing.Color.Red;
+            this.lbNameError.Location = new System.Drawing.Point(114, 92);
+            this.lbNameError.Name = "lbNameError";
+            this.lbNameError.Size = new System.Drawing.Size(24, 13);
+            this.lbNameError.TabIndex = 78;
+            this.lbNameError.Text = "err";
+            this.lbNameError.Visible = false;
+            // 
+            // lbEmailError
+            // 
+            this.lbEmailError.AutoSize = true;
+            this.lbEmailError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbEmailError.ForeColor = System.Drawing.Color.Red;
+            this.lbEmailError.Location = new System.Drawing.Point(114, 307);
+            this.lbEmailError.Name = "lbEmailError";
+            this.lbEmailError.Size = new System.Drawing.Size(24, 13);
+            this.lbEmailError.TabIndex = 79;
+            this.lbEmailError.Text = "err";
+            this.lbEmailError.Visible = false;
+            // 
+            // lbPhoneError
+            // 
+            this.lbPhoneError.AutoSize = true;
+            this.lbPhoneError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbPhoneError.ForeColor = System.Drawing.Color.Red;
+            this.lbPhoneError.Location = new System.Drawing.Point(463, 239);
+            this.lbPhoneError.Name = "lbPhoneError";
+            this.lbPhoneError.Size = new System.Drawing.Size(24, 13);
+            this.lbPhoneError.TabIndex = 80;
+            this.lbPhoneError.Text = "err";
+            this.lbPhoneError.Visible = false;
+            // 
             // FrmNewStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1089, 390);
+            this.Controls.Add(this.lbPhoneError);
+            this.Controls.Add(this.lbEmailError);
+            this.Controls.Add(this.lbNameError);
             this.Controls.Add(this.bunifuSeparator2);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.btnCreate);
@@ -487,5 +535,8 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbPassword;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
         private System.Windows.Forms.BindingSource functionBindingSource;
+        private System.Windows.Forms.Label lbNameError;
+        private System.Windows.Forms.Label lbEmailError;
+        private System.Windows.Forms.Label lbPhoneError;
     }
 }

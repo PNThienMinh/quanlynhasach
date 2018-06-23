@@ -126,7 +126,40 @@ namespace Data
                     int rowsAffected = cmdUpdateCustomer.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
-                        _listener.OnUpdateCustomerSuccess();
+                        _listener.OnUpdateCustomerSuccess();}
+
+                }
+                catch (Exception e)
+                {
+                    Trace.AutoFlush = true;
+                    Trace.TraceInformation("Error Occur");
+                    Trace.TraceError(e.Message);
+                    Trace.TraceWarning("Careful!");
+                    Trace.Listeners.Add(new TextWriterTraceListener("log.txt"));
+                    _listener.OnReceiveIndebtednessFailure(e.Message);
+                }
+
+            }
+        }
+
+        public void ReceiveIndebtedness(Customer customer, int indebtedness)
+        {
+            using (_connection = new SqlConnection(Config.ConnectionString))
+            {
+                try
+                {
+                    _connection.Open();
+                    SqlCommand cmd = new SqlCommand("receiveIndebtedness", _connection)
+                        { CommandType = CommandType.StoredProcedure };
+
+                    cmd.Parameters.Add(new SqlParameter("@dateCreate", DateTime.Today));
+                    cmd.Parameters.Add(new SqlParameter("@customerId", customer.ID));
+                    cmd.Parameters.Add(new SqlParameter("@receive", indebtedness));
+                    
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        _listener.OnReceiveIndebtednessSuccessful();
                     }
 
                 }
@@ -137,11 +170,11 @@ namespace Data
                     Trace.TraceError(e.Message);
                     Trace.TraceWarning("Careful!");
                     Trace.Listeners.Add(new TextWriterTraceListener("log.txt"));
+                    _listener.OnReceiveIndebtednessFailure(e.Message);
                 }
 
             }
         }
-
     }
 }
 

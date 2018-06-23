@@ -19,7 +19,7 @@ namespace Data
 
         private BackgroundWorker sqlWorker;
 
-        private const string billPath = "e:\\QuanLyNhaSach\\Data\\HoaDon\\";
+        private string billPath = Config.DataLocation+"HoaDon\\";
 
         private int _staffId;
         private int _customerId;
@@ -52,7 +52,7 @@ namespace Data
                         }
                     }
 
-                    if (due + currentCustomerDue >= maxDue)
+                    if (due + currentCustomerDue > maxDue)
                         return false;
                     return true;
 
@@ -225,16 +225,16 @@ namespace Data
                         rowIndex = rowIndex + 3;
                         xlWorkSheet.Range[xlWorkSheet.Cells[rowIndex, 7], xlWorkSheet.Cells[rowIndex, 8]].Merge();
                         xlWorkSheet.Range[xlWorkSheet.Cells[rowIndex, 7], xlWorkSheet.Cells[rowIndex, 8]].Style.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                        xlWorkSheet.Cells[rowIndex, 1] = "Thành tiền: " + _total;
+                        xlWorkSheet.Cells[rowIndex, 7] = "Thành tiền: " + _total;
                         rowIndex++;
                         xlWorkSheet.Range[xlWorkSheet.Cells[rowIndex, 7], xlWorkSheet.Cells[rowIndex, 8]].Merge();
                         xlWorkSheet.Range[xlWorkSheet.Cells[rowIndex, 7], xlWorkSheet.Cells[rowIndex, 8]].Style.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                         int received = _total - _due;
-                        xlWorkSheet.Cells[rowIndex, 1] = "Đã nhận: " + received;
+                        xlWorkSheet.Cells[rowIndex, 7] = "Đã nhận: " + received;
                         rowIndex++;
                         xlWorkSheet.Range[xlWorkSheet.Cells[rowIndex, 7], xlWorkSheet.Cells[rowIndex, 8]].Merge();
                         xlWorkSheet.Range[xlWorkSheet.Cells[rowIndex, 7], xlWorkSheet.Cells[rowIndex, 8]].Style.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                        xlWorkSheet.Cells[rowIndex, 1] = "Còn nợ: " + _due;
+                        xlWorkSheet.Cells[rowIndex, 7] = "Còn nợ: " + _due;
 
                         xlWorkSheet.Columns.AutoFit();
 

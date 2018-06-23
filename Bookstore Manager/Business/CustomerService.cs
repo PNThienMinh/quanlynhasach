@@ -42,12 +42,7 @@ namespace Services
         public void CreateNewCustomer(Customer customer)
         {
             string notValidField = "";
-            if (!customer.Name.Contains(' ') || customer.Name.Length < 5)
-                notValidField += "Họ và tên | ";
-            if (!customer.Email.Contains('@') || !customer.Email.Contains('.'))
-                notValidField += "Email | ";
-            if (customer.PhoneNum.Length < 10 || customer.PhoneNum.Length > 11)
-                notValidField += "Số điện thoại | ";
+            
             if (customer.Address.Length < 6)
                 notValidField += "Quận/Huyện | Tỉnh/Thành phố";
 
@@ -81,7 +76,7 @@ namespace Services
 
         public void ReceiveIndebtedness(Customer customer, int receivedMoney)
         {
-            
+              _db.ReceiveIndebtedness(customer, receivedMoney);
         }
 
         public void OnGetAllCustomersSuccessful(List<Customer> customers)
@@ -109,6 +104,14 @@ namespace Services
             _customerDetail.NotifyUpdateCustomerSuccessful();
         }
 
+        public void OnReceiveIndebtednessSuccessful()
+        {
+            _receiveView.NotifyReceiveSuccess();
+        }
 
+        public void OnReceiveIndebtednessFailure(string msg)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

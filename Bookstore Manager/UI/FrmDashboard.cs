@@ -10,7 +10,7 @@ using Services;
 
 namespace UI
 {
-    public partial class FrmDashboard : DevExpress.XtraEditors.XtraForm, IStaffView, IStockView, ICustomerView, IStallView, IReportView
+    public partial class FrmDashboard : DevExpress.XtraEditors.XtraForm, IStaffView, IStockView, ICustomerView, IStallView, IReportView, IAdminView
     {
         // user for this session
         private User _user;
@@ -21,6 +21,7 @@ namespace UI
         private ICustomerService _customerService;
         private IStallService _stallService;
         private IReportService _reportService;
+        private IAdminService _adminService;
 
         // list Collection
         private List<Book> _booksStock = new List<Book>();
@@ -41,6 +42,8 @@ namespace UI
             this._user = user;
             InitializeComponent();
             InitialzeInstances();
+            if (_user.IDFunc != 1)
+                adminTileBarItem.Visible = false;
         }
 
         // initial instances of business layer
@@ -51,7 +54,7 @@ namespace UI
             _customerService = new CustomerService(this);
             _stallService = new StallService(this);
             _reportService = new ReportService(this);
-
+            _adminService = new AdminService(this);
         }
 
         // tab animations
@@ -66,14 +69,14 @@ namespace UI
         #region StallTab
         private void bookstallNavigationPage_VisibleChanged(object sender, EventArgs e)
         {
-            ResetAllComponents();
+            ResetStoreTab();
             if (bookstallNavigationPage.IsControlLoaded)
             {
                 _stockService.LoadAllBooks();
                 _customerService.LoadAllCustomers();
             }
         }
-        private void ResetAllComponents()
+        private void ResetStoreTab()
         {
             if (_booksInBill.Count != 0)
                 _booksInBill.Clear();
@@ -85,8 +88,8 @@ namespace UI
                 gridLookUpBook.Enabled = true;
             if (tlBookInBill.OptionsBehavior.Editable == false)
                 tlBookInBill.OptionsBehavior.Editable = true;
-            if (btnShowBillInfo.Enabled == false)
-                btnShowBillInfo.Enabled = true;
+            if (btnShowBillInfo.Visible == false)
+                btnShowBillInfo.Visible = true;
 
             if (btnShowBillInfo.Visible == false)
                 btnShowBillInfo.Visible = true;
@@ -99,6 +102,7 @@ namespace UI
             if (panelCheckout.Visible == true)
                 panelCheckout.Visible = false;
 
+            tbCustomerPaid.ResetText();
             tbTotal.ResetText();
             tbChange.ResetText();
             tbTotal.ResetText();
@@ -123,6 +127,7 @@ namespace UI
         }
         private void btnShowBillInfo_Click(object sender, EventArgs e)
         {
+
             if (_booksInBill.Count < 1)
                 return;
 
@@ -134,6 +139,8 @@ namespace UI
                     return;
                 }
             }
+            if (btnBackToEdit.Visible == false)
+                btnBackToEdit.Visible = true;
 
             btnShowBillInfo.Visible = false;
 
@@ -147,7 +154,7 @@ namespace UI
 
             gridLookUpBook.Enabled = false;
             tlBookInBill.OptionsBehavior.Editable = false;
-            btnShowBillInfo.Enabled = false;
+            btnShowBillInfo.Visible = false;
 
             int total = 0;
             foreach (var book in _booksInBill)
@@ -158,6 +165,24 @@ namespace UI
             tbTotal.Text = total.ToString();
             tbCustomerPaid.Focus();
 
+        }
+        private void btnBackToEdit_Click(object sender, EventArgs e)
+        {
+            gridLookUpBook.Enabled = true;
+            tlBookInBill.OptionsBehavior.Editable = true;
+            btnShowBillInfo.Visible = true;
+
+            if (panelCustomerSearch.Visible == true)
+                panelCustomerSearch.Visible = false;
+            if (panelBillInfo.Visible == true)
+                panelBillInfo.Visible = false;
+            if (panelStatus.Visible == true)
+                panelStatus.Visible = false;
+            if (panelCheckout.Visible == true)
+                panelCheckout.Visible = false;
+
+            if (btnBackToEdit.Visible == true)
+                btnBackToEdit.Visible = false;
         }
         private void btnDeleteBookInBill_Click(object sender, EventArgs e)
         {
@@ -193,7 +218,6 @@ namespace UI
         }
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            ssmLoading.ShowWaitForm();
             if (gridLookUpCustomer.GetSelectedDataRow() == null)
             {
                 MessageBox.Show("Vui lòng chọn khách hàng!", "Nhắc nhở", MessageBoxButtons.OK);
@@ -206,6 +230,11 @@ namespace UI
                 return;
             }
 
+            DialogResult result = MessageBox.Show("Xuất hoá đơn?", "Xác nhận giao dịch", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+                return;
+
+            ssmLoading.ShowWaitForm();
             var customer = ((Customer)gridLookUpCustomer.GetSelectedDataRow());
             _stallService.ExportBill(_user.ID, customer, _booksInBill, Convert.ToInt32(tbTotal.Text.Trim()), Convert.ToInt32(tbIndebtedness.Text.Trim()));
         }
@@ -217,7 +246,7 @@ namespace UI
         {
             if (ssmLoading.IsSplashFormVisible)
                 ssmLoading.CloseWaitForm();
-            MessageBox.Show("Số tiền khách hàng này đang nợ vượt quá quy định!", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show("Số tiền khách hàng này đang nợ vượt quá quy định!", "Nhắc nhở", MessageBoxButtons.OK);
         }
         public void NotifyListBooksNotMeetRequirement(List<int> listBooksError)
         {
@@ -227,7 +256,7 @@ namespace UI
                 list += book + " |";
             }
 
-            MessageBox.Show("Đầu sách: " + list + " không thoả điều kiện tồn sau tối thiểu!", "Thông báo",
+            MessageBox.Show("Đầu sách: " + list + " không thoả điều kiện tồn sau tối thiểu!", "Nhắc nhở",
                 MessageBoxButtons.OK);
         }
         public void NotifyCreateBillSuccessful(string billPath)
@@ -235,21 +264,27 @@ namespace UI
             ssmLoading.CloseWaitForm();
             MessageBox.Show("Tạo hoá đơn thành công!\nHoá đơn được lưu vào " + billPath, "Hoàn tất",
                 MessageBoxButtons.OK);
+            ResetStoreTab();
         }
         public void NotifyCreateBillFailure(string error)
         {
             // TODO Handle error occur
             MessageBox.Show("Xuất hoá đơn thất bại!", "Lỗi", MessageBoxButtons.OK);
         }
-
         #endregion
         #region StockTab
         private void btnImport_Click(object sender, EventArgs e)
         {
             ssmLoading.ShowWaitForm();
-            FrmBooksReceipt frmImport = new FrmBooksReceipt(_user);
-            ssmLoading.CloseWaitForm();
-            frmImport.ShowDialog();
+            using (var form = new FrmBooksReceipt(_user))
+            {
+                ssmLoading.CloseWaitForm();
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    ReloaDataSourceStock();
+                }
+            }
         }
         private void tbSearchBookInStock_OnTextChange(object sender, EventArgs e)
         {
@@ -340,8 +375,7 @@ namespace UI
             _users = users;
             tlStaff.DataSource = users;
         }
-        public void OnFetchDataFailure(string error)
-        {
+        public void OnFetchDataFailure(string error){
             MessageBox.Show(error, "Error occur!", MessageBoxButtons.OK);
         }
         private void tbSearchStaff_OnValueChanged(object sender, EventArgs e)
@@ -389,10 +423,12 @@ namespace UI
                 }
             }
         }
-        private void btnDetailCustomer_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void btnReceive_Click(object sender, EventArgs e)
         {
             Customer customer = (Customer)tlCustomer.GetDataRecordByNode(tlCustomer.FocusedNode);
-            using (var form = new FrmNewCustomer(customer))
+            if (customer.Indebtedness == 0)
+                return;
+            using (var form = new FrmReceive(customer))
             {
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
@@ -401,10 +437,10 @@ namespace UI
                 }
             }
         }
-        private void btnReceive_Click(object sender, EventArgs e)
+        private void btnDetailCustomer_Click(object sender, EventArgs e)
         {
             Customer customer = (Customer)tlCustomer.GetDataRecordByNode(tlCustomer.FocusedNode);
-            using (var form = new FrmReceive(customer))
+            using (var form = new FrmNewCustomer(customer))
             {
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
@@ -472,7 +508,73 @@ namespace UI
                 _reportService.LoadIndebtednessReport(datePickerReport.Value);
         }
         #endregion
+        #region AdminTab
+        private void adminNavigationPage_VisibleChanged(object sender, EventArgs e)
+        {
+            if (adminNavigationPage.IsControlLoaded)
+            {
+                _adminService.LoadData();
+            }
+        }
+        public void DisplayDataToUI(Rule rule, StoreReport report)
+        {
+            lbNumBookImport.Text = report.NumBookImport.ToString();
+            lbNumBookInStock.Text = report.NumBookInStock.ToString();
+            lbRevenue.Text = report.Revenue.ToString();
+            lbNumBookSold.Text = report.NumBookSold.ToString();
 
+            tbMinImport.Text = rule.MinImport.ToString();
+            tbMaxInventory.Text = rule.MaxInventory.ToString();
+            tbMinLastInventory.Text = rule.MinInventory.ToString();
+            tbMaxIndebtedness.Text = rule.MaxIndebtedness.ToString();
+        }
+
+        public void NotifyUpdateRuleSuccess()
+        {
+            MessageBox.Show("Cập nhật thành công!", "Hoàn tất!", MessageBoxButtons.OK);
+            ResetAdminPage();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            tbMinImport.Enabled = true;
+            tbMaxInventory.Enabled = true;
+            tbMinLastInventory.Enabled = true;
+            tbMaxIndebtedness.Enabled = true;
+            btnUpdate.Enabled = true;
+        }
+
+        private void tbValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar)
+                )
+            {
+                e.Handled = true;
+            }
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Rule rule = new Rule();
+
+            rule.MinImport = Int32.Parse(tbMinImport.Text.Trim());
+            rule.MaxInventory = Int32.Parse(tbMaxInventory.Text.Trim());
+            rule.MinInventory = Int32.Parse(tbMinLastInventory.Text.Trim());
+            rule.MaxIndebtedness = Int32.Parse(tbMaxIndebtedness.Text.Trim());
+
+            _adminService.ChangeRule(rule);
+        }
+
+        void ResetAdminPage()
+        {
+            tbMinImport.Enabled = false;
+            tbMaxInventory.Enabled = false;
+            tbMinLastInventory.Enabled = false;
+            tbMaxIndebtedness.Enabled = false;
+            btnUpdate.Enabled = false;
+        }
+
+        #endregion
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -492,5 +594,6 @@ namespace UI
 
             Application.Exit();
         }
+
     }
 }

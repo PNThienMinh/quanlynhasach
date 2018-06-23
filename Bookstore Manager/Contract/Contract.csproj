@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdminRepo.cs" />
+    <Compile Include="IAdminRepoListener.cs" />
+    <Compile Include="IAdminService.cs" />
+    <Compile Include="IAdminView.cs" />
     <Compile Include="IBookDetail.cs" />
     <Compile Include="ICustomerRepo.cs" />
     <Compile Include="ICustomerRepoListener.cs" />

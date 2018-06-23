@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Contract;
@@ -44,10 +45,26 @@ namespace UI
 
         private void btnReceive_Click(object sender, EventArgs e)
         {
-            if (tbReceive.Text.Equals(""))
-                MessageBox.Show("Vui lòng nhập số tiền thu!", "Nhắc nhở", MessageBoxButtons.OK);
+            if (tbReceive.Text.Trim().Equals("") || Regex.Matches(tbReceive.Text.Trim(), @"[a-zA-Z]").Count > 0 ||
+                !HelperClass.IsDigitsOnly(tbReceive.Text.Trim()))
+            {
+                MessageBox.Show("Vui lòng nhập số tiền thu hợp lê!", "Nhắc nhở", MessageBoxButtons.OK);
+                return;
+            }
 
-            _business.ReceiveIndebtedness(_customer, Int32.Parse(tbReceive.Text.Trim()));
+            int receive = Int32.Parse(tbReceive.Text.Trim());
+            if (receive <= 0)
+            {
+                MessageBox.Show("Số tiền thu phải lớn hơn 0!", "Nhắc nhở", MessageBoxButtons.OK);
+                return;
+            }
+            if (receive > _customer.Indebtedness)
+            {
+                MessageBox.Show("Số tiền thu không được vượt quá số tiền khách hàng đang nợ!", "Nhắc nhở", MessageBoxButtons.OK);
+                return;
+            }
+
+            _business.ReceiveIndebtedness(_customer, receive);
         }
 
         private void tbReceive_KeyPress(object sender, KeyPressEventArgs e)
@@ -60,9 +77,11 @@ namespace UI
             }
         }
 
-        public void NotifyReceiveIsNotValid()
+        public void NotifyReceiveSuccess()
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Thu tiền thành công!", "Hoàn tất", MessageBoxButtons.OK);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

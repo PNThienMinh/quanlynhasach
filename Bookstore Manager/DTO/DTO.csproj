@@ -47,6 +47,8 @@
     <Compile Include="Function.cs" />
     <Compile Include="IndebtednessReport.cs" />
     <Compile Include="InventoryReport.cs" />
+    <Compile Include="Rule.cs" />
+    <Compile Include="StoreReport.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

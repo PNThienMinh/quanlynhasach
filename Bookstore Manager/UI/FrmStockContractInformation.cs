@@ -89,12 +89,15 @@ namespace UI
             if (!tbMinQuantityImport.Text.Equals("") && !tbMaxQuantityInventory.Text.Equals(""))
                 _business.ChangeStockContracts(Int32.Parse(tbMinQuantityImport.Text), Int32.Parse(tbMaxQuantityInventory.Text));
         }
-
-
+        
         private void tbMinQuantityImport_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
         }
 
         private void tbMaxQuantityInventory_KeyPress(object sender, KeyPressEventArgs e)

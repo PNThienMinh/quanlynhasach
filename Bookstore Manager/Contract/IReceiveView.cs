@@ -8,6 +8,6 @@ namespace Contract
 {
     public interface IReceiveView
     {
-        void NotifyReceiveIsNotValid();
+        void NotifyReceiveSuccess();
     }
 }

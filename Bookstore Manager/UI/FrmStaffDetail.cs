@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Contract;
-using DevExpress.XtraEditors;
 using DTO;
 using Services;
 
@@ -45,10 +38,10 @@ namespace UI
             cbFunc.Text = user.Funtion;
             tbPhone.Text = user.PhoneNum;
             tbUID.Text = user.MId;
-            tbSex.Text = user.Sex;
             datePicker.Value = user.BirthDate;
             datePicker.Format = DateTimePickerFormat.Custom;
             datePicker.FormatCustom = "dd/MM/yyyy";
+            cbSex.Text = user.Sex;
         }
 
         public void LoadListFunctionToUI(List<Function> functions)
@@ -81,10 +74,13 @@ namespace UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (lbEmailError.Visible || lbNameError.Visible || lbPhoneError.Visible)
+                return;
+
             User user = new User();
             user.Username = _user.Username.Trim();
             user.Name = tbName.Text.Trim();
-            user.Sex = tbSex.Text.Trim();
+            user.Sex = cbSex.Text.Trim();
             user.BirthDate = datePicker.Value;
             user.Email = tbEmail.Text.Trim();
             user.IDFunc = ((Function)cbFunc.SelectedItem).ID;
@@ -110,10 +106,60 @@ namespace UI
             tbEmail.Enabled = true;
             tbNewPassword.Enabled = true;
             tbPhone.Enabled = true;
-            tbSex.Enabled = true;
+            cbSex.Enabled = true;
             tbUID.Enabled = true;
             cbFunc.Enabled = true;
             btnUpdate.Enabled = true;
+        }
+
+        private void tbName_Leave(object sender, EventArgs e)
+        {
+            ((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text =
+                HelperClass.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
+            if (!HelperClass.IsValidName(tbName.Text.Trim()))
+            {
+                lbNameError.Text = "Tên không hợp lệ!";
+                lbNameError.Visible = true;
+                tbName.Focus();
+            }
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            if (!HelperClass.IsValidEmail(tbEmail.Text.Trim()))
+            {
+                lbEmailError.Text = "Email không hợp lệ!";
+                lbEmailError.Visible = true;
+                tbEmail.Focus();
+            }
+        }
+
+        private void tbPhone_Leave(object sender, EventArgs e)
+        {
+            if (!HelperClass.IsValidPhoneNumber(tbPhone.Text.Trim()))
+            {
+                lbPhoneError.Text = "Số điện thoại không hợp lệ!";
+                lbPhoneError.Visible = true;
+                tbPhone.Focus();
+            }
+        }
+
+        private void tbName_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbNameError.Visible == true)
+                lbNameError.Visible = false;
+        }
+
+        private void tbEmail_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbEmailError.Visible == true)
+                lbEmailError.Visible = false;
+        }
+
+        private void tbPhone_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbPhoneError.Visible == true)
+                lbPhoneError.Visible = false;
         }
     }
 }

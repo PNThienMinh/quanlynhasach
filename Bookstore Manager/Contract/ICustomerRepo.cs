@@ -15,5 +15,7 @@ namespace Contract
 
         void UpdateCustomerInfo(Customer customer);
 
+        void ReceiveIndebtedness(Customer customer, int indebtedness);
+
     }
 }

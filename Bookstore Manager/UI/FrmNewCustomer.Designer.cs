@@ -42,6 +42,9 @@
             this.tbCity = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.cbSex = new System.Windows.Forms.ComboBox();
             this.btnEdit = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lbEmailError = new System.Windows.Forms.Label();
+            this.lbNameError = new System.Windows.Forms.Label();
+            this.lbPhoneError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCreate
@@ -55,7 +58,7 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Primary = false;
             this.btnCreate.Size = new System.Drawing.Size(68, 36);
-            this.btnCreate.TabIndex = 21;
+            this.btnCreate.TabIndex = 7;
             this.btnCreate.Text = "Tạo mới";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -127,12 +130,12 @@
             // 
             // tbDistrict
             // 
-            this.tbDistrict.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbDistrict.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tbDistrict.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDistrict.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDistrict.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbDistrict.HintForeColor = System.Drawing.Color.Gray;
-            this.tbDistrict.HintText = "Thủ Đức";
+            this.tbDistrict.HintText = "";
             this.tbDistrict.isPassword = false;
             this.tbDistrict.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbDistrict.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
@@ -142,17 +145,18 @@
             this.tbDistrict.Margin = new System.Windows.Forms.Padding(4);
             this.tbDistrict.Name = "tbDistrict";
             this.tbDistrict.Size = new System.Drawing.Size(259, 44);
-            this.tbDistrict.TabIndex = 16;
+            this.tbDistrict.TabIndex = 2;
+            this.tbDistrict.Text = "Thủ Đức";
             this.tbDistrict.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // tbPhoneNo
             // 
-            this.tbPhoneNo.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbPhoneNo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tbPhoneNo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPhoneNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhoneNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbPhoneNo.HintForeColor = System.Drawing.Color.Gray;
-            this.tbPhoneNo.HintText = "0968012012";
+            this.tbPhoneNo.HintText = "";
             this.tbPhoneNo.isPassword = false;
             this.tbPhoneNo.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbPhoneNo.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
@@ -162,18 +166,21 @@
             this.tbPhoneNo.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhoneNo.Name = "tbPhoneNo";
             this.tbPhoneNo.Size = new System.Drawing.Size(262, 44);
-            this.tbPhoneNo.TabIndex = 18;
+            this.tbPhoneNo.TabIndex = 5;
+            this.tbPhoneNo.Text = "09xxxxxxxxx";
             this.tbPhoneNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbPhoneNo.OnValueChanged += new System.EventHandler(this.tbPhoneNo_OnValueChanged);
             this.tbPhoneNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhoneNo_KeyPress);
+            this.tbPhoneNo.Leave += new System.EventHandler(this.tbPhoneNo_Leave);
             // 
             // tbEmail
             // 
-            this.tbEmail.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbEmail.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbEmail.HintForeColor = System.Drawing.Color.Gray;
-            this.tbEmail.HintText = "abcd@xyz.com";
+            this.tbEmail.HintText = "";
             this.tbEmail.isPassword = false;
             this.tbEmail.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbEmail.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
@@ -183,17 +190,20 @@
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(262, 44);
-            this.tbEmail.TabIndex = 17;
+            this.tbEmail.TabIndex = 4;
+            this.tbEmail.Text = "abcd@xyz.com";
             this.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbEmail.OnValueChanged += new System.EventHandler(this.tbEmail_OnValueChanged);
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
             // 
             // tbName
             // 
-            this.tbName.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tbName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbName.HintForeColor = System.Drawing.Color.Gray;
-            this.tbName.HintText = "Nguyễn Văn A";
+            this.tbName.HintText = "";
             this.tbName.isPassword = false;
             this.tbName.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbName.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
@@ -203,8 +213,11 @@
             this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(328, 44);
-            this.tbName.TabIndex = 8;
+            this.tbName.TabIndex = 0;
+            this.tbName.Text = "Nguyễn Văn A";
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbName.OnValueChanged += new System.EventHandler(this.tbName_OnValueChanged);
+            this.tbName.Leave += new System.EventHandler(this.tbName_Leave);
             // 
             // materialLabel7
             // 
@@ -221,12 +234,12 @@
             // 
             // tbCity
             // 
-            this.tbCity.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tbCity.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tbCity.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbCity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCity.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbCity.HintForeColor = System.Drawing.Color.Gray;
-            this.tbCity.HintText = "Hồ Chí Minh";
+            this.tbCity.HintText = "";
             this.tbCity.isPassword = false;
             this.tbCity.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbCity.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
@@ -236,7 +249,8 @@
             this.tbCity.Margin = new System.Windows.Forms.Padding(4);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(259, 44);
-            this.tbCity.TabIndex = 16;
+            this.tbCity.TabIndex = 3;
+            this.tbCity.Text = "Hồ Chí Minh";
             this.tbCity.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // cbSex
@@ -248,7 +262,7 @@
             this.cbSex.Location = new System.Drawing.Point(416, 83);
             this.cbSex.Name = "cbSex";
             this.cbSex.Size = new System.Drawing.Size(121, 27);
-            this.cbSex.TabIndex = 22;
+            this.cbSex.TabIndex = 1;
             // 
             // btnEdit
             // 
@@ -261,17 +275,58 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Primary = false;
             this.btnEdit.Size = new System.Drawing.Size(39, 36);
-            this.btnEdit.TabIndex = 21;
+            this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Visible = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // lbEmailError
+            // 
+            this.lbEmailError.AutoSize = true;
+            this.lbEmailError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbEmailError.ForeColor = System.Drawing.Color.Red;
+            this.lbEmailError.Location = new System.Drawing.Point(34, 361);
+            this.lbEmailError.Name = "lbEmailError";
+            this.lbEmailError.Size = new System.Drawing.Size(24, 13);
+            this.lbEmailError.TabIndex = 15;
+            this.lbEmailError.Text = "err";
+            this.lbEmailError.Visible = false;
+            // 
+            // lbNameError
+            // 
+            this.lbNameError.AutoSize = true;
+            this.lbNameError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbNameError.ForeColor = System.Drawing.Color.Red;
+            this.lbNameError.Location = new System.Drawing.Point(34, 114);
+            this.lbNameError.Name = "lbNameError";
+            this.lbNameError.Size = new System.Drawing.Size(24, 13);
+            this.lbNameError.TabIndex = 16;
+            this.lbNameError.Text = "err";
+            this.lbNameError.Visible = false;
+            // 
+            // lbPhoneError
+            // 
+            this.lbPhoneError.AutoSize = true;
+            this.lbPhoneError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbPhoneError.ForeColor = System.Drawing.Color.Red;
+            this.lbPhoneError.Location = new System.Drawing.Point(338, 361);
+            this.lbPhoneError.Name = "lbPhoneError";
+            this.lbPhoneError.Size = new System.Drawing.Size(24, 13);
+            this.lbPhoneError.TabIndex = 17;
+            this.lbPhoneError.Text = "err";
+            this.lbPhoneError.Visible = false;
+            // 
             // FrmNewCustomer
             // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 426);
+            this.Controls.Add(this.lbPhoneError);
+            this.Controls.Add(this.lbNameError);
+            this.Controls.Add(this.lbEmailError);
             this.Controls.Add(this.cbSex);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnCreate);
@@ -289,6 +344,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmNewCustomer";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin khách hàng";
             this.ResumeLayout(false);
@@ -311,5 +368,8 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbCity;
         private System.Windows.Forms.ComboBox cbSex;
         private MaterialSkin.Controls.MaterialFlatButton btnEdit;
+        private System.Windows.Forms.Label lbEmailError;
+        private System.Windows.Forms.Label lbNameError;
+        private System.Windows.Forms.Label lbPhoneError;
     }
 }

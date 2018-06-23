@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Contract;
-using DevExpress.XtraEditors;
 using DTO;
 using Services;
 
@@ -19,7 +12,7 @@ namespace UI
         private ICustomerService _customerInfo;
         private int flagMode;
         private Customer _customer;
-
+        
         public FrmNewCustomer()
         {
             InitializeComponent();
@@ -91,7 +84,8 @@ namespace UI
 
         private void InitComponentsForNewCustomer()
         {
-            InitComboBox();_customerInfo = new CustomerService(this);
+            InitComboBox();
+            _customerInfo = new CustomerService(this);
             cbSex.Text = "--Chọn--";
         }
 
@@ -105,13 +99,17 @@ namespace UI
                 return;
             }
 
+            if (lbEmailError.Visible || lbNameError.Visible || lbPhoneError.Visible)
+                return;
+
             Customer customer = new Customer();
             if (_customer != null)
                 customer.ID = _customer.ID;
             customer.Name = tbName.Text.Trim();
             customer.Address = tbDistrict.Text.Trim() + '-' + tbCity.Text.Trim();
             customer.Email = tbEmail.Text.Trim();
-            customer.Sex = cbSex.Text; customer.PhoneNum = tbPhoneNo.Text.Trim();
+            customer.Sex = cbSex.Text;
+            customer.PhoneNum = tbPhoneNo.Text.Trim();
 
 
             if (flagMode == 0)
@@ -169,6 +167,54 @@ namespace UI
             }
         }
 
+        private void tbName_Leave(object sender, EventArgs e)
+        {
+            ((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text =
+                HelperClass.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
+            if (!HelperClass.IsValidName(tbName.Text.Trim()))
+            {
+                lbNameError.Text = "Tên không hợp lệ!";
+                lbNameError.Visible = true;
+                tbName.Focus();
+            }
+        }
 
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            if (!HelperClass.IsValidEmail(tbEmail.Text.Trim()))
+            {
+                lbEmailError.Text = "Email không hợp lệ!";
+                lbEmailError.Visible = true;
+                tbEmail.Focus();
+            }
+        }
+
+        private void tbEmail_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbEmailError.Visible == true)
+                lbEmailError.Visible = false;
+        }
+
+        private void tbName_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbNameError.Visible == true)
+                lbNameError.Visible = false;
+        }
+
+        private void tbPhoneNo_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbPhoneError.Visible == true)
+                lbPhoneError.Visible = false;
+        }
+
+        private void tbPhoneNo_Leave(object sender, EventArgs e)
+        {
+            if (!HelperClass.IsValidPhoneNumber(tbPhoneNo.Text.Trim()))
+            {
+                lbPhoneError.Text = "Số điện thoại không hợp lệ!";
+                lbPhoneError.Visible = true;
+                tbPhoneNo.Focus();
+            }
+        }
     }
 }

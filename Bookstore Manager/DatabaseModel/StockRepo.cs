@@ -20,7 +20,7 @@ namespace Data
 
         private BackgroundWorker sqlWorker;
 
-        private const string receiptNotePath = "e:\\QuanLyNhaSach\\Data\\PhieuNhap\\";
+        private string receiptNotePath = Config.DataLocation +"PhieuNhap\\";
 
         private string _staffName;
 

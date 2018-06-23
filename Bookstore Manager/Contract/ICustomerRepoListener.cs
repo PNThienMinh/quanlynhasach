@@ -19,5 +19,9 @@ namespace Contract
 
         void OnUpdateCustomerSuccess();
 
+        void OnReceiveIndebtednessSuccessful();
+
+        void OnReceiveIndebtednessFailure(string msg);
+
     }
 }

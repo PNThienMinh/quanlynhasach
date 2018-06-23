@@ -202,14 +202,13 @@ namespace UI
         private void bbiContract_ItemClick(object sender, ItemClickEventArgs e)
         {
             bool editableFlag;
-            if (_user.Funtion.Equals("Quản lý"))
+            if (_user.IDFunc == 1)
                 editableFlag = true;
             else
                 editableFlag = false;
 
             FrmStockContractInformation frmStockContract = new FrmStockContractInformation(editableFlag);
             frmStockContract.ShowDialog();
-
         }
 
         private void ShowErrorDialog()

@@ -36,8 +36,10 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboard));
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.ssmLoading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.FrmWaiting), true, true);
             this.btnDeleteCustomer = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroupTables = new DevExpress.XtraBars.Navigation.TileBarGroup();
@@ -46,6 +48,7 @@
             this.stockTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.reportTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.staffTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.adminTileBarItem = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.bookstallNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -63,6 +66,8 @@
             this.btnDeleteBookInBill = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnBackToEdit = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnShowBillInfo = new Bunifu.Framework.UI.BunifuImageButton();
             this.gridLookUpBook = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -111,21 +116,23 @@
             this.lblStaff = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.customerNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.tlCustomer = new DevExpress.XtraTreeList.TreeList();
-            this.colCustomerName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colCustomerSex = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colCustomerAdd = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colCustomerEmail = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colCustomerPhoneNo = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colName1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colSex1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colAddress1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colEmail1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colPhoneNum1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colIndebtedness = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colCustomerDetail = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.btnDetailCustomer = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colReceive = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.btnReceive = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.colCustomerDetail = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.btnDetailCustomer = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.btnNewCustomer = new Bunifu.Framework.UI.BunifuImageButton();
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.tbSearchCustomer = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.stockNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -142,6 +149,7 @@
             this.btnBookDetail = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.btnImport = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel12 = new System.Windows.Forms.Panel();
             this.tbSearchBookInStock = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -188,8 +196,42 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbIndebtednessReport = new System.Windows.Forms.RadioButton();
             this.rbInventoryReport = new System.Windows.Forms.RadioButton();
-            this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.ssmLoading = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.WaitForm1), true, true);
+            this.adminNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.lbRevenue = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.lbNumBookSold = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.lbNumBookImport = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.lbNumBookInStock = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnUpdate = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnEdit = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.tbMaxIndebtedness = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.tbMinLastInventory = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.tbMaxInventory = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.tbMinImport = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
@@ -200,6 +242,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteBookInBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBackToEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnShowBillInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpBook.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpView)).BeginInit();
@@ -215,13 +258,14 @@
             this.panelStatus.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.customerNavigationPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tlCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDetailCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReceive)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNewCustomer)).BeginInit();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tlCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReceive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDetailCustomer)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel30.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNewCustomer)).BeginInit();
+            this.panel11.SuspendLayout();
             this.stockNavigationPage.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tlBooksInStock)).BeginInit();
@@ -247,7 +291,28 @@
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.adminNavigationPage.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel21.SuspendLayout();
+            this.panel29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel22.SuspendLayout();
+            this.panel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel20.SuspendLayout();
+            this.panel28.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // ssmLoading
+            // 
+            this.ssmLoading.ClosingDelay = 500;
             // 
             // btnDeleteCustomer
             // 
@@ -264,6 +329,10 @@
             this.tileBar.AllowSelectedItem = true;
             this.tileBar.AppearanceGroupText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.tileBar.AppearanceGroupText.Options.UseForeColor = true;
+            this.tileBar.AppearanceItem.Normal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tileBar.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBar.AppearanceItem.Pressed.BackColor = System.Drawing.Color.RoyalBlue;
+            this.tileBar.AppearanceItem.Pressed.Options.UseBackColor = true;
             this.tileBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.tileBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.tileBar.DropDownButtonWidth = 30;
@@ -274,7 +343,7 @@
             this.tileBar.ItemPadding = new System.Windows.Forms.Padding(8, 6, 12, 6);
             this.tileBar.Location = new System.Drawing.Point(0, 0);
             this.tileBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tileBar.MaxId = 7;
+            this.tileBar.MaxId = 9;
             this.tileBar.MaximumSize = new System.Drawing.Size(0, 110);
             this.tileBar.MinimumSize = new System.Drawing.Size(100, 110);
             this.tileBar.Name = "tileBar";
@@ -296,6 +365,7 @@
             this.tileBarGroupTables.Items.Add(this.stockTileBarItem);
             this.tileBarGroupTables.Items.Add(this.reportTileBarItem);
             this.tileBarGroupTables.Items.Add(this.staffTileBarItem);
+            this.tileBarGroupTables.Items.Add(this.adminTileBarItem);
             this.tileBarGroupTables.Name = "tileBarGroupTables";
             this.tileBarGroupTables.Text = "TABLES";
             // 
@@ -388,6 +458,21 @@
             this.staffTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.staffTileBarItem.Name = "staffTileBarItem";
             // 
+            // adminTileBarItem
+            // 
+            this.adminTileBarItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.adminTileBarItem.AppearanceItem.Normal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.adminTileBarItem.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.adminTileBarItem.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.adminTileBarItem.BorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Always;
+            this.adminTileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement6.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement6.Image")));
+            tileItemElement6.Text = "Quản trị";
+            this.adminTileBarItem.Elements.Add(tileItemElement6);
+            this.adminTileBarItem.Id = 8;
+            this.adminTileBarItem.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.adminTileBarItem.Name = "adminTileBarItem";
+            // 
             // navigationFrame
             // 
             this.navigationFrame.Controls.Add(this.bookstallNavigationPage);
@@ -395,7 +480,7 @@
             this.navigationFrame.Controls.Add(this.stockNavigationPage);
             this.navigationFrame.Controls.Add(this.staffNavigationPage);
             this.navigationFrame.Controls.Add(this.reportNavigationPage);
-            this.navigationFrame.Controls.Add(this.navigationPage2);
+            this.navigationFrame.Controls.Add(this.adminNavigationPage);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame.Location = new System.Drawing.Point(0, 110);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -406,7 +491,7 @@
             this.stockNavigationPage,
             this.reportNavigationPage,
             this.staffNavigationPage,
-            this.navigationPage2});
+            this.adminNavigationPage});
             this.navigationFrame.SelectedPage = this.bookstallNavigationPage;
             this.navigationFrame.Size = new System.Drawing.Size(1025, 451);
             this.navigationFrame.TabIndex = 0;
@@ -428,9 +513,9 @@
             // 
             this.panel7.Controls.Add(this.tlBookInBill);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 53);
+            this.panel7.Location = new System.Drawing.Point(0, 92);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(649, 398);
+            this.panel7.Size = new System.Drawing.Size(649, 359);
             this.panel7.TabIndex = 2;
             // 
             // tlBookInBill
@@ -456,7 +541,7 @@
             this.repositoryItemSpinEdit1,
             this.btnDeleteBookInBill});
             this.tlBookInBill.RowHeight = 30;
-            this.tlBookInBill.Size = new System.Drawing.Size(649, 398);
+            this.tlBookInBill.Size = new System.Drawing.Size(649, 359);
             this.tlBookInBill.TabIndex = 0;
             // 
             // colBookNameInBill
@@ -465,6 +550,7 @@
             this.colBookNameInBill.FieldName = "Name";
             this.colBookNameInBill.Name = "colBookNameInBill";
             this.colBookNameInBill.OptionsColumn.AllowEdit = false;
+            this.colBookNameInBill.OptionsColumn.AllowSize = false;
             this.colBookNameInBill.OptionsColumn.ReadOnly = true;
             this.colBookNameInBill.Visible = true;
             this.colBookNameInBill.VisibleIndex = 1;
@@ -490,8 +576,8 @@
             this.colCost1.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colCost1.Name = "colCost1";
             this.colCost1.OptionsColumn.AllowEdit = false;
+            this.colCost1.OptionsColumn.AllowSize = false;
             this.colCost1.OptionsColumn.ReadOnly = true;
-            this.colCost1.SortOrder = System.Windows.Forms.SortOrder.Ascending;
             this.colCost1.Visible = true;
             this.colCost1.VisibleIndex = 3;
             this.colCost1.Width = 106;
@@ -502,6 +588,7 @@
             this.colAuthor1.FieldName = "Author";
             this.colAuthor1.Name = "colAuthor1";
             this.colAuthor1.OptionsColumn.AllowEdit = false;
+            this.colAuthor1.OptionsColumn.AllowSize = false;
             this.colAuthor1.OptionsColumn.ReadOnly = true;
             this.colAuthor1.Visible = true;
             this.colAuthor1.VisibleIndex = 2;
@@ -519,6 +606,7 @@
             this.colIdentifier1.FieldName = "Identifier";
             this.colIdentifier1.Name = "colIdentifier1";
             this.colIdentifier1.OptionsColumn.AllowEdit = false;
+            this.colIdentifier1.OptionsColumn.AllowSize = false;
             this.colIdentifier1.OptionsColumn.ReadOnly = true;
             this.colIdentifier1.Visible = true;
             this.colIdentifier1.VisibleIndex = 0;
@@ -530,6 +618,8 @@
             this.colCount.ColumnEdit = this.repositoryItemSpinEdit1;
             this.colCount.FieldName = "Count";
             this.colCount.Name = "colCount";
+            this.colCount.OptionsColumn.AllowSize = false;
+            this.colCount.SortOrder = System.Windows.Forms.SortOrder.Ascending;
             this.colCount.SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Sum;
             this.colCount.SummaryFooterStrFormat = "Số lượng: {00}";
             this.colCount.Visible = true;
@@ -577,13 +667,42 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.btnBackToEdit);
             this.panel6.Controls.Add(this.btnShowBillInfo);
             this.panel6.Controls.Add(this.gridLookUpBook);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(649, 53);
+            this.panel6.Size = new System.Drawing.Size(649, 92);
             this.panel6.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(46, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(67, 17);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Tìm sách";
+            // 
+            // btnBackToEdit
+            // 
+            this.btnBackToEdit.BackColor = System.Drawing.Color.White;
+            this.btnBackToEdit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnBackToEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnBackToEdit.Image")));
+            this.btnBackToEdit.ImageActive = null;
+            this.btnBackToEdit.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnBackToEdit.InitialImage")));
+            this.btnBackToEdit.Location = new System.Drawing.Point(567, 0);
+            this.btnBackToEdit.Name = "btnBackToEdit";
+            this.btnBackToEdit.Size = new System.Drawing.Size(41, 92);
+            this.btnBackToEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnBackToEdit.TabIndex = 6;
+            this.btnBackToEdit.TabStop = false;
+            this.btnBackToEdit.Visible = false;
+            this.btnBackToEdit.Zoom = 10;
+            this.btnBackToEdit.Click += new System.EventHandler(this.btnBackToEdit_Click);
             // 
             // btnShowBillInfo
             // 
@@ -594,7 +713,7 @@
             this.btnShowBillInfo.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnShowBillInfo.InitialImage")));
             this.btnShowBillInfo.Location = new System.Drawing.Point(608, 0);
             this.btnShowBillInfo.Name = "btnShowBillInfo";
-            this.btnShowBillInfo.Size = new System.Drawing.Size(41, 53);
+            this.btnShowBillInfo.Size = new System.Drawing.Size(41, 92);
             this.btnShowBillInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnShowBillInfo.TabIndex = 5;
             this.btnShowBillInfo.TabStop = false;
@@ -604,7 +723,7 @@
             // gridLookUpBook
             // 
             this.gridLookUpBook.EditValue = "Tìm kiếm";
-            this.gridLookUpBook.Location = new System.Drawing.Point(48, 13);
+            this.gridLookUpBook.Location = new System.Drawing.Point(46, 38);
             this.gridLookUpBook.Name = "gridLookUpBook";
             this.gridLookUpBook.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.False;
             this.gridLookUpBook.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1114,89 +1233,101 @@
             // customerNavigationPage
             // 
             this.customerNavigationPage.Caption = "customerNavigationPage";
-            this.customerNavigationPage.Controls.Add(this.tlCustomer);
+            this.customerNavigationPage.Controls.Add(this.panel10);
             this.customerNavigationPage.Controls.Add(this.panel1);
             this.customerNavigationPage.Name = "customerNavigationPage";
             this.customerNavigationPage.Size = new System.Drawing.Size(1025, 451);
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.tlCustomer);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 48);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1025, 403);
+            this.panel10.TabIndex = 1;
+            // 
             // tlCustomer
             // 
             this.tlCustomer.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colCustomerName,
-            this.colCustomerSex,
-            this.colCustomerAdd,
-            this.colCustomerEmail,
-            this.colCustomerPhoneNo,
+            this.colName1,
+            this.colSex1,
+            this.colAddress1,
+            this.colEmail1,
+            this.colPhoneNum1,
             this.colIndebtedness,
-            this.colCustomerDetail,
-            this.colReceive});
-            this.tlCustomer.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.colReceive,
+            this.colCustomerDetail});
+            this.tlCustomer.Cursor = System.Windows.Forms.Cursors.Default;
             this.tlCustomer.DataSource = this.customerBindingSource;
             this.tlCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlCustomer.Location = new System.Drawing.Point(0, 51);
+            this.tlCustomer.Location = new System.Drawing.Point(0, 0);
             this.tlCustomer.Name = "tlCustomer";
+            this.tlCustomer.OptionsBehavior.PopulateServiceColumns = true;
+            this.tlCustomer.OptionsNavigation.AutoMoveRowFocus = true;
+            this.tlCustomer.OptionsNavigation.UseTabKey = true;
             this.tlCustomer.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnDetailCustomer,
-            this.btnReceive});
+            this.btnReceive,
+            this.btnDetailCustomer});
             this.tlCustomer.RowHeight = 30;
-            this.tlCustomer.Size = new System.Drawing.Size(1025, 400);
-            this.tlCustomer.TabIndex = 1;
+            this.tlCustomer.Size = new System.Drawing.Size(1025, 403);
+            this.tlCustomer.TabIndex = 0;
             this.tlCustomer.VisibleChanged += new System.EventHandler(this.LoadCustomers);
             // 
-            // colCustomerName
+            // colName1
             // 
-            this.colCustomerName.Caption = "Họ và tên";
-            this.colCustomerName.FieldName = "Name";
-            this.colCustomerName.Name = "colCustomerName";
-            this.colCustomerName.OptionsColumn.AllowEdit = false;
-            this.colCustomerName.OptionsColumn.ReadOnly = true;
-            this.colCustomerName.Visible = true;
-            this.colCustomerName.VisibleIndex = 0;
-            this.colCustomerName.Width = 235;
+            this.colName1.Caption = "Tên khách hàng";
+            this.colName1.FieldName = "Name";
+            this.colName1.Name = "colName1";
+            this.colName1.OptionsColumn.AllowEdit = false;
+            this.colName1.OptionsColumn.ReadOnly = true;
+            this.colName1.Visible = true;
+            this.colName1.VisibleIndex = 0;
+            this.colName1.Width = 231;
             // 
-            // colCustomerSex
+            // colSex1
             // 
-            this.colCustomerSex.Caption = "Giới tính";
-            this.colCustomerSex.FieldName = "Sex";
-            this.colCustomerSex.Name = "colCustomerSex";
-            this.colCustomerSex.OptionsColumn.AllowEdit = false;
-            this.colCustomerSex.OptionsColumn.ReadOnly = true;
-            this.colCustomerSex.Visible = true;
-            this.colCustomerSex.VisibleIndex = 1;
-            this.colCustomerSex.Width = 110;
+            this.colSex1.Caption = "Giới tính";
+            this.colSex1.FieldName = "Sex";
+            this.colSex1.Name = "colSex1";
+            this.colSex1.OptionsColumn.AllowEdit = false;
+            this.colSex1.OptionsColumn.ReadOnly = true;
+            this.colSex1.Visible = true;
+            this.colSex1.VisibleIndex = 1;
+            this.colSex1.Width = 74;
             // 
-            // colCustomerAdd
+            // colAddress1
             // 
-            this.colCustomerAdd.Caption = "Địa chỉ";
-            this.colCustomerAdd.FieldName = "Address";
-            this.colCustomerAdd.Name = "colCustomerAdd";
-            this.colCustomerAdd.OptionsColumn.AllowEdit = false;
-            this.colCustomerAdd.OptionsColumn.ReadOnly = true;
-            this.colCustomerAdd.Visible = true;
-            this.colCustomerAdd.VisibleIndex = 2;
-            this.colCustomerAdd.Width = 175;
+            this.colAddress1.Caption = "Địa Chỉ";
+            this.colAddress1.FieldName = "Address";
+            this.colAddress1.Name = "colAddress1";
+            this.colAddress1.OptionsColumn.AllowEdit = false;
+            this.colAddress1.OptionsColumn.ReadOnly = true;
+            this.colAddress1.Visible = true;
+            this.colAddress1.VisibleIndex = 2;
+            this.colAddress1.Width = 145;
             // 
-            // colCustomerEmail
+            // colEmail1
             // 
-            this.colCustomerEmail.Caption = "Email";
-            this.colCustomerEmail.FieldName = "Email";
-            this.colCustomerEmail.Name = "colCustomerEmail";
-            this.colCustomerEmail.OptionsColumn.AllowEdit = false;
-            this.colCustomerEmail.OptionsColumn.ReadOnly = true;
-            this.colCustomerEmail.Visible = true;
-            this.colCustomerEmail.VisibleIndex = 4;
-            this.colCustomerEmail.Width = 156;
+            this.colEmail1.Caption = "Email";
+            this.colEmail1.FieldName = "Email";
+            this.colEmail1.Name = "colEmail1";
+            this.colEmail1.OptionsColumn.AllowEdit = false;
+            this.colEmail1.OptionsColumn.ReadOnly = true;
+            this.colEmail1.Visible = true;
+            this.colEmail1.VisibleIndex = 3;
+            this.colEmail1.Width = 195;
             // 
-            // colCustomerPhoneNo
+            // colPhoneNum1
             // 
-            this.colCustomerPhoneNo.Caption = "Số điện thoại";
-            this.colCustomerPhoneNo.FieldName = "PhoneNum";
-            this.colCustomerPhoneNo.Name = "colCustomerPhoneNo";
-            this.colCustomerPhoneNo.OptionsColumn.AllowEdit = false;
-            this.colCustomerPhoneNo.OptionsColumn.ReadOnly = true;
-            this.colCustomerPhoneNo.Visible = true;
-            this.colCustomerPhoneNo.VisibleIndex = 3;
-            this.colCustomerPhoneNo.Width = 145;
+            this.colPhoneNum1.Caption = "Số điện thoại";
+            this.colPhoneNum1.FieldName = "PhoneNum";
+            this.colPhoneNum1.Name = "colPhoneNum1";
+            this.colPhoneNum1.OptionsColumn.AllowEdit = false;
+            this.colPhoneNum1.OptionsColumn.ReadOnly = true;
+            this.colPhoneNum1.Visible = true;
+            this.colPhoneNum1.VisibleIndex = 4;
+            this.colPhoneNum1.Width = 154;
             // 
             // colIndebtedness
             // 
@@ -1207,17 +1338,43 @@
             this.colIndebtedness.OptionsColumn.ReadOnly = true;
             this.colIndebtedness.Visible = true;
             this.colIndebtedness.VisibleIndex = 5;
-            this.colIndebtedness.Width = 80;
+            this.colIndebtedness.Width = 107;
+            // 
+            // colReceive
+            // 
+            this.colReceive.ColumnEdit = this.btnReceive;
+            this.colReceive.Name = "colReceive";
+            this.colReceive.OptionsColumn.AllowMove = false;
+            this.colReceive.OptionsColumn.AllowMoveToCustomizationForm = false;
+            this.colReceive.OptionsColumn.AllowSize = false;
+            this.colReceive.OptionsColumn.FixedWidth = true;
+            this.colReceive.ToolTip = "Thu tiền nợ";
+            this.colReceive.Visible = true;
+            this.colReceive.VisibleIndex = 6;
+            this.colReceive.Width = 49;
+            // 
+            // btnReceive
+            // 
+            this.btnReceive.AutoHeight = false;
+            this.btnReceive.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnReceive.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.btnReceive.Name = "btnReceive";
+            this.btnReceive.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
             // 
             // colCustomerDetail
             // 
             this.colCustomerDetail.ColumnEdit = this.btnDetailCustomer;
-            this.colCustomerDetail.Fixed = DevExpress.XtraTreeList.Columns.FixedStyle.Right;
             this.colCustomerDetail.Name = "colCustomerDetail";
+            this.colCustomerDetail.OptionsColumn.AllowMove = false;
+            this.colCustomerDetail.OptionsColumn.AllowMoveToCustomizationForm = false;
+            this.colCustomerDetail.OptionsColumn.AllowSize = false;
             this.colCustomerDetail.OptionsColumn.FixedWidth = true;
+            this.colCustomerDetail.SortOrder = System.Windows.Forms.SortOrder.Descending;
+            this.colCustomerDetail.ToolTip = "Chi tiết";
             this.colCustomerDetail.Visible = true;
             this.colCustomerDetail.VisibleIndex = 7;
-            this.colCustomerDetail.Width = 53;
+            this.colCustomerDetail.Width = 52;
             // 
             // btnDetailCustomer
             // 
@@ -1226,67 +1383,67 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.btnDetailCustomer.Name = "btnDetailCustomer";
             this.btnDetailCustomer.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnDetailCustomer.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDetailCustomer_ButtonClick);
-            // 
-            // colReceive
-            // 
-            this.colReceive.ColumnEdit = this.btnReceive;
-            this.colReceive.Name = "colReceive";
-            this.colReceive.OptionsColumn.FixedWidth = true;
-            this.colReceive.Visible = true;
-            this.colReceive.VisibleIndex = 6;
-            this.colReceive.Width = 53;
-            // 
-            // btnReceive
-            // 
-            this.btnReceive.AutoHeight = false;
-            this.btnReceive.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnReceive.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Thu tiền nợ", null, null, true)});
-            this.btnReceive.Name = "btnReceive";
-            this.btnReceive.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
+            this.btnDetailCustomer.Click += new System.EventHandler(this.btnDetailCustomer_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel30);
             this.panel1.Controls.Add(this.panel11);
-            this.panel1.Controls.Add(this.panel10);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1025, 51);
+            this.panel1.Size = new System.Drawing.Size(1025, 48);
             this.panel1.TabIndex = 0;
             // 
-            // panel11
+            // panel30
             // 
-            this.panel11.Controls.Add(this.btnNewCustomer);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(957, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(68, 51);
-            this.panel11.TabIndex = 6;
+            this.panel30.BackColor = System.Drawing.Color.Transparent;
+            this.panel30.Controls.Add(this.materialLabel4);
+            this.panel30.Controls.Add(this.btnNewCustomer);
+            this.panel30.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel30.Location = new System.Drawing.Point(811, 0);
+            this.panel30.Name = "panel30";
+            this.panel30.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.panel30.Size = new System.Drawing.Size(214, 48);
+            this.panel30.TabIndex = 1;
+            this.panel30.Click += new System.EventHandler(this.btnNewCustomer_Click);
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(81, 16);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(126, 18);
+            this.materialLabel4.TabIndex = 1;
+            this.materialLabel4.Text = "Thêm khách hàng";
+            this.materialLabel4.Click += new System.EventHandler(this.btnNewCustomer_Click);
             // 
             // btnNewCustomer
             // 
-            this.btnNewCustomer.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnNewCustomer.BackColor = System.Drawing.Color.Transparent;
             this.btnNewCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnNewCustomer.Image")));
             this.btnNewCustomer.ImageActive = null;
-            this.btnNewCustomer.Location = new System.Drawing.Point(13, 4);
+            this.btnNewCustomer.Location = new System.Drawing.Point(18, 5);
             this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(47, 43);
+            this.btnNewCustomer.Size = new System.Drawing.Size(61, 39);
             this.btnNewCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnNewCustomer.TabIndex = 5;
+            this.btnNewCustomer.TabIndex = 0;
             this.btnNewCustomer.TabStop = false;
             this.btnNewCustomer.Zoom = 10;
             this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
             // 
-            // panel10
+            // panel11
             // 
-            this.panel10.Controls.Add(this.tbSearchCustomer);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(451, 51);
-            this.panel10.TabIndex = 4;
+            this.panel11.Controls.Add(this.tbSearchCustomer);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(423, 48);
+            this.panel11.TabIndex = 0;
             // 
             // tbSearchCustomer
             // 
@@ -1512,12 +1669,28 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.materialLabel5);
             this.panel13.Controls.Add(this.btnImport);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel13.Location = new System.Drawing.Point(961, 0);
+            this.panel13.Location = new System.Drawing.Point(811, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(64, 48);
+            this.panel13.Size = new System.Drawing.Size(214, 48);
             this.panel13.TabIndex = 4;
+            this.panel13.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(74, 16);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(79, 18);
+            this.materialLabel5.TabIndex = 6;
+            this.materialLabel5.Text = "Nhập sách";
+            this.materialLabel5.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnImport
             // 
@@ -2052,15 +2225,478 @@
             this.rbInventoryReport.UseVisualStyleBackColor = true;
             this.rbInventoryReport.CheckedChanged += new System.EventHandler(this.rbInventoryReport_CheckedChanged);
             // 
-            // navigationPage2
+            // adminNavigationPage
             // 
-            this.navigationPage2.Caption = "navigationPage2";
-            this.navigationPage2.Name = "navigationPage2";
-            this.navigationPage2.Size = new System.Drawing.Size(1025, 451);
+            this.adminNavigationPage.Caption = "adminNavigationPage";
+            this.adminNavigationPage.Controls.Add(this.panel18);
+            this.adminNavigationPage.Controls.Add(this.groupBox4);
+            this.adminNavigationPage.Name = "adminNavigationPage";
+            this.adminNavigationPage.Size = new System.Drawing.Size(1025, 451);
+            this.adminNavigationPage.VisibleChanged += new System.EventHandler(this.adminNavigationPage_VisibleChanged);
             // 
-            // ssmLoading
+            // panel18
             // 
-            this.ssmLoading.ClosingDelay = 500;
+            this.panel18.Controls.Add(this.panel25);
+            this.panel18.Controls.Add(this.panel23);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(606, 451);
+            this.panel18.TabIndex = 1;
+            // 
+            // panel25
+            // 
+            this.panel25.AutoScroll = true;
+            this.panel25.AutoSize = true;
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel25.Location = new System.Drawing.Point(0, 0);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(0, 451);
+            this.panel25.TabIndex = 3;
+            // 
+            // panel23
+            // 
+            this.panel23.AutoSize = true;
+            this.panel23.Controls.Add(this.panel24);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel23.Location = new System.Drawing.Point(0, 0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(606, 451);
+            this.panel23.TabIndex = 1;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.panel19);
+            this.panel24.Controls.Add(this.panel21);
+            this.panel24.Controls.Add(this.panel22);
+            this.panel24.Controls.Add(this.panel20);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(606, 451);
+            this.panel24.TabIndex = 1;
+            // 
+            // panel19
+            // 
+            this.panel19.AutoSize = true;
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(195)))), ((int)(((byte)(75)))));
+            this.panel19.Controls.Add(this.panel26);
+            this.panel19.Controls.Add(this.pictureBox1);
+            this.panel19.Controls.Add(this.label17);
+            this.panel19.Location = new System.Drawing.Point(11, 300);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(270, 87);
+            this.panel19.TabIndex = 0;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.lbRevenue);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel26.Location = new System.Drawing.Point(0, 59);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(270, 28);
+            this.panel26.TabIndex = 2;
+            // 
+            // lbRevenue
+            // 
+            this.lbRevenue.AutoSize = true;
+            this.lbRevenue.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRevenue.ForeColor = System.Drawing.Color.White;
+            this.lbRevenue.Location = new System.Drawing.Point(219, 0);
+            this.lbRevenue.Name = "lbRevenue";
+            this.lbRevenue.Size = new System.Drawing.Size(51, 25);
+            this.lbRevenue.TabIndex = 1;
+            this.lbRevenue.Text = "500";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 42);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(124, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(132, 19);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Doanh thu tháng này";
+            // 
+            // panel21
+            // 
+            this.panel21.AutoScroll = true;
+            this.panel21.AutoSize = true;
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(152)))), ((int)(((byte)(226)))));
+            this.panel21.Controls.Add(this.panel29);
+            this.panel21.Controls.Add(this.label11);
+            this.panel21.Controls.Add(this.pictureBox3);
+            this.panel21.Location = new System.Drawing.Point(330, 300);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(270, 87);
+            this.panel21.TabIndex = 0;
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.lbNumBookSold);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel29.Location = new System.Drawing.Point(0, 59);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(270, 28);
+            this.panel29.TabIndex = 4;
+            // 
+            // lbNumBookSold
+            // 
+            this.lbNumBookSold.AutoSize = true;
+            this.lbNumBookSold.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbNumBookSold.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumBookSold.ForeColor = System.Drawing.Color.White;
+            this.lbNumBookSold.Location = new System.Drawing.Point(219, 0);
+            this.lbNumBookSold.Name = "lbNumBookSold";
+            this.lbNumBookSold.Size = new System.Drawing.Size(51, 25);
+            this.lbNumBookSold.TabIndex = 5;
+            this.lbNumBookSold.Text = "500";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(83, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(180, 19);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Số sách bán được tháng này";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(15, 11);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 42);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // panel22
+            // 
+            this.panel22.AutoSize = true;
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.panel22.Controls.Add(this.panel27);
+            this.panel22.Controls.Add(this.pictureBox4);
+            this.panel22.Controls.Add(this.label15);
+            this.panel22.Location = new System.Drawing.Point(11, 75);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(270, 87);
+            this.panel22.TabIndex = 0;
+            // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.lbNumBookImport);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel27.Location = new System.Drawing.Point(0, 59);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(270, 28);
+            this.panel27.TabIndex = 3;
+            // 
+            // lbNumBookImport
+            // 
+            this.lbNumBookImport.AutoSize = true;
+            this.lbNumBookImport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbNumBookImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumBookImport.ForeColor = System.Drawing.Color.White;
+            this.lbNumBookImport.Location = new System.Drawing.Point(219, 0);
+            this.lbNumBookImport.Name = "lbNumBookImport";
+            this.lbNumBookImport.Size = new System.Drawing.Size(51, 25);
+            this.lbNumBookImport.TabIndex = 1;
+            this.lbNumBookImport.Text = "500";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(12, 21);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(40, 42);
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(83, 12);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(177, 19);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Số sách nhập vào tháng này";
+            // 
+            // panel20
+            // 
+            this.panel20.AutoSize = true;
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(77)))), ((int)(((byte)(81)))));
+            this.panel20.Controls.Add(this.panel28);
+            this.panel20.Controls.Add(this.pictureBox2);
+            this.panel20.Controls.Add(this.label13);
+            this.panel20.Location = new System.Drawing.Point(330, 75);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(270, 87);
+            this.panel20.TabIndex = 0;
+            // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.lbNumBookInStock);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel28.Location = new System.Drawing.Point(0, 59);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(270, 28);
+            this.panel28.TabIndex = 3;
+            // 
+            // lbNumBookInStock
+            // 
+            this.lbNumBookInStock.AutoSize = true;
+            this.lbNumBookInStock.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbNumBookInStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumBookInStock.ForeColor = System.Drawing.Color.White;
+            this.lbNumBookInStock.Location = new System.Drawing.Point(219, 0);
+            this.lbNumBookInStock.Name = "lbNumBookInStock";
+            this.lbNumBookInStock.Size = new System.Drawing.Size(51, 25);
+            this.lbNumBookInStock.TabIndex = 1;
+            this.lbNumBookInStock.Text = "500";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(15, 23);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 42);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(111, 12);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(145, 19);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Số sách còn trong kho";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox4.Controls.Add(this.btnUpdate);
+            this.groupBox4.Controls.Add(this.btnEdit);
+            this.groupBox4.Controls.Add(this.materialLabel3);
+            this.groupBox4.Controls.Add(this.materialLabel2);
+            this.groupBox4.Controls.Add(this.materialLabel1);
+            this.groupBox4.Controls.Add(this.materialLabel6);
+            this.groupBox4.Controls.Add(this.tbMaxIndebtedness);
+            this.groupBox4.Controls.Add(this.tbMinLastInventory);
+            this.groupBox4.Controls.Add(this.tbMaxInventory);
+            this.groupBox4.Controls.Add(this.tbMinImport);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(606, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(419, 451);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Quy định nhà sách";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.AutoSize = true;
+            this.btnUpdate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnUpdate.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUpdate.Depth = 0;
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdate.Location = new System.Drawing.Point(327, 400);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Primary = false;
+            this.btnUpdate.Size = new System.Drawing.Size(79, 36);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.AutoSize = true;
+            this.btnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEdit.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEdit.Depth = 0;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnEdit.Location = new System.Drawing.Point(245, 400);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Primary = false;
+            this.btnEdit.Size = new System.Drawing.Size(39, 36);
+            this.btnEdit.TabIndex = 76;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(17, 318);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(160, 18);
+            this.materialLabel3.TabIndex = 67;
+            this.materialLabel3.Text = "Số tiền nợ tối đa (VND)";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(17, 238);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(175, 18);
+            this.materialLabel2.TabIndex = 67;
+            this.materialLabel2.Text = "Số lượng tồn sau tối thiểu";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(17, 158);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(132, 18);
+            this.materialLabel1.TabIndex = 67;
+            this.materialLabel1.Text = "Số lượng tồn tối đa";
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(17, 83);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(146, 18);
+            this.materialLabel6.TabIndex = 67;
+            this.materialLabel6.Text = "Số lượng nhập ít nhất";
+            // 
+            // tbMaxIndebtedness
+            // 
+            this.tbMaxIndebtedness.BackColor = System.Drawing.Color.White;
+            this.tbMaxIndebtedness.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbMaxIndebtedness.Enabled = false;
+            this.tbMaxIndebtedness.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaxIndebtedness.ForeColor = System.Drawing.Color.Black;
+            this.tbMaxIndebtedness.HintForeColor = System.Drawing.Color.Transparent;
+            this.tbMaxIndebtedness.HintText = "";
+            this.tbMaxIndebtedness.isPassword = false;
+            this.tbMaxIndebtedness.LineFocusedColor = System.Drawing.Color.Gray;
+            this.tbMaxIndebtedness.LineIdleColor = System.Drawing.Color.White;
+            this.tbMaxIndebtedness.LineMouseHoverColor = System.Drawing.Color.Gray;
+            this.tbMaxIndebtedness.LineThickness = 2;
+            this.tbMaxIndebtedness.Location = new System.Drawing.Point(208, 293);
+            this.tbMaxIndebtedness.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMaxIndebtedness.Name = "tbMaxIndebtedness";
+            this.tbMaxIndebtedness.Size = new System.Drawing.Size(198, 44);
+            this.tbMaxIndebtedness.TabIndex = 3;
+            this.tbMaxIndebtedness.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbMaxIndebtedness.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbValue_KeyPress);
+            // 
+            // tbMinLastInventory
+            // 
+            this.tbMinLastInventory.BackColor = System.Drawing.Color.White;
+            this.tbMinLastInventory.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbMinLastInventory.Enabled = false;
+            this.tbMinLastInventory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMinLastInventory.ForeColor = System.Drawing.Color.Black;
+            this.tbMinLastInventory.HintForeColor = System.Drawing.Color.Transparent;
+            this.tbMinLastInventory.HintText = "";
+            this.tbMinLastInventory.isPassword = false;
+            this.tbMinLastInventory.LineFocusedColor = System.Drawing.Color.Gray;
+            this.tbMinLastInventory.LineIdleColor = System.Drawing.Color.White;
+            this.tbMinLastInventory.LineMouseHoverColor = System.Drawing.Color.Gray;
+            this.tbMinLastInventory.LineThickness = 2;
+            this.tbMinLastInventory.Location = new System.Drawing.Point(208, 213);
+            this.tbMinLastInventory.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMinLastInventory.Name = "tbMinLastInventory";
+            this.tbMinLastInventory.Size = new System.Drawing.Size(198, 44);
+            this.tbMinLastInventory.TabIndex = 2;
+            this.tbMinLastInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbMinLastInventory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbValue_KeyPress);
+            // 
+            // tbMaxInventory
+            // 
+            this.tbMaxInventory.BackColor = System.Drawing.Color.White;
+            this.tbMaxInventory.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbMaxInventory.Enabled = false;
+            this.tbMaxInventory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaxInventory.ForeColor = System.Drawing.Color.Black;
+            this.tbMaxInventory.HintForeColor = System.Drawing.Color.Transparent;
+            this.tbMaxInventory.HintText = "";
+            this.tbMaxInventory.isPassword = false;
+            this.tbMaxInventory.LineFocusedColor = System.Drawing.Color.Gray;
+            this.tbMaxInventory.LineIdleColor = System.Drawing.Color.White;
+            this.tbMaxInventory.LineMouseHoverColor = System.Drawing.Color.Gray;
+            this.tbMaxInventory.LineThickness = 2;
+            this.tbMaxInventory.Location = new System.Drawing.Point(208, 133);
+            this.tbMaxInventory.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMaxInventory.Name = "tbMaxInventory";
+            this.tbMaxInventory.Size = new System.Drawing.Size(198, 44);
+            this.tbMaxInventory.TabIndex = 1;
+            this.tbMaxInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbMaxInventory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbValue_KeyPress);
+            // 
+            // tbMinImport
+            // 
+            this.tbMinImport.BackColor = System.Drawing.Color.White;
+            this.tbMinImport.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbMinImport.Enabled = false;
+            this.tbMinImport.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMinImport.ForeColor = System.Drawing.Color.Black;
+            this.tbMinImport.HintForeColor = System.Drawing.Color.Transparent;
+            this.tbMinImport.HintText = "";
+            this.tbMinImport.isPassword = false;
+            this.tbMinImport.LineFocusedColor = System.Drawing.Color.Gray;
+            this.tbMinImport.LineIdleColor = System.Drawing.Color.White;
+            this.tbMinImport.LineMouseHoverColor = System.Drawing.Color.Gray;
+            this.tbMinImport.LineThickness = 2;
+            this.tbMinImport.Location = new System.Drawing.Point(208, 58);
+            this.tbMinImport.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMinImport.Name = "tbMinImport";
+            this.tbMinImport.Size = new System.Drawing.Size(198, 44);
+            this.tbMinImport.TabIndex = 0;
+            this.tbMinImport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbMinImport.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbValue_KeyPress);
             // 
             // FrmDashboard
             // 
@@ -2072,8 +2708,10 @@
             this.Controls.Add(this.navigationFrame);
             this.Controls.Add(this.tileBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lý nhà sách";
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).EndInit();
             this.navigationFrame.ResumeLayout(false);
@@ -2084,6 +2722,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteBookInBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBackToEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnShowBillInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpBook.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpView)).EndInit();
@@ -2103,19 +2743,22 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.customerNavigationPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tlCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDetailCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReceive)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnNewCustomer)).EndInit();
             this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tlCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReceive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDetailCustomer)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
+            this.panel30.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNewCustomer)).EndInit();
+            this.panel11.ResumeLayout(false);
             this.stockNavigationPage.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlBooksInStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBookDetail)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImport)).EndInit();
             this.panel12.ResumeLayout(false);
             this.staffNavigationPage.ResumeLayout(false);
@@ -2138,6 +2781,34 @@
             this.panel16.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.adminNavigationPage.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel28.ResumeLayout(false);
+            this.panel28.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2166,24 +2837,12 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colIdentifier;
         private System.Windows.Forms.BindingSource bookBindingSource;
         private DevExpress.XtraBars.Navigation.TileBarItem reportTileBarItem;
-        private DevExpress.XtraSplashScreen.SplashScreenManager ssmLoading;
         private DevExpress.XtraBars.Navigation.NavigationPage reportNavigationPage;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colInventory;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colInfo;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnBookDetail;
-        private DevExpress.XtraTreeList.TreeList tlCustomer;
-        private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colCustomerName;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colCustomerSex;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colCustomerAdd;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colCustomerEmail;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colCustomerPhoneNo;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colIndebtedness;
         private System.Windows.Forms.BindingSource customerBindingSource;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colCustomerDetail;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDetailCustomer;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbSearchBookInStock;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox tbSearchCustomer;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
@@ -2255,7 +2914,7 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteBookInBill;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
+        private DevExpress.XtraBars.Navigation.NavigationPage adminNavigationPage;
         private System.Windows.Forms.DateTimePicker datePickerReport;
         private System.Windows.Forms.BindingSource indebtednessReportBindingSource;
         private System.Windows.Forms.BindingSource inventoryReportBindingSource;
@@ -2281,9 +2940,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private Bunifu.Framework.UI.BunifuImageButton btnShowBillInfo;
-        private Bunifu.Framework.UI.BunifuImageButton btnNewCustomer;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel13;
         private Bunifu.Framework.UI.BunifuImageButton btnImport;
         private System.Windows.Forms.Panel panel12;
@@ -2294,7 +2950,63 @@
         private MaterialSkin.Controls.MaterialFlatButton btnShowReport;
         private System.Windows.Forms.Panel panel16;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteCustomer;
+        private DevExpress.XtraBars.Navigation.TileBarItem adminTileBarItem;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbMaxIndebtedness;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbMinLastInventory;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbMaxInventory;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbMinImport;
+        private MaterialSkin.Controls.MaterialFlatButton btnUpdate;
+        private MaterialSkin.Controls.MaterialFlatButton btnEdit;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbNumBookInStock;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbNumBookImport;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbRevenue;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.Label lbNumBookSold;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.Panel panel28;
+        private Bunifu.Framework.UI.BunifuImageButton btnBackToEdit;
+        private System.Windows.Forms.Label label12;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbSearchCustomer;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel11;
+        private DevExpress.XtraTreeList.TreeList tlCustomer;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colName1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colSex1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colAddress1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colEmail1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colPhoneNum1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colIndebtedness;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colReceive;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnReceive;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colCustomerDetail;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDetailCustomer;
+        private System.Windows.Forms.Panel panel30;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private Bunifu.Framework.UI.BunifuImageButton btnNewCustomer;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private DevExpress.XtraSplashScreen.SplashScreenManager ssmLoading;
     }
 }

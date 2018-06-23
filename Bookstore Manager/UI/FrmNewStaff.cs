@@ -91,6 +91,10 @@ namespace UI
 
         private void SubmitUserToDatabase()
         {
+
+            if (lbNameError.Visible || lbEmailError.Visible || lbPhoneError.Visible)
+                return;
+
             User user = new User();
             user.Name = tbName.Text.Trim();
             user.Sex = cbSex.Text.Trim();
@@ -116,6 +120,56 @@ namespace UI
                 UserIsExists();
             else
                 ValidateUser(tbUsername.Text);
+        }
+
+        private void tbName_Leave(object sender, EventArgs e)
+        {
+            ((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text =
+                HelperClass.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
+            if (!HelperClass.IsValidName(tbName.Text.Trim()))
+            {
+                lbNameError.Text = "Tên không hợp lệ!";
+                lbNameError.Visible = true;
+                tbName.Focus();
+            }
+        }
+
+        private void tbEmail_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbEmailError.Visible == true)
+                lbEmailError.Visible = false;
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e)
+        {
+            if (!HelperClass.IsValidEmail(tbEmail.Text.Trim()))
+            {
+                lbEmailError.Text = "Email không hợp lệ!";
+                lbEmailError.Visible = true;
+                tbEmail.Focus();
+            }
+        }
+
+        private void tbPhoneNo_Leave(object sender, EventArgs e)
+        {
+            if (!HelperClass.IsValidPhoneNumber(tbPhoneNo.Text.Trim()))
+            {
+                lbPhoneError.Text = "Số điện thoại không hợp lệ!";
+                lbPhoneError.Visible = true;
+                tbPhoneNo.Focus();
+            }
+        }
+
+        private void tbName_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbNameError.Visible == true)
+                lbNameError.Visible = false;
+        }
+
+        private void tbPhoneNo_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbPhoneError.Visible == true)
+                lbPhoneError.Visible = false;
         }
     }
 }

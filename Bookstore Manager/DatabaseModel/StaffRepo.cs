@@ -35,7 +35,11 @@ namespace Data
                         using (SqlDataReader reader = cmdGetAllUser.ExecuteReader())
                         {
                             if (!reader.HasRows)
+                            {
                                 _listener.OnGetAllUsersFromDatabaseFailure("No user!");
+                                return;
+                            }
+
                             while (reader.Read())
                             {
                                 User user = new User();

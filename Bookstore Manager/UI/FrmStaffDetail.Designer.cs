@@ -36,7 +36,6 @@
             this.tbNewPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbEmail = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbUID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.tbSex = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.cbFunc = new System.Windows.Forms.ComboBox();
             this.functionBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,6 +50,10 @@
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnEdit = new MaterialSkin.Controls.MaterialFlatButton();
+            this.cbSex = new System.Windows.Forms.ComboBox();
+            this.lbNameError = new System.Windows.Forms.Label();
+            this.lbEmailError = new System.Windows.Forms.Label();
+            this.lbPhoneError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.functionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,9 +98,11 @@
             this.tbPhone.Location = new System.Drawing.Point(461, 130);
             this.tbPhone.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(171, 44);
+            this.tbPhone.Size = new System.Drawing.Size(189, 44);
             this.tbPhone.TabIndex = 42;
             this.tbPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbPhone.OnValueChanged += new System.EventHandler(this.tbPhone_OnValueChanged);
+            this.tbPhone.Leave += new System.EventHandler(this.tbPhone_Leave);
             // 
             // tbConfirmPassword
             // 
@@ -152,12 +157,14 @@
             this.tbEmail.LineIdleColor = System.Drawing.Color.Gray;
             this.tbEmail.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbEmail.LineThickness = 3;
-            this.tbEmail.Location = new System.Drawing.Point(91, 198);
+            this.tbEmail.Location = new System.Drawing.Point(102, 198);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(244, 44);
+            this.tbEmail.Size = new System.Drawing.Size(233, 44);
             this.tbEmail.TabIndex = 39;
             this.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbEmail.OnValueChanged += new System.EventHandler(this.tbEmail_OnValueChanged);
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
             // 
             // tbUID
             // 
@@ -179,26 +186,6 @@
             this.tbUID.TabIndex = 38;
             this.tbUID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // tbSex
-            // 
-            this.tbSex.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbSex.Enabled = false;
-            this.tbSex.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tbSex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbSex.HintForeColor = System.Drawing.Color.Empty;
-            this.tbSex.HintText = "";
-            this.tbSex.isPassword = false;
-            this.tbSex.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbSex.LineIdleColor = System.Drawing.Color.Gray;
-            this.tbSex.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbSex.LineThickness = 3;
-            this.tbSex.Location = new System.Drawing.Point(102, 65);
-            this.tbSex.Margin = new System.Windows.Forms.Padding(4);
-            this.tbSex.Name = "tbSex";
-            this.tbSex.Size = new System.Drawing.Size(171, 44);
-            this.tbSex.TabIndex = 37;
-            this.tbSex.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // tbName
             // 
             this.tbName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -218,6 +205,8 @@
             this.tbName.Size = new System.Drawing.Size(370, 44);
             this.tbName.TabIndex = 43;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbName.OnValueChanged += new System.EventHandler(this.tbName_OnValueChanged);
+            this.tbName.Leave += new System.EventHandler(this.tbName_Leave);
             // 
             // cbFunc
             // 
@@ -403,11 +392,67 @@
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // cbSex
+            // 
+            this.cbSex.BackColor = System.Drawing.SystemColors.Window;
+            this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSex.Enabled = false;
+            this.cbSex.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSex.FormattingEnabled = true;
+            this.cbSex.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "Khác"});
+            this.cbSex.Location = new System.Drawing.Point(102, 90);
+            this.cbSex.Name = "cbSex";
+            this.cbSex.Size = new System.Drawing.Size(68, 23);
+            this.cbSex.TabIndex = 46;
+            // 
+            // lbNameError
+            // 
+            this.lbNameError.AutoSize = true;
+            this.lbNameError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbNameError.ForeColor = System.Drawing.Color.Red;
+            this.lbNameError.Location = new System.Drawing.Point(99, 61);
+            this.lbNameError.Name = "lbNameError";
+            this.lbNameError.Size = new System.Drawing.Size(24, 13);
+            this.lbNameError.TabIndex = 47;
+            this.lbNameError.Text = "err";
+            this.lbNameError.Visible = false;
+            // 
+            // lbEmailError
+            // 
+            this.lbEmailError.AutoSize = true;
+            this.lbEmailError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbEmailError.ForeColor = System.Drawing.Color.Red;
+            this.lbEmailError.Location = new System.Drawing.Point(99, 246);
+            this.lbEmailError.Name = "lbEmailError";
+            this.lbEmailError.Size = new System.Drawing.Size(24, 13);
+            this.lbEmailError.TabIndex = 48;
+            this.lbEmailError.Text = "err";
+            this.lbEmailError.Visible = false;
+            // 
+            // lbPhoneError
+            // 
+            this.lbPhoneError.AutoSize = true;
+            this.lbPhoneError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbPhoneError.ForeColor = System.Drawing.Color.Red;
+            this.lbPhoneError.Location = new System.Drawing.Point(458, 178);
+            this.lbPhoneError.Name = "lbPhoneError";
+            this.lbPhoneError.Size = new System.Drawing.Size(24, 13);
+            this.lbPhoneError.TabIndex = 49;
+            this.lbPhoneError.Text = "err";
+            this.lbPhoneError.Visible = false;
+            // 
             // FrmStaffDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 430);
+            this.Controls.Add(this.lbPhoneError);
+            this.Controls.Add(this.lbEmailError);
+            this.Controls.Add(this.lbNameError);
+            this.Controls.Add(this.cbSex);
             this.Controls.Add(this.bunifuSeparator2);
             this.Controls.Add(this.datePicker);
             this.Controls.Add(this.tbPhone);
@@ -415,7 +460,6 @@
             this.Controls.Add(this.tbNewPassword);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbUID);
-            this.Controls.Add(this.tbSex);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.cbFunc);
             this.Controls.Add(this.btnEdit);
@@ -449,7 +493,6 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbNewPassword;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbEmail;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbUID;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox tbSex;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbName;
         private System.Windows.Forms.ComboBox cbFunc;
         private MaterialSkin.Controls.MaterialFlatButton btnUpdate;
@@ -464,5 +507,9 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialFlatButton btnEdit;
         private System.Windows.Forms.BindingSource functionBindingSource;
+        private System.Windows.Forms.ComboBox cbSex;
+        private System.Windows.Forms.Label lbNameError;
+        private System.Windows.Forms.Label lbEmailError;
+        private System.Windows.Forms.Label lbPhoneError;
     }
 }

@@ -130,7 +130,11 @@
             this.Controls.Add(this.tbMinQuantityImport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmStockContractInformation";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quy định nhập sách";
             this.Load += new System.EventHandler(this.FrmStockContractInformation_Load);
