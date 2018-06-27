@@ -49,13 +49,13 @@
             // 
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbEmail.Enabled = false;
-            this.tbEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbEmail.HintForeColor = System.Drawing.Color.Empty;
             this.tbEmail.HintText = "";
             this.tbEmail.isPassword = false;
             this.tbEmail.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbEmail.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbEmail.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbEmail.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbEmail.LineThickness = 3;
             this.tbEmail.Location = new System.Drawing.Point(471, 159);
@@ -69,13 +69,13 @@
             // 
             this.tbDate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDate.Enabled = false;
-            this.tbDate.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbDate.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbDate.HintForeColor = System.Drawing.Color.Empty;
             this.tbDate.HintText = "";
             this.tbDate.isPassword = false;
             this.tbDate.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbDate.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbDate.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbDate.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbDate.LineThickness = 3;
             this.tbDate.Location = new System.Drawing.Point(145, 301);
@@ -89,13 +89,13 @@
             // 
             this.tbPhoneNo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPhoneNo.Enabled = false;
-            this.tbPhoneNo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbPhoneNo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhoneNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPhoneNo.HintForeColor = System.Drawing.Color.Empty;
             this.tbPhoneNo.HintText = "";
             this.tbPhoneNo.isPassword = false;
             this.tbPhoneNo.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbPhoneNo.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbPhoneNo.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbPhoneNo.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbPhoneNo.LineThickness = 3;
             this.tbPhoneNo.Location = new System.Drawing.Point(145, 159);
@@ -109,13 +109,13 @@
             // 
             this.tbName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbName.Enabled = false;
-            this.tbName.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbName.HintForeColor = System.Drawing.Color.Empty;
             this.tbName.HintText = "";
             this.tbName.isPassword = false;
             this.tbName.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbName.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbName.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbName.LineThickness = 3;
             this.tbName.Location = new System.Drawing.Point(145, 17);
@@ -217,13 +217,13 @@
             // 
             this.tbAddr.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbAddr.Enabled = false;
-            this.tbAddr.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbAddr.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAddr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbAddr.HintForeColor = System.Drawing.Color.Empty;
             this.tbAddr.HintText = "";
             this.tbAddr.isPassword = false;
             this.tbAddr.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbAddr.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbAddr.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbAddr.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbAddr.LineThickness = 3;
             this.tbAddr.Location = new System.Drawing.Point(145, 87);
@@ -249,13 +249,13 @@
             // tbReceive
             // 
             this.tbReceive.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbReceive.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbReceive.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReceive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbReceive.HintForeColor = System.Drawing.Color.Empty;
             this.tbReceive.HintText = "";
             this.tbReceive.isPassword = false;
             this.tbReceive.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbReceive.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbReceive.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbReceive.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbReceive.LineThickness = 3;
             this.tbReceive.Location = new System.Drawing.Point(498, 301);
@@ -283,13 +283,13 @@
             // 
             this.tbIndebtedness.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbIndebtedness.Enabled = false;
-            this.tbIndebtedness.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbIndebtedness.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbIndebtedness.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbIndebtedness.HintForeColor = System.Drawing.Color.Empty;
             this.tbIndebtedness.HintText = "";
             this.tbIndebtedness.isPassword = false;
             this.tbIndebtedness.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbIndebtedness.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbIndebtedness.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbIndebtedness.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbIndebtedness.LineThickness = 3;
             this.tbIndebtedness.Location = new System.Drawing.Point(145, 229);
@@ -301,6 +301,8 @@
             // 
             // FrmReceive
             // 
+            this.Appearance.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 424);

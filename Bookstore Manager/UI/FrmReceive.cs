@@ -46,7 +46,7 @@ namespace UI
         private void btnReceive_Click(object sender, EventArgs e)
         {
             if (tbReceive.Text.Trim().Equals("") || Regex.Matches(tbReceive.Text.Trim(), @"[a-zA-Z]").Count > 0 ||
-                !HelperClass.IsDigitsOnly(tbReceive.Text.Trim()))
+                !Ultilities.IsDigitsOnly(tbReceive.Text.Trim()))
             {
                 MessageBox.Show("Vui lòng nhập số tiền thu hợp lê!", "Nhắc nhở", MessageBoxButtons.OK);
                 return;

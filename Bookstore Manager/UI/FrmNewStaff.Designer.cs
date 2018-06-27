@@ -57,6 +57,9 @@
             this.lbNameError = new System.Windows.Forms.Label();
             this.lbEmailError = new System.Windows.Forms.Label();
             this.lbPhoneError = new System.Windows.Forms.Label();
+            this.lbUsernameError = new System.Windows.Forms.Label();
+            this.lbConfirmError = new System.Windows.Forms.Label();
+            this.lbPasswordError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.functionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnValidate)).BeginInit();
             this.SuspendLayout();
@@ -66,18 +69,18 @@
             this.cbSex.DisplayMember = "Func";
             this.cbSex.DropDownHeight = 150;
             this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSex.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSex.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSex.FormattingEnabled = true;
             this.cbSex.IntegralHeight = false;
-            this.cbSex.ItemHeight = 15;
+            this.cbSex.ItemHeight = 19;
             this.cbSex.Items.AddRange(new object[] {
             "Nam",
             "Nữ",
             "Khác"});
             this.cbSex.Location = new System.Drawing.Point(117, 130);
             this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(162, 23);
-            this.cbSex.TabIndex = 68;
+            this.cbSex.Size = new System.Drawing.Size(162, 27);
+            this.cbSex.TabIndex = 1;
             // 
             // cbFunc
             // 
@@ -85,14 +88,14 @@
             this.cbFunc.DisplayMember = "Func";
             this.cbFunc.DropDownHeight = 150;
             this.cbFunc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFunc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFunc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFunc.FormattingEnabled = true;
             this.cbFunc.IntegralHeight = false;
-            this.cbFunc.ItemHeight = 15;
+            this.cbFunc.ItemHeight = 19;
             this.cbFunc.Location = new System.Drawing.Point(535, 273);
             this.cbFunc.Name = "cbFunc";
-            this.cbFunc.Size = new System.Drawing.Size(162, 23);
-            this.cbFunc.TabIndex = 67;
+            this.cbFunc.Size = new System.Drawing.Size(162, 27);
+            this.cbFunc.TabIndex = 6;
             // 
             // functionBindingSource
             // 
@@ -108,7 +111,7 @@
             this.datePicker.Location = new System.Drawing.Point(466, 117);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(231, 36);
-            this.datePicker.TabIndex = 56;
+            this.datePicker.TabIndex = 2;
             this.datePicker.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // materialLabel6
@@ -192,41 +195,42 @@
             // tbPhoneNo
             // 
             this.tbPhoneNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbPhoneNo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhoneNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhoneNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPhoneNo.HintForeColor = System.Drawing.Color.Empty;
             this.tbPhoneNo.HintText = "";
             this.tbPhoneNo.isPassword = false;
             this.tbPhoneNo.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbPhoneNo.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbPhoneNo.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbPhoneNo.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbPhoneNo.LineThickness = 4;
             this.tbPhoneNo.Location = new System.Drawing.Point(466, 182);
             this.tbPhoneNo.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhoneNo.Name = "tbPhoneNo";
             this.tbPhoneNo.Size = new System.Drawing.Size(231, 44);
-            this.tbPhoneNo.TabIndex = 58;
+            this.tbPhoneNo.TabIndex = 4;
             this.tbPhoneNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbPhoneNo.OnValueChanged += new System.EventHandler(this.tbPhoneNo_OnValueChanged);
+            this.tbPhoneNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUID_KeyPress);
             this.tbPhoneNo.Leave += new System.EventHandler(this.tbPhoneNo_Leave);
             // 
             // tbEmail
             // 
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbEmail.HintForeColor = System.Drawing.Color.Empty;
             this.tbEmail.HintText = "";
             this.tbEmail.isPassword = false;
             this.tbEmail.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbEmail.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbEmail.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbEmail.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbEmail.LineThickness = 4;
             this.tbEmail.Location = new System.Drawing.Point(117, 250);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(306, 44);
-            this.tbEmail.TabIndex = 66;
+            this.tbEmail.TabIndex = 5;
             this.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbEmail.OnValueChanged += new System.EventHandler(this.tbEmail_OnValueChanged);
             this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
@@ -234,39 +238,40 @@
             // tbUID
             // 
             this.tbUID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbUID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbUID.HintForeColor = System.Drawing.Color.Empty;
             this.tbUID.HintText = "";
             this.tbUID.isPassword = false;
             this.tbUID.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbUID.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbUID.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbUID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbUID.LineThickness = 4;
             this.tbUID.Location = new System.Drawing.Point(117, 182);
             this.tbUID.Margin = new System.Windows.Forms.Padding(4);
             this.tbUID.Name = "tbUID";
             this.tbUID.Size = new System.Drawing.Size(164, 44);
-            this.tbUID.TabIndex = 57;
+            this.tbUID.TabIndex = 3;
             this.tbUID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbUID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUID_KeyPress);
             // 
             // tbName
             // 
             this.tbName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbName.HintForeColor = System.Drawing.Color.Empty;
             this.tbName.HintText = "";
             this.tbName.isPassword = false;
             this.tbName.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbName.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbName.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbName.LineThickness = 4;
             this.tbName.Location = new System.Drawing.Point(117, 34);
             this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(453, 44);
-            this.tbName.TabIndex = 55;
+            this.tbName.TabIndex = 0;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbName.OnValueChanged += new System.EventHandler(this.tbName_OnValueChanged);
             this.tbName.Leave += new System.EventHandler(this.tbName_Leave);
@@ -311,13 +316,13 @@
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnCreate.Location = new System.Drawing.Point(1037, 348);
+            this.btnCreate.Location = new System.Drawing.Point(1008, 339);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCreate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Primary = false;
             this.btnCreate.Size = new System.Drawing.Size(39, 36);
-            this.btnCreate.TabIndex = 75;
+            this.btnCreate.TabIndex = 10;
             this.btnCreate.Text = "Tạo";
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -364,59 +369,65 @@
             // tbConfirmPassword
             // 
             this.tbConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbConfirmPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConfirmPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbConfirmPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbConfirmPassword.HintForeColor = System.Drawing.Color.Empty;
             this.tbConfirmPassword.HintText = "";
             this.tbConfirmPassword.isPassword = true;
             this.tbConfirmPassword.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbConfirmPassword.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbConfirmPassword.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbConfirmPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbConfirmPassword.LineThickness = 4;
             this.tbConfirmPassword.Location = new System.Drawing.Point(766, 289);
             this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(210, 44);
-            this.tbConfirmPassword.TabIndex = 74;
+            this.tbConfirmPassword.TabIndex = 9;
             this.tbConfirmPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbConfirmPassword.OnValueChanged += new System.EventHandler(this.tbConfirmPassword_OnValueChanged);
+            this.tbConfirmPassword.Leave += new System.EventHandler(this.tbConfirmPassword_Leave);
             // 
             // tbUsername
             // 
             this.tbUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsername.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbUsername.HintForeColor = System.Drawing.Color.Empty;
             this.tbUsername.HintText = "";
             this.tbUsername.isPassword = false;
             this.tbUsername.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbUsername.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbUsername.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbUsername.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbUsername.LineThickness = 4;
             this.tbUsername.Location = new System.Drawing.Point(766, 84);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(4);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(210, 44);
-            this.tbUsername.TabIndex = 72;
+            this.tbUsername.TabIndex = 7;
             this.tbUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbUsername.OnValueChanged += new System.EventHandler(this.tbUsername_OnValueChanged);
+            this.tbUsername.Leave += new System.EventHandler(this.tbUsername_Leave);
             // 
             // tbPassword
             // 
             this.tbPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPassword.HintForeColor = System.Drawing.Color.Empty;
             this.tbPassword.HintText = "";
             this.tbPassword.isPassword = true;
             this.tbPassword.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbPassword.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbPassword.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbPassword.LineThickness = 4;
             this.tbPassword.Location = new System.Drawing.Point(768, 182);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(210, 44);
-            this.tbPassword.TabIndex = 73;
+            this.tbPassword.TabIndex = 8;
             this.tbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbPassword.OnValueChanged += new System.EventHandler(this.tbPassword_OnValueChanged);
+            this.tbPassword.Leave += new System.EventHandler(this.tbPassword_Leave);
             // 
             // bunifuSeparator2
             // 
@@ -437,9 +448,9 @@
             this.lbNameError.ForeColor = System.Drawing.Color.Red;
             this.lbNameError.Location = new System.Drawing.Point(114, 92);
             this.lbNameError.Name = "lbNameError";
-            this.lbNameError.Size = new System.Drawing.Size(24, 13);
+            this.lbNameError.Size = new System.Drawing.Size(106, 13);
             this.lbNameError.TabIndex = 78;
-            this.lbNameError.Text = "err";
+            this.lbNameError.Text = "Tên không hợp lệ!";
             this.lbNameError.Visible = false;
             // 
             // lbEmailError
@@ -449,9 +460,9 @@
             this.lbEmailError.ForeColor = System.Drawing.Color.Red;
             this.lbEmailError.Location = new System.Drawing.Point(114, 307);
             this.lbEmailError.Name = "lbEmailError";
-            this.lbEmailError.Size = new System.Drawing.Size(24, 13);
+            this.lbEmailError.Size = new System.Drawing.Size(115, 13);
             this.lbEmailError.TabIndex = 79;
-            this.lbEmailError.Text = "err";
+            this.lbEmailError.Text = "Email không hợp lệ!";
             this.lbEmailError.Visible = false;
             // 
             // lbPhoneError
@@ -461,16 +472,57 @@
             this.lbPhoneError.ForeColor = System.Drawing.Color.Red;
             this.lbPhoneError.Location = new System.Drawing.Point(463, 239);
             this.lbPhoneError.Name = "lbPhoneError";
-            this.lbPhoneError.Size = new System.Drawing.Size(24, 13);
+            this.lbPhoneError.Size = new System.Drawing.Size(158, 13);
             this.lbPhoneError.TabIndex = 80;
-            this.lbPhoneError.Text = "err";
+            this.lbPhoneError.Text = "Số điện thoại không hợp lệ!";
             this.lbPhoneError.Visible = false;
+            // 
+            // lbUsernameError
+            // 
+            this.lbUsernameError.AutoSize = true;
+            this.lbUsernameError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbUsernameError.ForeColor = System.Drawing.Color.Red;
+            this.lbUsernameError.Location = new System.Drawing.Point(765, 140);
+            this.lbUsernameError.Name = "lbUsernameError";
+            this.lbUsernameError.Size = new System.Drawing.Size(249, 13);
+            this.lbUsernameError.TabIndex = 81;
+            this.lbUsernameError.Text = "Tên tài khoản đã tồn tại hoặc không hợp lệ!";
+            this.lbUsernameError.Visible = false;
+            // 
+            // lbConfirmError
+            // 
+            this.lbConfirmError.AutoSize = true;
+            this.lbConfirmError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbConfirmError.ForeColor = System.Drawing.Color.Red;
+            this.lbConfirmError.Location = new System.Drawing.Point(765, 339);
+            this.lbConfirmError.Name = "lbConfirmError";
+            this.lbConfirmError.Size = new System.Drawing.Size(177, 13);
+            this.lbConfirmError.TabIndex = 82;
+            this.lbConfirmError.Text = "Hai mật khẩu phải trùng nhau!";
+            this.lbConfirmError.Visible = false;
+            // 
+            // lbPasswordError
+            // 
+            this.lbPasswordError.AutoSize = true;
+            this.lbPasswordError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lbPasswordError.Location = new System.Drawing.Point(765, 234);
+            this.lbPasswordError.Name = "lbPasswordError";
+            this.lbPasswordError.Size = new System.Drawing.Size(183, 13);
+            this.lbPasswordError.TabIndex = 83;
+            this.lbPasswordError.Text = "Mật khẩu không được để trống!";
+            this.lbPasswordError.Visible = false;
             // 
             // FrmNewStaff
             // 
+            this.Appearance.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 390);
+            this.ClientSize = new System.Drawing.Size(1060, 390);
+            this.Controls.Add(this.lbPasswordError);
+            this.Controls.Add(this.lbConfirmError);
+            this.Controls.Add(this.lbUsernameError);
             this.Controls.Add(this.lbPhoneError);
             this.Controls.Add(this.lbEmailError);
             this.Controls.Add(this.lbNameError);
@@ -538,5 +590,8 @@
         private System.Windows.Forms.Label lbNameError;
         private System.Windows.Forms.Label lbEmailError;
         private System.Windows.Forms.Label lbPhoneError;
+        private System.Windows.Forms.Label lbUsernameError;
+        private System.Windows.Forms.Label lbConfirmError;
+        private System.Windows.Forms.Label lbPasswordError;
     }
 }

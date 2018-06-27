@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Contract;
 using DevExpress.XtraBars;
@@ -64,6 +63,8 @@ namespace UI
 
         private void __workerImport_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            if(ssmWaiting.IsSplashFormVisible)
+                ssmWaiting.CloseWaitForm();
             if (e.Cancelled)
             {
                 MessageBox.Show("Error occur!", "Warning", MessageBoxButtons.OK);
@@ -84,7 +85,8 @@ namespace UI
 
         private void _workerImport_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            if(!ssmWaiting.IsSplashFormVisible)
+                ssmWaiting.ShowWaitForm();
             ExcelRead(_filePath);
         }
 
@@ -277,6 +279,11 @@ namespace UI
                 if (book.Count < minImport || book.Inventory > maxInventory)
                     _booksNotMeetRequirement.Add(book.Identifier.ToString());
             }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e){
+            base.OnFormClosing(e);
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

@@ -43,6 +43,7 @@
     <Compile Include="AdminRepo.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="CustomerRepo.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="LoginRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportRepo.cs" />

@@ -30,10 +30,7 @@ namespace UI
 
         private void InitComboBox()
         {
-            Dictionary<int, string> dataSource = new Dictionary<int, string>();
-            dataSource.Add(0, "Nam");
-            dataSource.Add(1, "Nữ");
-            dataSource.Add(2, "Khác");
+            Dictionary<int, string> dataSource = new Dictionary<int, string> {{0, "Nam"}, {1, "Nữ"}, {2, "Khác"}};
 
             cbSex.DataSource = new BindingSource(dataSource, null);
             cbSex.DisplayMember = "Value";
@@ -49,7 +46,7 @@ namespace UI
             btnCreate.Enabled = false;
             btnCreate.Text = "Cập nhật";
             tbName.Enabled = false;
-            tbCity.Enabled = false;
+            cbProvince.Enabled = false;
             tbDistrict.Enabled = false;
             tbEmail.Enabled = false;
             tbPhoneNo.Enabled = false;
@@ -63,7 +60,7 @@ namespace UI
             string city = _customer.Address.Split(charSplit)[1];
 
             tbName.Text = _customer.Name;
-            tbCity.Text = city;
+            cbProvince.Text = city;
             tbDistrict.Text = district;
             tbPhoneNo.Text = _customer.PhoneNum;
             tbEmail.Text = _customer.Email;
@@ -91,7 +88,7 @@ namespace UI
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Trim().Equals("") || tbCity.Text.Trim().Equals("") || tbDistrict.Text.Trim().Equals("")
+            if (tbName.Text.Trim().Equals("") || cbProvince.Text.Trim().Equals("") || tbDistrict.Text.Trim().Equals("")
                 || tbEmail.Text.Trim().Equals("") || tbPhoneNo.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ các trường!", "Nhắc nhở", MessageBoxButtons.OK,
@@ -106,7 +103,7 @@ namespace UI
             if (_customer != null)
                 customer.ID = _customer.ID;
             customer.Name = tbName.Text.Trim();
-            customer.Address = tbDistrict.Text.Trim() + '-' + tbCity.Text.Trim();
+            customer.Address = tbDistrict.Text.Trim() + '-' + cbProvince.Text.Trim();
             customer.Email = tbEmail.Text.Trim();
             customer.Sex = cbSex.Text;
             customer.PhoneNum = tbPhoneNo.Text.Trim();
@@ -124,7 +121,7 @@ namespace UI
         {
             btnCreate.Enabled = true;
             tbName.Enabled = true;
-            tbCity.Enabled = true;
+            cbProvince.Enabled = true;
             tbDistrict.Enabled = true;
             tbEmail.Enabled = true;
             tbPhoneNo.Enabled = true;
@@ -170,8 +167,8 @@ namespace UI
         private void tbName_Leave(object sender, EventArgs e)
         {
             ((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text =
-                HelperClass.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
-            if (!HelperClass.IsValidName(tbName.Text.Trim()))
+                Ultilities.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
+            if (!Ultilities.IsValidName(tbName.Text.Trim()))
             {
                 lbNameError.Text = "Tên không hợp lệ!";
                 lbNameError.Visible = true;
@@ -181,7 +178,7 @@ namespace UI
 
         private void tbEmail_Leave(object sender, EventArgs e)
         {
-            if (!HelperClass.IsValidEmail(tbEmail.Text.Trim()))
+            if (!Ultilities.IsValidEmail(tbEmail.Text.Trim()))
             {
                 lbEmailError.Text = "Email không hợp lệ!";
                 lbEmailError.Visible = true;
@@ -209,7 +206,7 @@ namespace UI
 
         private void tbPhoneNo_Leave(object sender, EventArgs e)
         {
-            if (!HelperClass.IsValidPhoneNumber(tbPhoneNo.Text.Trim()))
+            if (!Ultilities.IsValidPhoneNumber(tbPhoneNo.Text.Trim()))
             {
                 lbPhoneError.Text = "Số điện thoại không hợp lệ!";
                 lbPhoneError.Visible = true;

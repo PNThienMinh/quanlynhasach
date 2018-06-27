@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Contract;
-using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using DTO;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -44,13 +37,14 @@ namespace UI
                 Accent.Orange700,
                 MaterialSkin.TextShade.WHITE
             );
+            tbUsername.Focus();
 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = lblUsername.Text.Trim();
-            string password = lblPassword.Text.Trim();
+            string username = tbUsername.Text.Trim();
+            string password = tbPassword.Text.Trim();
 
             if (username.Equals("") || password.Equals(""))
                 return;
@@ -82,7 +76,25 @@ namespace UI
         public void OnLoginFail(string error)
         {
             ssmLogin.CloseWaitForm();
-            MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(error, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+            Ultilities.SetupDataLocation();
+
+            if (!Ultilities.IsDatabaseConnected())
+            {
+                using (var form = new FrmDbConfiguration())
+                {
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        
+                    }
+                }
+            }
         }
     }
 }

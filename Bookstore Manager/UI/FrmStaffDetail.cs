@@ -52,7 +52,7 @@ namespace UI
 
         public void HandleGetFunctionsFail(string error)
         {
-            throw new NotImplementedException();
+            // TODO:
         }
 
         public void RefreshUIAfterUpdate()
@@ -74,8 +74,15 @@ namespace UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (lbEmailError.Visible || lbNameError.Visible || lbPhoneError.Visible)
+            if (lbEmailError.Visible || lbNameError.Visible || lbPhoneError.Visible
+                || lbPasswordError.Visible || lbConfirmError.Visible)
                 return;
+
+            if (tbUID.Text.Trim().Equals(""))
+            {
+                tbUID.Focus();
+                return;
+            }
 
             User user = new User();
             user.Username = _user.Username.Trim();
@@ -115,10 +122,9 @@ namespace UI
         private void tbName_Leave(object sender, EventArgs e)
         {
             ((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text =
-                HelperClass.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
-            if (!HelperClass.IsValidName(tbName.Text.Trim()))
+                Ultilities.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
+            if (!Ultilities.IsValidName(tbName.Text.Trim()))
             {
-                lbNameError.Text = "Tên không hợp lệ!";
                 lbNameError.Visible = true;
                 tbName.Focus();
             }
@@ -126,9 +132,8 @@ namespace UI
 
         private void tbEmail_Leave(object sender, EventArgs e)
         {
-            if (!HelperClass.IsValidEmail(tbEmail.Text.Trim()))
+            if (!Ultilities.IsValidEmail(tbEmail.Text.Trim()))
             {
-                lbEmailError.Text = "Email không hợp lệ!";
                 lbEmailError.Visible = true;
                 tbEmail.Focus();
             }
@@ -136,9 +141,8 @@ namespace UI
 
         private void tbPhone_Leave(object sender, EventArgs e)
         {
-            if (!HelperClass.IsValidPhoneNumber(tbPhone.Text.Trim()))
+            if (!Ultilities.IsValidPhoneNumber(tbPhone.Text.Trim()))
             {
-                lbPhoneError.Text = "Số điện thoại không hợp lệ!";
                 lbPhoneError.Visible = true;
                 tbPhone.Focus();
             }
@@ -160,6 +164,36 @@ namespace UI
         {
             if (lbPhoneError.Visible == true)
                 lbPhoneError.Visible = false;
+        }
+
+        private void tbNewPassword_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbPasswordError.Visible)
+                lbPasswordError.Visible = false;
+        }
+
+        private void tbNewPassword_Leave(object sender, EventArgs e)
+        {
+            if (tbNewPassword.Text.Trim().Equals(""))
+            {
+                lbPasswordError.Visible = true;
+                tbNewPassword.Focus();
+            }
+        }
+
+        private void tbConfirmPassword_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbConfirmError.Visible)
+                lbConfirmError.Visible = false;
+        }
+
+        private void tbConfirmPassword_Leave(object sender, EventArgs e)
+        {
+            if (!tbConfirmPassword.Text.Trim().Equals(tbNewPassword.Text.Trim()))
+            {
+                lbConfirmError.Visible = true;
+                tbConfirmPassword.Focus();
+            }
         }
     }
 }

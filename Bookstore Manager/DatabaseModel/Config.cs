@@ -1,10 +1,10 @@
 ﻿namespace Data
 {
-    class Config
+    public class Config
     {
-        internal static string ConnectionString =
-            "Data Source=DESKTOP-0HNVS4D\\SQL2016;Initial Catalog=BM;Integrated Security=True";
+        public static string ConnectionString =
+            "Data Source=;Initial Catalog=;Integrated Security=True";
 
-        internal static string DataLocation = "e:\\QuanLyNhaSach\\Data\\";
+        public static string DataLocation = "QuanLyNhaSach\\Data\\";
     }
 }

@@ -29,15 +29,12 @@ namespace UI
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // enable edit mode
-            tbBookName.Enabled = true;
-            tbCategory.Enabled = true;
             tbCost.Enabled = true;
             btnSave.Enabled = true;
         }
 
         private void FrmBookDetail_Load(object sender, EventArgs e)
         {
-            
             tbBookName.Text = _bookInEditer.Name;
             tbCategory.Text = _bookInEditer.Category;
             tbCost.Text = _bookInEditer.Cost.ToString();
@@ -49,8 +46,6 @@ namespace UI
         {
             Book book = new Book();
             book.ID = _bookInEditer.ID;
-            book.Name = tbBookName.Text;
-            book.Category = tbCategory.Text;
             book.Cost = Convert.ToInt32(tbCost.Text);
             _stockInfo.EditBookInfor(book);
 

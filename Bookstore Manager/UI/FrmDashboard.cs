@@ -190,7 +190,7 @@ namespace UI
         }
         private void tbCustomerPaid_OnValueChanged(object sender, EventArgs e)
         {
-            if (!tbCustomerPaid.Text.Trim().Equals("") && Regex.Matches(tbCustomerPaid.Text.Trim(), @"[a-zA-Z]").Count < 1 && HelperClass.IsDigitsOnly(tbCustomerPaid.Text.Trim()))
+            if (!tbCustomerPaid.Text.Trim().Equals("") && Regex.Matches(tbCustomerPaid.Text.Trim(), @"[a-zA-Z]").Count < 1 && Ultilities.IsDigitsOnly(tbCustomerPaid.Text.Trim()))
             {
                 int change = Convert.ToInt32(tbCustomerPaid.Text.Trim()) - Convert.ToInt32(tbTotal.Text.Trim());
 
@@ -224,7 +224,7 @@ namespace UI
                 return;
             }
 
-            if (tbCustomerPaid.Text.Trim().Equals("") || Regex.Matches(tbCustomerPaid.Text.Trim(), @"[a-zA-Z]").Count > 0 || !HelperClass.IsDigitsOnly(tbCustomerPaid.Text.Trim()))
+            if (tbCustomerPaid.Text.Trim().Equals("") || Regex.Matches(tbCustomerPaid.Text.Trim(), @"[a-zA-Z]").Count > 0 || !Ultilities.IsDigitsOnly(tbCustomerPaid.Text.Trim()))
             {
                 MessageBox.Show("Vui lòng nhập số tiền khách hàng thanh toán!", "Nhắc nhở", MessageBoxButtons.OK);
                 return;
@@ -375,7 +375,8 @@ namespace UI
             _users = users;
             tlStaff.DataSource = users;
         }
-        public void OnFetchDataFailure(string error){
+        public void OnFetchDataFailure(string error)
+        {
             MessageBox.Show(error, "Error occur!", MessageBoxButtons.OK);
         }
         private void tbSearchStaff_OnValueChanged(object sender, EventArgs e)
@@ -553,8 +554,15 @@ namespace UI
                 e.Handled = true;
             }
         }
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
+        private void btnUpdate_Click(object sender, EventArgs e){
+            if (tbMinImport.Text.Trim().Equals("") || tbMaxInventory.Text.Trim().Equals("") ||
+                tbMinLastInventory.Text.Trim().Equals("")
+                || tbMaxIndebtedness.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ các quy định!", "Nhắc nhở", MessageBoxButtons.OK);
+                return;
+            }
+
             Rule rule = new Rule();
 
             rule.MinImport = Int32.Parse(tbMinImport.Text.Trim());

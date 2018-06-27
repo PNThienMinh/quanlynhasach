@@ -32,7 +32,7 @@ namespace Data
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (!reader.HasRows)
-                            _listener.OnGetUserFromDatabaseFailure("Wrong username or password!");
+                            _listener.OnGetUserFromDatabaseFailure("Tài khoản hoặc mật khẩu không chính xác!");
                         while (reader.Read())
                         {
                             User user = new User();

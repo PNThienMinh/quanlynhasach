@@ -54,7 +54,9 @@ namespace Data
                         if (reader.HasRows)
                             while (reader.Read())
                             {
-                                report.Revenue = Convert.ToInt32(reader[reader.GetName(0)]);
+                                if (!(reader[reader.GetName(0)] is DBNull))
+                                    report.Revenue = Convert.ToInt32(reader[reader.GetName(0)]);
+                                else report.Revenue = 0;
                             }
                     }
 
@@ -66,7 +68,9 @@ namespace Data
                         if (reader.HasRows)
                             while (reader.Read())
                             {
-                                report.NumBookImport = (int)reader[reader.GetName(0)];
+                                if (!(reader[reader.GetName(0)] is DBNull))
+                                    report.NumBookImport = (int)reader[reader.GetName(0)];
+                                else report.NumBookImport = 0;
                             }
                     }
 
@@ -78,7 +82,9 @@ namespace Data
                         if (reader.HasRows)
                             while (reader.Read())
                             {
-                                report.NumBookSold = (int)reader[reader.GetName(0)];
+                                if (!(reader[reader.GetName(0)] is DBNull))
+                                    report.NumBookSold = (int)reader[reader.GetName(0)];
+                                else report.NumBookSold = 0;
                             }
                     }
 
@@ -89,8 +95,9 @@ namespace Data
                         if (reader.HasRows)
                             while (reader.Read())
                             {
-                                report.NumBookInStock = (int)reader[reader.GetName(0)];
-                            }
+                                if (!(reader[reader.GetName(0)] is DBNull))
+                                    report.NumBookInStock = (int)reader[reader.GetName(0)];
+                                else report.NumBookInStock = 0;}
                     }
 
                     _listener.OnGetDataSuccess(rule, report);

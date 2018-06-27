@@ -12,6 +12,21 @@
     <AssemblyName>UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +47,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8_Book_Shelf.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\..\SourceCode\Lib\Bunifu_UI_v1.52.dll</HintPath>
@@ -42,6 +63,7 @@
     <Reference Include="DevExpress.Data.v16.1" />
     <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Diagram.v16.1.Core, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v16.1" />
     <Reference Include="DevExpress.Sparkline.v16.1.Core" />
@@ -85,6 +107,12 @@
     </Compile>
     <Compile Include="FrmBookDetail.Designer.cs">
       <DependentUpon>FrmBookDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDbConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDbConfiguration.Designer.cs">
+      <DependentUpon>FrmDbConfiguration.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNewCustomer.cs">
       <SubType>Form</SubType>
@@ -142,8 +170,17 @@
     <Compile Include="FrmBooksReceipt.Designer.cs">
       <DependentUpon>FrmBooksReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmBookDetail.resx">
       <DependentUpon>FrmBookDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDbConfiguration.resx">
+      <DependentUpon>FrmDbConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNewCustomer.resx">
       <DependentUpon>FrmNewCustomer.cs</DependentUpon>
@@ -183,7 +220,12 @@
     <EmbeddedResource Include="FrmWaiting.resx">
       <DependentUpon>FrmWaiting.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DTO.Book.datasource" />
     <None Include="Properties\DataSources\DTO.Customer.datasource" />
@@ -271,6 +313,67 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8_Book_Shelf.ico" />
+    <None Include="Resources\staff_info.png" />
+    <None Include="Resources\relationship_management.png" />
+    <None Include="Resources\book_PNG2118.png" />
+    <None Include="Resources\images.png" />
+    <None Include="Resources\User Groups_40px.png" />
+    <None Include="Resources\US Dollar_40px.png" />
+    <None Include="Resources\uit.png" />
+    <None Include="Resources\Shop_40px.png" />
+    <None Include="Resources\Search_25px.png" />
+    <None Include="Resources\Remove Book_40px.png" />
+    <None Include="Resources\Refresh_50px.png" />
+    <None Include="Resources\Refresh_32px.png" />
+    <None Include="Resources\Plus_50px.png" />
+    <None Include="Resources\Plus Math_32px.png" />
+    <None Include="Resources\Plus Math_16px.png" />
+    <None Include="Resources\Multiply_24px.png" />
+    <None Include="Resources\Minus_24px.png" />
+    <None Include="Resources\Menu 2_48px1.png" />
+    <None Include="Resources\Key_50px.png" />
+    <None Include="Resources\icons8_SQL_32.png" />
+    <None Include="Resources\icons8_SQL_16.png" />
+    <None Include="Resources\icons8_Book_Shelf_32.png" />
+    <None Include="Resources\icons8_Book_Shelf_16.png" />
+    <None Include="Resources\Home_64px.png" />
+    <None Include="Resources\Home_50px.png" />
+    <None Include="Resources\Forward_48px.png" />
+    <None Include="Resources\Forward Button_48px.png" />
+    <None Include="Resources\Double Right_48px.png" />
+    <None Include="Resources\Double Right_25px.png" />
+    <None Include="Resources\Double Left_25px.png" />
+    <None Include="Resources\Dashboard_50px.png" />
+    <None Include="Resources\Course_40px.png" />
+    <None Include="Resources\Content_50px.png" />
+    <None Include="Resources\Close Window_48px.png" />
+    <None Include="Resources\Cash in Hand_48px.png" />
+    <None Include="Resources\Cash in Hand_25px.png" />
+    <None Include="Resources\Calendar_50px.png" />
+    <None Include="Resources\Books_40px.png" />
+    <None Include="Resources\Books_32px.png" />
+    <None Include="Resources\Back_48px.png" />
+    <None Include="Resources\Back Arrow_48px.png" />
+    <None Include="Resources\Available Updates_16px.png" />
+    <None Include="Resources\Add_50px.png" />
+    <None Include="Resources\Add User Male_48px.png" />
+    <None Include="Resources\Add User Group Woman Man_50px.png" />
+    <None Include="Resources\Add Shopping Cart_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using Data;
 
 namespace Services
 {
-    public class HelperClass
+    public class Ultilities
     {
         public static bool IsDigitsOnly(string str)
         {
@@ -64,5 +68,53 @@ namespace Services
             }
             return false;
         }
+
+        public static bool IsDatabaseConnected()
+        {
+            return Helper.CheckConnection();
+        }
+
+        public static bool IsValidConnection(string connStr)
+        {
+            return Helper.CheckConnection(connStr);
+        }
+
+        public static void SetupConnectionString(string connStr)
+        {
+            Config.ConnectionString = connStr;
+        }
+
+        public static void SaveConnectionInformation(string serverName)
+        {
+            Helper.SaveServerName(serverName);
+        }
+
+        public static void SetupDataLocation()
+        {
+            if (!Helper.ExistDataLocation())
+            {
+                string disk = GetLocalDiskAvailable();
+                SaveDataLocation(disk);
+            }
+        }
+
+        public static string GetLocalDiskAvailable()
+        {
+            string diskC = @"C:\";
+            string diskD = @"D:\";
+            string diskE = @"E:\";
+
+            if (Directory.Exists(diskD))
+                return diskD;
+            if (Directory.Exists(diskE))
+                return diskE;
+            return diskC;
+        }
+
+        public static void SaveDataLocation(string disk)
+        {
+            Helper.SaveDataLocation(disk);
+        }
+
     }
 }

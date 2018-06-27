@@ -25,7 +25,7 @@ namespace UI
             _business.GetListFunctions();
             datePicker.Format = DateTimePickerFormat.Custom;
             datePicker.FormatCustom = "dd/MM/yyyy";
-            
+
         }
 
         public void LoadListFunctionToUI(List<Function> functions)
@@ -47,7 +47,7 @@ namespace UI
         public void UserIsExists()
         {
             tbUsername.Text = "";
-            tbUsername.HintText = "Tên tài khoản đã tồn tại!";
+            lbUsernameError.Visible = true;
             tbUsername.Focus();
         }
 
@@ -75,16 +75,11 @@ namespace UI
                 || tbPhoneNo.Text.Equals("") || cbFunc.Text.Equals("") || tbUsername.Text.Equals("") || tbPassword.Text.Equals("") ||
                 tbConfirmPassword.Text.Equals(""))
             {
-                MessageBox.Show("Please fill all fields required!", "Notification", MessageBoxButtons.OK,
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Nhắc nhở", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 return;
             }
 
-            if (!tbPassword.Text.Equals(tbConfirmPassword.Text))
-            {
-                tbConfirmPassword.Text = "";
-                tbConfirmPassword.Focus();
-            }
 
             SubmitUserToDatabase();
         }
@@ -92,7 +87,8 @@ namespace UI
         private void SubmitUserToDatabase()
         {
 
-            if (lbNameError.Visible || lbEmailError.Visible || lbPhoneError.Visible)
+            if (lbNameError.Visible || lbEmailError.Visible || lbPhoneError.Visible || lbUsernameError.Visible
+                || lbPasswordError.Visible || lbConfirmError.Visible)
                 return;
 
             User user = new User();
@@ -125,10 +121,9 @@ namespace UI
         private void tbName_Leave(object sender, EventArgs e)
         {
             ((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text =
-                HelperClass.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
-            if (!HelperClass.IsValidName(tbName.Text.Trim()))
+                Ultilities.ToTitleCase(((Bunifu.Framework.UI.BunifuMaterialTextbox)sender).Text);
+            if (!Ultilities.IsValidName(tbName.Text.Trim()))
             {
-                lbNameError.Text = "Tên không hợp lệ!";
                 lbNameError.Visible = true;
                 tbName.Focus();
             }
@@ -142,9 +137,8 @@ namespace UI
 
         private void tbEmail_Leave(object sender, EventArgs e)
         {
-            if (!HelperClass.IsValidEmail(tbEmail.Text.Trim()))
+            if (!Ultilities.IsValidEmail(tbEmail.Text.Trim()))
             {
-                lbEmailError.Text = "Email không hợp lệ!";
                 lbEmailError.Visible = true;
                 tbEmail.Focus();
             }
@@ -152,9 +146,8 @@ namespace UI
 
         private void tbPhoneNo_Leave(object sender, EventArgs e)
         {
-            if (!HelperClass.IsValidPhoneNumber(tbPhoneNo.Text.Trim()))
+            if (!Ultilities.IsValidPhoneNumber(tbPhoneNo.Text.Trim()))
             {
-                lbPhoneError.Text = "Số điện thoại không hợp lệ!";
                 lbPhoneError.Visible = true;
                 tbPhoneNo.Focus();
             }
@@ -170,6 +163,69 @@ namespace UI
         {
             if (lbPhoneError.Visible == true)
                 lbPhoneError.Visible = false;
+        }
+
+        private void tbUID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar)
+                )
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbUsername_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbUsernameError.Visible == true)
+                lbUsernameError.Visible = false;
+
+            if (btnCreate.Enabled == true)
+                btnCreate.Enabled = false;
+
+            if (btnValidate.Visible == false)
+                btnValidate.Visible = true;
+        }
+
+        private void tbUsername_Leave(object sender, EventArgs e)
+        {
+            if (tbUsername.Text.Trim().Equals(""))
+            {
+                lbUsernameError.Visible = true;
+                tbUsername.Focus();
+            }
+        }
+
+        private void tbPassword_Leave(object sender, EventArgs e)
+        {
+            if (tbPassword.Text.Trim().Equals(""))
+            {
+                lbPasswordError.Visible = true;
+                tbPassword.Focus();
+            }
+        }
+
+        private void tbPassword_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbPasswordError.Visible == true)
+                lbPasswordError.Visible = false;
+        }
+
+        private void tbConfirmPassword_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbConfirmError.Visible == true)
+            {
+                lbConfirmError.Visible = false;
+            }
+        }
+
+        private void tbConfirmPassword_Leave(object sender, EventArgs e)
+        {
+            if (!tbPassword.Text.Trim().Equals(tbConfirmPassword.Text.Trim()))
+            {
+                lbConfirmError.Visible = true;
+                tbConfirmPassword.Focus();
+            }
         }
     }
 }

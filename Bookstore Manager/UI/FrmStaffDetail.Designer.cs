@@ -54,7 +54,11 @@
             this.lbNameError = new System.Windows.Forms.Label();
             this.lbEmailError = new System.Windows.Forms.Label();
             this.lbPhoneError = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbPasswordError = new System.Windows.Forms.Label();
+            this.lbConfirmError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.functionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuSeparator2
@@ -62,7 +66,7 @@
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(63, 287);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(337, 287);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(578, 25);
             this.bunifuSeparator2.TabIndex = 45;
@@ -76,7 +80,7 @@
             this.datePicker.ForeColor = System.Drawing.Color.RoyalBlue;
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datePicker.FormatCustom = null;
-            this.datePicker.Location = new System.Drawing.Point(461, 73);
+            this.datePicker.Location = new System.Drawing.Point(735, 73);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(231, 36);
             this.datePicker.TabIndex = 44;
@@ -86,16 +90,16 @@
             // 
             this.tbPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPhone.Enabled = false;
-            this.tbPhone.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbPhone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPhone.HintForeColor = System.Drawing.Color.Empty;
             this.tbPhone.HintText = "";
             this.tbPhone.isPassword = false;
             this.tbPhone.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbPhone.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbPhone.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbPhone.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbPhone.LineThickness = 3;
-            this.tbPhone.Location = new System.Drawing.Point(461, 130);
+            this.tbPhone.Location = new System.Drawing.Point(735, 130);
             this.tbPhone.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(189, 44);
@@ -108,56 +112,60 @@
             // 
             this.tbConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbConfirmPassword.Enabled = false;
-            this.tbConfirmPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbConfirmPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbConfirmPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbConfirmPassword.HintForeColor = System.Drawing.Color.Empty;
             this.tbConfirmPassword.HintText = "";
             this.tbConfirmPassword.isPassword = false;
             this.tbConfirmPassword.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbConfirmPassword.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbConfirmPassword.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbConfirmPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbConfirmPassword.LineThickness = 3;
-            this.tbConfirmPassword.Location = new System.Drawing.Point(516, 330);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(790, 323);
             this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(198, 44);
             this.tbConfirmPassword.TabIndex = 41;
             this.tbConfirmPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbConfirmPassword.OnValueChanged += new System.EventHandler(this.tbConfirmPassword_OnValueChanged);
+            this.tbConfirmPassword.Leave += new System.EventHandler(this.tbConfirmPassword_Leave);
             // 
             // tbNewPassword
             // 
             this.tbNewPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbNewPassword.Enabled = false;
-            this.tbNewPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbNewPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNewPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbNewPassword.HintForeColor = System.Drawing.Color.Empty;
             this.tbNewPassword.HintText = "";
             this.tbNewPassword.isPassword = false;
             this.tbNewPassword.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbNewPassword.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbNewPassword.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbNewPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbNewPassword.LineThickness = 3;
-            this.tbNewPassword.Location = new System.Drawing.Point(137, 330);
+            this.tbNewPassword.Location = new System.Drawing.Point(411, 323);
             this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(198, 44);
             this.tbNewPassword.TabIndex = 40;
             this.tbNewPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbNewPassword.OnValueChanged += new System.EventHandler(this.tbNewPassword_OnValueChanged);
+            this.tbNewPassword.Leave += new System.EventHandler(this.tbNewPassword_Leave);
             // 
             // tbEmail
             // 
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbEmail.Enabled = false;
-            this.tbEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbEmail.HintForeColor = System.Drawing.Color.Empty;
             this.tbEmail.HintText = "";
             this.tbEmail.isPassword = false;
             this.tbEmail.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbEmail.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbEmail.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbEmail.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbEmail.LineThickness = 3;
-            this.tbEmail.Location = new System.Drawing.Point(102, 198);
+            this.tbEmail.Location = new System.Drawing.Point(376, 198);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(233, 44);
@@ -170,16 +178,16 @@
             // 
             this.tbUID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbUID.Enabled = false;
-            this.tbUID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbUID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbUID.HintForeColor = System.Drawing.Color.Empty;
             this.tbUID.HintText = "";
             this.tbUID.isPassword = false;
             this.tbUID.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbUID.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbUID.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbUID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbUID.LineThickness = 3;
-            this.tbUID.Location = new System.Drawing.Point(102, 130);
+            this.tbUID.Location = new System.Drawing.Point(376, 130);
             this.tbUID.Margin = new System.Windows.Forms.Padding(4);
             this.tbUID.Name = "tbUID";
             this.tbUID.Size = new System.Drawing.Size(171, 44);
@@ -190,16 +198,16 @@
             // 
             this.tbName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbName.Enabled = false;
-            this.tbName.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbName.HintForeColor = System.Drawing.Color.Empty;
             this.tbName.HintText = "";
             this.tbName.isPassword = false;
             this.tbName.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbName.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbName.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbName.LineThickness = 3;
-            this.tbName.Location = new System.Drawing.Point(102, 13);
+            this.tbName.Location = new System.Drawing.Point(376, 13);
             this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(370, 44);
@@ -215,13 +223,13 @@
             this.cbFunc.DropDownHeight = 150;
             this.cbFunc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFunc.Enabled = false;
-            this.cbFunc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFunc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFunc.FormattingEnabled = true;
             this.cbFunc.IntegralHeight = false;
-            this.cbFunc.ItemHeight = 15;
-            this.cbFunc.Location = new System.Drawing.Point(461, 223);
+            this.cbFunc.ItemHeight = 19;
+            this.cbFunc.Location = new System.Drawing.Point(735, 223);
             this.cbFunc.Name = "cbFunc";
-            this.cbFunc.Size = new System.Drawing.Size(162, 23);
+            this.cbFunc.Size = new System.Drawing.Size(162, 27);
             this.cbFunc.TabIndex = 35;
             // 
             // functionBindingSource
@@ -241,7 +249,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnUpdate.Location = new System.Drawing.Point(635, 384);
+            this.btnUpdate.Location = new System.Drawing.Point(924, 394);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
@@ -258,7 +266,7 @@
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(370, 355);
+            this.materialLabel9.Location = new System.Drawing.Point(644, 348);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(136, 19);
@@ -271,7 +279,7 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(22, 355);
+            this.materialLabel8.Location = new System.Drawing.Point(296, 348);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(101, 19);
@@ -284,7 +292,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(24, 223);
+            this.materialLabel6.Location = new System.Drawing.Point(298, 223);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(47, 19);
@@ -297,7 +305,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(355, 223);
+            this.materialLabel7.Location = new System.Drawing.Point(629, 223);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(63, 19);
@@ -310,7 +318,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(355, 155);
+            this.materialLabel5.Location = new System.Drawing.Point(629, 155);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(98, 19);
@@ -323,7 +331,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(355, 90);
+            this.materialLabel4.Location = new System.Drawing.Point(629, 90);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(75, 19);
@@ -336,7 +344,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(24, 155);
+            this.materialLabel2.Location = new System.Drawing.Point(298, 155);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(75, 19);
@@ -349,7 +357,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(24, 90);
+            this.materialLabel3.Location = new System.Drawing.Point(298, 90);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(65, 19);
@@ -362,7 +370,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(22, 29);
+            this.materialLabel1.Location = new System.Drawing.Point(296, 29);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(73, 19);
@@ -381,7 +389,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnEdit.Location = new System.Drawing.Point(584, 384);
+            this.btnEdit.Location = new System.Drawing.Point(873, 394);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
@@ -397,15 +405,15 @@
             this.cbSex.BackColor = System.Drawing.SystemColors.Window;
             this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSex.Enabled = false;
-            this.cbSex.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSex.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSex.FormattingEnabled = true;
             this.cbSex.Items.AddRange(new object[] {
             "Nam",
             "Nữ",
             "Khác"});
-            this.cbSex.Location = new System.Drawing.Point(102, 90);
+            this.cbSex.Location = new System.Drawing.Point(376, 90);
             this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(68, 23);
+            this.cbSex.Size = new System.Drawing.Size(68, 27);
             this.cbSex.TabIndex = 46;
             // 
             // lbNameError
@@ -413,11 +421,11 @@
             this.lbNameError.AutoSize = true;
             this.lbNameError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lbNameError.ForeColor = System.Drawing.Color.Red;
-            this.lbNameError.Location = new System.Drawing.Point(99, 61);
+            this.lbNameError.Location = new System.Drawing.Point(373, 61);
             this.lbNameError.Name = "lbNameError";
-            this.lbNameError.Size = new System.Drawing.Size(24, 13);
+            this.lbNameError.Size = new System.Drawing.Size(106, 13);
             this.lbNameError.TabIndex = 47;
-            this.lbNameError.Text = "err";
+            this.lbNameError.Text = "Tên không hợp lệ!";
             this.lbNameError.Visible = false;
             // 
             // lbEmailError
@@ -425,11 +433,11 @@
             this.lbEmailError.AutoSize = true;
             this.lbEmailError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lbEmailError.ForeColor = System.Drawing.Color.Red;
-            this.lbEmailError.Location = new System.Drawing.Point(99, 246);
+            this.lbEmailError.Location = new System.Drawing.Point(373, 246);
             this.lbEmailError.Name = "lbEmailError";
-            this.lbEmailError.Size = new System.Drawing.Size(24, 13);
+            this.lbEmailError.Size = new System.Drawing.Size(115, 13);
             this.lbEmailError.TabIndex = 48;
-            this.lbEmailError.Text = "err";
+            this.lbEmailError.Text = "Email không hợp lệ!";
             this.lbEmailError.Visible = false;
             // 
             // lbPhoneError
@@ -437,18 +445,58 @@
             this.lbPhoneError.AutoSize = true;
             this.lbPhoneError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lbPhoneError.ForeColor = System.Drawing.Color.Red;
-            this.lbPhoneError.Location = new System.Drawing.Point(458, 178);
+            this.lbPhoneError.Location = new System.Drawing.Point(732, 178);
             this.lbPhoneError.Name = "lbPhoneError";
-            this.lbPhoneError.Size = new System.Drawing.Size(24, 13);
+            this.lbPhoneError.Size = new System.Drawing.Size(158, 13);
             this.lbPhoneError.TabIndex = 49;
-            this.lbPhoneError.Text = "err";
+            this.lbPhoneError.Text = "Số điện thoại không hợp lệ!";
             this.lbPhoneError.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::UI.Properties.Resources.staff_info;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(279, 430);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbPasswordError
+            // 
+            this.lbPasswordError.AutoSize = true;
+            this.lbPasswordError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lbPasswordError.Location = new System.Drawing.Point(408, 377);
+            this.lbPasswordError.Name = "lbPasswordError";
+            this.lbPasswordError.Size = new System.Drawing.Size(183, 13);
+            this.lbPasswordError.TabIndex = 51;
+            this.lbPasswordError.Text = "Mật khẩu không được để trống!";
+            this.lbPasswordError.Visible = false;
+            // 
+            // lbConfirmError
+            // 
+            this.lbConfirmError.AutoSize = true;
+            this.lbConfirmError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbConfirmError.ForeColor = System.Drawing.Color.Red;
+            this.lbConfirmError.Location = new System.Drawing.Point(787, 371);
+            this.lbConfirmError.Name = "lbConfirmError";
+            this.lbConfirmError.Size = new System.Drawing.Size(188, 13);
+            this.lbConfirmError.TabIndex = 52;
+            this.lbConfirmError.Text = "Hai mật khẩu không trùng nhau!";
+            this.lbConfirmError.Visible = false;
             // 
             // FrmStaffDetail
             // 
+            this.Appearance.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 430);
+            this.ClientSize = new System.Drawing.Size(1012, 430);
+            this.Controls.Add(this.lbConfirmError);
+            this.Controls.Add(this.lbPasswordError);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbPhoneError);
             this.Controls.Add(this.lbEmailError);
             this.Controls.Add(this.lbNameError);
@@ -479,6 +527,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin nhân viên";
             ((System.ComponentModel.ISupportInitialize)(this.functionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,5 +560,8 @@
         private System.Windows.Forms.Label lbNameError;
         private System.Windows.Forms.Label lbEmailError;
         private System.Windows.Forms.Label lbPhoneError;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbPasswordError;
+        private System.Windows.Forms.Label lbConfirmError;
     }
 }
