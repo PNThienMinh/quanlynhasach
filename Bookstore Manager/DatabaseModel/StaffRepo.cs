@@ -81,16 +81,16 @@ namespace Data
                 try
                 {
                     _connection.Open();
-                    SqlCommand cmdGetAllUser =
+                    SqlCommand cmdGetAllFunc =
                         new SqlCommand("getAllFunc", _connection) { CommandType = CommandType.StoredProcedure };
 
                     List<Function> functions = new List<Function>();
 
-                    using (SqlDataReader reader = cmdGetAllUser.ExecuteReader())
+                    using (SqlDataReader reader = cmdGetAllFunc.ExecuteReader())
                     {
                         if (!reader.HasRows)
                         {
-                            _listener.OnGetAllFunctionsFail("No function found!");
+                            _listener.OnGetAllFunctionsFail("Không có chức vụ nào!");
                             return;
                         }
 
@@ -202,20 +202,20 @@ namespace Data
                 try
                 {
                     _connection.Open();
-                    SqlCommand cmdUpdate = new SqlCommand("createStaff", _connection)
+                    SqlCommand cmdNewStaff = new SqlCommand("createStaff", _connection)
                     { CommandType = CommandType.StoredProcedure };
 
-                    cmdUpdate.Parameters.Add(new SqlParameter("@Name", user.Name));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@Sex", user.Sex));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@Birth", user.BirthDate));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@Email", user.Email));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@NID", user.MId));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@PhoneNum", user.PhoneNum));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@IDFunc", user.IDFunc));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@Username", user.Username));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@Password", user.Password));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@Name", user.Name));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@Sex", user.Sex));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@Birth", user.BirthDate));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@Email", user.Email));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@NID", user.MId));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@PhoneNum", user.PhoneNum));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@IDFunc", user.IDFunc));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@Username", user.Username));
+                    cmdNewStaff.Parameters.Add(new SqlParameter("@Password", user.Password));
 
-                    int rowsAffected = cmdUpdate.ExecuteNonQuery();
+                    int rowsAffected = cmdNewStaff.ExecuteNonQuery();
                     if (rowsAffected < 1 || rowsAffected > 2)
                     {
                         _listener.OnInsertNewStaffFail("Fail to create!");

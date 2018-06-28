@@ -91,7 +91,7 @@
             this.tbPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPhone.Enabled = false;
             this.tbPhone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbPhone.ForeColor = System.Drawing.Color.Black;
             this.tbPhone.HintForeColor = System.Drawing.Color.Empty;
             this.tbPhone.HintText = "";
             this.tbPhone.isPassword = false;
@@ -113,10 +113,10 @@
             this.tbConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbConfirmPassword.Enabled = false;
             this.tbConfirmPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbConfirmPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbConfirmPassword.ForeColor = System.Drawing.Color.Black;
             this.tbConfirmPassword.HintForeColor = System.Drawing.Color.Empty;
             this.tbConfirmPassword.HintText = "";
-            this.tbConfirmPassword.isPassword = false;
+            this.tbConfirmPassword.isPassword = true;
             this.tbConfirmPassword.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbConfirmPassword.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbConfirmPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
@@ -135,10 +135,10 @@
             this.tbNewPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbNewPassword.Enabled = false;
             this.tbNewPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNewPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbNewPassword.ForeColor = System.Drawing.Color.Black;
             this.tbNewPassword.HintForeColor = System.Drawing.Color.Empty;
             this.tbNewPassword.HintText = "";
-            this.tbNewPassword.isPassword = false;
+            this.tbNewPassword.isPassword = true;
             this.tbNewPassword.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbNewPassword.LineIdleColor = System.Drawing.SystemColors.MenuHighlight;
             this.tbNewPassword.LineMouseHoverColor = System.Drawing.Color.Blue;
@@ -157,7 +157,7 @@
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbEmail.Enabled = false;
             this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEmail.ForeColor = System.Drawing.Color.Black;
             this.tbEmail.HintForeColor = System.Drawing.Color.Empty;
             this.tbEmail.HintText = "";
             this.tbEmail.isPassword = false;
@@ -179,7 +179,7 @@
             this.tbUID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbUID.Enabled = false;
             this.tbUID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbUID.ForeColor = System.Drawing.Color.Black;
             this.tbUID.HintForeColor = System.Drawing.Color.Empty;
             this.tbUID.HintText = "";
             this.tbUID.isPassword = false;
@@ -193,13 +193,14 @@
             this.tbUID.Size = new System.Drawing.Size(171, 44);
             this.tbUID.TabIndex = 38;
             this.tbUID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbUID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUID_KeyPress);
             // 
             // tbName
             // 
             this.tbName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbName.Enabled = false;
             this.tbName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbName.ForeColor = System.Drawing.Color.Black;
             this.tbName.HintForeColor = System.Drawing.Color.Empty;
             this.tbName.HintText = "";
             this.tbName.isPassword = false;

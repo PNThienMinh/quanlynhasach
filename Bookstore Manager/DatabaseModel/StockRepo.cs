@@ -36,17 +36,17 @@ namespace Data
                 try
                 {
                     _connection.Open();
-                    SqlCommand cmdUpdate = new SqlCommand("addBook", _connection)
+                    SqlCommand cmdInsertBook = new SqlCommand("addBook", _connection)
                     { CommandType = CommandType.StoredProcedure };
 
-                    cmdUpdate.Parameters.Add(new SqlParameter("@bookId", book.Identifier));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@bookName", book.Name));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@bookType", book.Category));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@datePublished", book.PublishedDate));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@price", book.Cost));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@authorName", book.Author));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@publisher", book.Publisher));
-                    int rowsAffected = cmdUpdate.ExecuteNonQuery();
+                    cmdInsertBook.Parameters.Add(new SqlParameter("@bookId", book.Identifier));
+                    cmdInsertBook.Parameters.Add(new SqlParameter("@bookName", book.Name));
+                    cmdInsertBook.Parameters.Add(new SqlParameter("@bookType", book.Category));
+                    cmdInsertBook.Parameters.Add(new SqlParameter("@datePublished", book.PublishedDate));
+                    cmdInsertBook.Parameters.Add(new SqlParameter("@price", book.Cost));
+                    cmdInsertBook.Parameters.Add(new SqlParameter("@authorName", book.Author));
+                    cmdInsertBook.Parameters.Add(new SqlParameter("@publisher", book.Publisher));
+                    int rowsAffected = cmdInsertBook.ExecuteNonQuery();
                     if (rowsAffected > 0)
                         _listener.OnInsertBookToDbSuccessful();
                     else
@@ -83,10 +83,10 @@ namespace Data
                 try
                 {
                     _connection.Open();
-                    SqlCommand cmdGetAllUser =
+                    SqlCommand cmdGetStockContract =
                         new SqlCommand("getStockContract", _connection) { CommandType = CommandType.StoredProcedure };
 
-                    using (SqlDataReader reader = cmdGetAllUser.ExecuteReader())
+                    using (SqlDataReader reader = cmdGetStockContract.ExecuteReader())
                     {
                         if (!reader.HasRows)
                             _listener.OnGetContractFailure("Cơ sở dữ liệu rỗng");
@@ -121,13 +121,13 @@ namespace Data
                 try
                 {
                     _connection.Open();
-                    SqlCommand cmdUpdate = new SqlCommand("changeStockContract", _connection)
+                    SqlCommand cmdChangeStockContract = new SqlCommand("changeStockContract", _connection)
                     { CommandType = CommandType.StoredProcedure };
 
-                    cmdUpdate.Parameters.Add(new SqlParameter("@minImport", newMinImport));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@maxInventory", newMaxInventory));
+                    cmdChangeStockContract.Parameters.Add(new SqlParameter("@minImport", newMinImport));
+                    cmdChangeStockContract.Parameters.Add(new SqlParameter("@maxInventory", newMaxInventory));
 
-                    int rowsAffected = cmdUpdate.ExecuteNonQuery();
+                    int rowsAffected = cmdChangeStockContract.ExecuteNonQuery();
                     if (rowsAffected > 0)
                         _listener.OnUpdateStockContractsSuccessful();
                     else
@@ -340,12 +340,12 @@ namespace Data
                 try
                 {
                     _connection.Open();
-                    SqlCommand cmdGetAllUser =
+                    SqlCommand cmdGetAllBook =
                         new SqlCommand("getAllBooks", _connection) { CommandType = CommandType.StoredProcedure };
 
                     List<Book> books = new List<Book>();
 
-                    using (SqlDataReader reader = cmdGetAllUser.ExecuteReader())
+                    using (SqlDataReader reader = cmdGetAllBook.ExecuteReader())
                     {
                         if (reader.HasRows)
                         {

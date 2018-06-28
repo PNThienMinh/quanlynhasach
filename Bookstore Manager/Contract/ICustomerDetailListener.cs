@@ -8,8 +8,7 @@ namespace Contract
 {
     public interface ICustomerDetailListener
     {
-        void NotifyCustomerInfoNotValid(string msg);
-
+        
         void NotifyInsertCustomerSuccessful();
 
         void ErrorOccurWhenCreateCustomer(string msg);

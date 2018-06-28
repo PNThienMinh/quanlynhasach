@@ -18,7 +18,7 @@ namespace Data
                 XmlDocument xmlDoc = XMLReader(ConnectionInformation);
                 XmlElement xmlElement = xmlDoc.DocumentElement;
                 var connectionString = "Data Source=" + xmlElement.SelectSingleNode("servname").InnerText +
-                                       ";Initial Catalog=BM;Integrated Security=True;";
+                                       ";Initial Catalog=BM;Integrated Security=True;MultipleActiveResultSets=true";
                 using (var connection = new SqlConnection(connectionString))
                 {
                     try

@@ -46,6 +46,7 @@
             this.lbPhoneError = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbProvince = new System.Windows.Forms.ComboBox();
+            this.lbDisError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,7 +137,7 @@
             this.tbDistrict.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDistrict.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDistrict.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.tbDistrict.HintForeColor = System.Drawing.Color.Gray;
+            this.tbDistrict.HintForeColor = System.Drawing.Color.Black;
             this.tbDistrict.HintText = "";
             this.tbDistrict.isPassword = false;
             this.tbDistrict.LineFocusedColor = System.Drawing.Color.Blue;
@@ -149,6 +150,8 @@
             this.tbDistrict.Size = new System.Drawing.Size(259, 44);
             this.tbDistrict.TabIndex = 2;
             this.tbDistrict.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbDistrict.OnValueChanged += new System.EventHandler(this.tbDistrict_OnValueChanged);
+            this.tbDistrict.Leave += new System.EventHandler(this.tbDistrict_Leave);
             // 
             // tbPhoneNo
             // 
@@ -156,7 +159,7 @@
             this.tbPhoneNo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPhoneNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhoneNo.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.tbPhoneNo.HintForeColor = System.Drawing.Color.Gray;
+            this.tbPhoneNo.HintForeColor = System.Drawing.Color.Black;
             this.tbPhoneNo.HintText = "";
             this.tbPhoneNo.isPassword = false;
             this.tbPhoneNo.LineFocusedColor = System.Drawing.Color.Blue;
@@ -179,7 +182,7 @@
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.tbEmail.HintForeColor = System.Drawing.Color.Gray;
+            this.tbEmail.HintForeColor = System.Drawing.Color.Black;
             this.tbEmail.HintText = "";
             this.tbEmail.isPassword = false;
             this.tbEmail.LineFocusedColor = System.Drawing.Color.Blue;
@@ -201,7 +204,7 @@
             this.tbName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.tbName.HintForeColor = System.Drawing.Color.Gray;
+            this.tbName.HintForeColor = System.Drawing.Color.Black;
             this.tbName.HintText = "";
             this.tbName.isPassword = false;
             this.tbName.LineFocusedColor = System.Drawing.Color.Blue;
@@ -379,6 +382,18 @@
             this.cbProvince.Size = new System.Drawing.Size(205, 27);
             this.cbProvince.TabIndex = 3;
             // 
+            // lbDisError
+            // 
+            this.lbDisError.AutoSize = true;
+            this.lbDisError.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lbDisError.ForeColor = System.Drawing.Color.Red;
+            this.lbDisError.Location = new System.Drawing.Point(296, 226);
+            this.lbDisError.Name = "lbDisError";
+            this.lbDisError.Size = new System.Drawing.Size(178, 13);
+            this.lbDisError.TabIndex = 19;
+            this.lbDisError.Text = "Tên quận/huyện không hợp lệ!";
+            this.lbDisError.Visible = false;
+            // 
             // FrmNewCustomer
             // 
             this.Appearance.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -386,6 +401,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 426);
+            this.Controls.Add(this.lbDisError);
             this.Controls.Add(this.cbProvince);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbPhoneError);
@@ -436,5 +452,6 @@
         private System.Windows.Forms.Label lbPhoneError;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cbProvince;
+        private System.Windows.Forms.Label lbDisError;
     }
 }

@@ -41,42 +41,17 @@ namespace Services
 
         public void CreateNewCustomer(Customer customer)
         {
-            string notValidField = "";
-            
-            if (customer.Address.Length < 6)
-                notValidField += "Quận/Huyện | Tỉnh/Thành phố";
-
-            if (notValidField.Length > 0)
-                _customerDetail.NotifyCustomerInfoNotValid(notValidField);
-
-            else
-                _db.InsertNewCustomer(customer);
+            _db.InsertNewCustomer(customer);
         }
 
         public void EditCustomer(Customer customer)
         {
-            string notValidField = "";
-            if (!customer.Name.Contains(' ') || customer.Name.Length < 5)
-                notValidField += "Họ và tên | ";
-            if (!customer.Email.Contains('@') || !customer.Email.Contains('.'))
-                notValidField += "Email | ";
-            if (customer.PhoneNum.Length < 10 || customer.PhoneNum.Length > 11)
-                notValidField += "Số điện thoại | ";
-            if (customer.Address.Length < 6)
-                notValidField += "Quận/Huyện | Tỉnh/Thành phố";
-
-            if (notValidField.Length > 0)
-                _customerDetail.NotifyCustomerInfoNotValid(notValidField);
-
-            else
-            {
-                _db.UpdateCustomerInfo(customer);
-            }
+            _db.UpdateCustomerInfo(customer);
         }
 
         public void ReceiveIndebtedness(Customer customer, int receivedMoney)
         {
-              _db.ReceiveIndebtedness(customer, receivedMoney);
+            _db.ReceiveIndebtedness(customer, receivedMoney);
         }
 
         public void OnGetAllCustomersSuccessful(List<Customer> customers)

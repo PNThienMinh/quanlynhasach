@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 using Data;
@@ -46,6 +47,8 @@ namespace Services
         {
             if (!name.Contains(' ') || name.Length < 7)
                 return false;
+            if (Regex.IsMatch(name, @"^[a-zA-Z]+$"))
+                return true;
             return true;
         }
 
@@ -54,6 +57,8 @@ namespace Services
             if (phoneNum.Length > 11 || phoneNum.Length < 10)
                 return false;
             if (!phoneNum.StartsWith("0"))
+                return false;
+            if (!phoneNum.StartsWith("00"))
                 return false;
             if (phoneNum.StartsWith("01"))
             {
@@ -69,19 +74,23 @@ namespace Services
             return false;
         }
 
+        public static bool IsValidDistrict(string dis)
+        {
+            if (IsDigitsOnly(dis))
+                return false;
+            if (dis.Length < 6)
+                return false;
+            return true;
+        }
+
+
         public static bool IsDatabaseConnected()
         {
             return Helper.CheckConnection();
         }
 
-        public static bool IsValidConnection(string connStr)
-        {
+        public static bool IsValidConnection(string connStr){
             return Helper.CheckConnection(connStr);
-        }
-
-        public static void SetupConnectionString(string connStr)
-        {
-            Config.ConnectionString = connStr;
         }
 
         public static void SaveConnectionInformation(string serverName)

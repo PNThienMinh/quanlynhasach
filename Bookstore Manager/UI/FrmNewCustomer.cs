@@ -12,7 +12,7 @@ namespace UI
         private ICustomerService _customerInfo;
         private int flagMode;
         private Customer _customer;
-        
+
         public FrmNewCustomer()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace UI
 
         private void InitComboBox()
         {
-            Dictionary<int, string> dataSource = new Dictionary<int, string> {{0, "Nam"}, {1, "Nữ"}, {2, "Khác"}};
+            Dictionary<int, string> dataSource = new Dictionary<int, string> { { 0, "Nam" }, { 1, "Nữ" }, { 2, "Khác" } };
 
             cbSex.DataSource = new BindingSource(dataSource, null);
             cbSex.DisplayMember = "Value";
@@ -128,12 +128,6 @@ namespace UI
             cbSex.Enabled = true;
         }
 
-        public void NotifyCustomerInfoNotValid(string msg)
-        {
-            MessageBox.Show("Trường: " + msg + " không hợp lệ", "Nhắc nhở", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-        }
-
         public void NotifyInsertCustomerSuccessful()
         {
             MessageBox.Show("Thêm khách hàng thành công!", "Hoàn tất", MessageBoxButtons.OK);
@@ -144,7 +138,7 @@ namespace UI
 
         public void ErrorOccurWhenCreateCustomer(string msg)
         {
-            // TODO:
+            MessageBox.Show(msg, "Lỗi", MessageBoxButtons.OK);
         }
 
         public void NotifyUpdateCustomerSuccessful()
@@ -211,6 +205,21 @@ namespace UI
                 lbPhoneError.Text = "Số điện thoại không hợp lệ!";
                 lbPhoneError.Visible = true;
                 tbPhoneNo.Focus();
+            }
+        }
+
+        private void tbDistrict_OnValueChanged(object sender, EventArgs e)
+        {
+            if (lbDisError.Visible)
+                lbDisError.Visible = false;
+        }
+
+        private void tbDistrict_Leave(object sender, EventArgs e)
+        {
+            if (!Ultilities.IsValidDistrict(tbDistrict.Text.Trim()))
+            {
+                lbDisError.Visible = true;
+                tbDistrict.Focus();
             }
         }
     }

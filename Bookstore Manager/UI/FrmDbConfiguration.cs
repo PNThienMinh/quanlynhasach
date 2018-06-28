@@ -54,9 +54,9 @@ namespace UI
         private void btnOk_Click(object sender, EventArgs e)
         {
             Ultilities.SaveConnectionInformation(tbServerName.Text.Trim());
-            MessageBox.Show("Kết nối cơ sở dữ liệu thành công!", "Hoàn tất", MessageBoxButtons.OK);
+            MessageBox.Show("Cấu hình cơ sở dữ liệu thành công!\nChương trình sẽ được khởi động lại!", "Thông báo", MessageBoxButtons.OK);
             this.DialogResult = DialogResult.OK;
-            this.Close();
+            Application.Restart();
         }
 
         private void tbServerName_OnValueChanged(object sender, EventArgs e)
