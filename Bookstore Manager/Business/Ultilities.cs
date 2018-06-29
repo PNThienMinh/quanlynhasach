@@ -58,7 +58,7 @@ namespace Services
                 return false;
             if (!phoneNum.StartsWith("0"))
                 return false;
-            if (!phoneNum.StartsWith("00"))
+            if (phoneNum.StartsWith("00"))
                 return false;
             if (phoneNum.StartsWith("01"))
             {
@@ -112,11 +112,20 @@ namespace Services
             string diskC = @"C:\";
             string diskD = @"D:\";
             string diskE = @"E:\";
+            string diskF = @"F:\";
+            string diskG = @"G:\";
+            string diskH = @"H:\";
 
             if (Directory.Exists(diskD))
                 return diskD;
             if (Directory.Exists(diskE))
                 return diskE;
+            if (Directory.Exists(diskF))
+                return diskF;
+            if (Directory.Exists(diskG))
+                return diskG;
+            if (Directory.Exists(diskH))
+                return diskH;
             return diskC;
         }
 

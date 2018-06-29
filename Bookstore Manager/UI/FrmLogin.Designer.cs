@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager ssmWaiting = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.SplashScreen), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.btnLogin = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tbPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tbUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.ssmLogin = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::UI.FrmWaiting), true, true, true);
             this.SuspendLayout();
-            // 
-            // ssmWaiting
-            // 
-            ssmWaiting.ClosingDelay = 500;
             // 
             // btnLogin
             // 

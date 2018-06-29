@@ -89,10 +89,6 @@ namespace UI
                 using (var form = new FrmDbConfiguration())
                 {
                     var result = form.ShowDialog();
-                    //if (result == DialogResult.OK)
-                    //{
-                        
-                    //}
                 }
             }
         }
