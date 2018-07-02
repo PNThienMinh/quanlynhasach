@@ -169,8 +169,6 @@ namespace Data
                     { CommandType = CommandType.StoredProcedure };
 
                     cmdUpdate.Parameters.Add(new SqlParameter("@bookId", newBookInfo.ID));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@name", newBookInfo.Name));
-                    cmdUpdate.Parameters.Add(new SqlParameter("@category", newBookInfo.Category));
                     cmdUpdate.Parameters.Add(new SqlParameter("@cost", newBookInfo.Cost));
 
                     int rowsAffected = cmdUpdate.ExecuteNonQuery();

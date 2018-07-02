@@ -46,7 +46,24 @@ namespace UI
         {
             Book book = new Book();
             book.ID = _bookInEditer.ID;
-            book.Cost = Convert.ToInt32(tbCost.Text);
+            int cost = 0;
+            try
+            {
+                cost = Int32.Parse(tbCost.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng nhập số tiền hợp lệ!", "Nhắc nhở", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (cost <= 0)
+            {
+                MessageBox.Show("Vui lòng nhập số tiền không âm!", "Nhắc nhở", MessageBoxButtons.OK);
+                return;
+            }
+
+            book.Cost = cost;
             _stockInfo.EditBookInfor(book);
 
         }

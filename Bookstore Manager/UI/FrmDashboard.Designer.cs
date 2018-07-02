@@ -61,7 +61,7 @@
             this.colPublisher1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colIdentifier1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colCount = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.quantitiesSpinEdit = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.btnDeleteBookInBill = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -171,6 +171,13 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.tbSearchStaff = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.reportNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.tlIndebtednessReport = new DevExpress.XtraTreeList.TreeList();
+            this.colCustomerID = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colCustomerName1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colTime1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colInEarly1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colOnArise1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colInLast1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.indebtednessReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tlInventoryReport = new DevExpress.XtraTreeList.TreeList();
             this.colBookID = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -225,20 +232,13 @@
             this.tbMinLastInventory = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbMaxInventory = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbMinImport = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.colCustomerID = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colCustomerName1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colTime1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colInEarly1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colOnArise1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colInLast1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.tlIndebtednessReport = new DevExpress.XtraTreeList.TreeList();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
             this.bookstallNavigationPage.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tlBookInBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantitiesSpinEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteBookInBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
@@ -283,6 +283,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNewStaff)).BeginInit();
             this.panel14.SuspendLayout();
             this.reportNavigationPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tlIndebtednessReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.indebtednessReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlInventoryReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryReportBindingSource)).BeginInit();
@@ -307,7 +308,6 @@
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tlIndebtednessReport)).BeginInit();
             this.SuspendLayout();
             // 
             // ssmLoading
@@ -538,7 +538,7 @@
             this.tlBookInBill.OptionsBehavior.PopulateServiceColumns = true;
             this.tlBookInBill.OptionsView.ShowSummaryFooter = true;
             this.tlBookInBill.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemSpinEdit1,
+            this.quantitiesSpinEdit,
             this.btnDeleteBookInBill});
             this.tlBookInBill.RowHeight = 30;
             this.tlBookInBill.Size = new System.Drawing.Size(649, 359);
@@ -622,7 +622,7 @@
             // colCount
             // 
             this.colCount.Caption = "Số lượng";
-            this.colCount.ColumnEdit = this.repositoryItemSpinEdit1;
+            this.colCount.ColumnEdit = this.quantitiesSpinEdit;
             this.colCount.FieldName = "Count";
             this.colCount.Name = "colCount";
             this.colCount.OptionsColumn.AllowMove = false;
@@ -634,22 +634,22 @@
             this.colCount.VisibleIndex = 4;
             this.colCount.Width = 125;
             // 
-            // repositoryItemSpinEdit1
+            // quantitiesSpinEdit
             // 
-            this.repositoryItemSpinEdit1.AutoHeight = false;
-            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.quantitiesSpinEdit.AutoHeight = false;
+            this.quantitiesSpinEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit1.MaxValue = new decimal(new int[] {
+            this.quantitiesSpinEdit.MaxValue = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
-            this.repositoryItemSpinEdit1.MinValue = new decimal(new int[] {
+            this.quantitiesSpinEdit.MinValue = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            this.quantitiesSpinEdit.Name = "quantitiesSpinEdit";
             // 
             // treeListColumn1
             // 
@@ -1119,7 +1119,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 0;
-            this.gridColumn10.Width = 131;
+            this.gridColumn10.Width = 118;
             // 
             // gridColumn11
             // 
@@ -1128,7 +1128,7 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 1;
-            this.gridColumn11.Width = 565;
+            this.gridColumn11.Width = 410;
             // 
             // gridColumn12
             // 
@@ -1152,8 +1152,12 @@
             // 
             // gridColumn15
             // 
+            this.gridColumn15.Caption = "Tiền nợ";
             this.gridColumn15.FieldName = "Indebtedness";
             this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 2;
+            this.gridColumn15.Width = 168;
             // 
             // label8
             // 
@@ -1976,12 +1980,102 @@
             // 
             // reportNavigationPage
             // 
+            this.reportNavigationPage.Caption = "reportNavigationPage";
             this.reportNavigationPage.Controls.Add(this.tlIndebtednessReport);
             this.reportNavigationPage.Controls.Add(this.tlInventoryReport);
             this.reportNavigationPage.Controls.Add(this.panel8);
             this.reportNavigationPage.Name = "reportNavigationPage";
             this.reportNavigationPage.Size = new System.Drawing.Size(1025, 451);
             this.reportNavigationPage.VisibleChanged += new System.EventHandler(this.statisticsNavigationPage_VisibleChanged);
+            // 
+            // tlIndebtednessReport
+            // 
+            this.tlIndebtednessReport.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.colCustomerID,
+            this.colCustomerName1,
+            this.colTime1,
+            this.colInEarly1,
+            this.colOnArise1,
+            this.colInLast1});
+            this.tlIndebtednessReport.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlIndebtednessReport.DataSource = this.indebtednessReportBindingSource;
+            this.tlIndebtednessReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlIndebtednessReport.Location = new System.Drawing.Point(0, 72);
+            this.tlIndebtednessReport.Name = "tlIndebtednessReport";
+            this.tlIndebtednessReport.OptionsBehavior.PopulateServiceColumns = true;
+            this.tlIndebtednessReport.OptionsBehavior.ResizeNodes = false;
+            this.tlIndebtednessReport.Size = new System.Drawing.Size(1025, 379);
+            this.tlIndebtednessReport.TabIndex = 4;
+            this.tlIndebtednessReport.Visible = false;
+            // 
+            // colCustomerID
+            // 
+            this.colCustomerID.Caption = "Mã KH";
+            this.colCustomerID.FieldName = "CustomerID";
+            this.colCustomerID.Name = "colCustomerID";
+            this.colCustomerID.OptionsColumn.AllowEdit = false;
+            this.colCustomerID.OptionsColumn.AllowMove = false;
+            this.colCustomerID.OptionsColumn.ReadOnly = true;
+            this.colCustomerID.Visible = true;
+            this.colCustomerID.VisibleIndex = 0;
+            this.colCustomerID.Width = 109;
+            // 
+            // colCustomerName1
+            // 
+            this.colCustomerName1.Caption = "Tên khách hàng";
+            this.colCustomerName1.FieldName = "CustomerName";
+            this.colCustomerName1.Name = "colCustomerName1";
+            this.colCustomerName1.OptionsColumn.AllowEdit = false;
+            this.colCustomerName1.OptionsColumn.AllowMove = false;
+            this.colCustomerName1.OptionsColumn.ReadOnly = true;
+            this.colCustomerName1.Visible = true;
+            this.colCustomerName1.VisibleIndex = 1;
+            this.colCustomerName1.Width = 307;
+            // 
+            // colTime1
+            // 
+            this.colTime1.FieldName = "Time";
+            this.colTime1.Name = "colTime1";
+            this.colTime1.OptionsColumn.AllowEdit = false;
+            this.colTime1.OptionsColumn.AllowMove = false;
+            this.colTime1.OptionsColumn.ReadOnly = true;
+            this.colTime1.Width = 168;
+            // 
+            // colInEarly1
+            // 
+            this.colInEarly1.Caption = "Nợ đầu";
+            this.colInEarly1.FieldName = "InEarly";
+            this.colInEarly1.Name = "colInEarly1";
+            this.colInEarly1.OptionsColumn.AllowEdit = false;
+            this.colInEarly1.OptionsColumn.AllowMove = false;
+            this.colInEarly1.OptionsColumn.ReadOnly = true;
+            this.colInEarly1.Visible = true;
+            this.colInEarly1.VisibleIndex = 2;
+            this.colInEarly1.Width = 198;
+            // 
+            // colOnArise1
+            // 
+            this.colOnArise1.Caption = "Nợ phát sinh";
+            this.colOnArise1.FieldName = "OnArise";
+            this.colOnArise1.Name = "colOnArise1";
+            this.colOnArise1.OptionsColumn.AllowEdit = false;
+            this.colOnArise1.OptionsColumn.AllowMove = false;
+            this.colOnArise1.OptionsColumn.ReadOnly = true;
+            this.colOnArise1.Visible = true;
+            this.colOnArise1.VisibleIndex = 3;
+            this.colOnArise1.Width = 197;
+            // 
+            // colInLast1
+            // 
+            this.colInLast1.Caption = "Nợ cuối";
+            this.colInLast1.FieldName = "InLast";
+            this.colInLast1.Name = "colInLast1";
+            this.colInLast1.OptionsColumn.AllowEdit = false;
+            this.colInLast1.OptionsColumn.AllowMove = false;
+            this.colInLast1.OptionsColumn.ReadOnly = true;
+            this.colInLast1.Visible = true;
+            this.colInLast1.VisibleIndex = 4;
+            this.colInLast1.Width = 196;
             // 
             // indebtednessReportBindingSource
             // 
@@ -2649,94 +2743,6 @@
             this.tbMinImport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbMinImport.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbValue_KeyPress);
             // 
-            // colCustomerID
-            // 
-            this.colCustomerID.Caption = "Mã KH";
-            this.colCustomerID.FieldName = "CustomerID";
-            this.colCustomerID.Name = "colCustomerID";
-            this.colCustomerID.OptionsColumn.AllowEdit = false;
-            this.colCustomerID.OptionsColumn.AllowMove = false;
-            this.colCustomerID.OptionsColumn.ReadOnly = true;
-            this.colCustomerID.Visible = true;
-            this.colCustomerID.VisibleIndex = 0;
-            this.colCustomerID.Width = 109;
-            // 
-            // colCustomerName1
-            // 
-            this.colCustomerName1.Caption = "Tên khách hàng";
-            this.colCustomerName1.FieldName = "CustomerName";
-            this.colCustomerName1.Name = "colCustomerName1";
-            this.colCustomerName1.OptionsColumn.AllowEdit = false;
-            this.colCustomerName1.OptionsColumn.AllowMove = false;
-            this.colCustomerName1.OptionsColumn.ReadOnly = true;
-            this.colCustomerName1.Visible = true;
-            this.colCustomerName1.VisibleIndex = 2;
-            this.colCustomerName1.Width = 307;
-            // 
-            // colTime1
-            // 
-            this.colTime1.FieldName = "Time";
-            this.colTime1.Name = "colTime1";
-            this.colTime1.OptionsColumn.AllowEdit = false;
-            this.colTime1.OptionsColumn.AllowMove = false;
-            this.colTime1.OptionsColumn.ReadOnly = true;
-            this.colTime1.Width = 168;
-            // 
-            // colInEarly1
-            // 
-            this.colInEarly1.Caption = "Nợ đầu";
-            this.colInEarly1.FieldName = "InEarly";
-            this.colInEarly1.Name = "colInEarly1";
-            this.colInEarly1.OptionsColumn.AllowEdit = false;
-            this.colInEarly1.OptionsColumn.AllowMove = false;
-            this.colInEarly1.OptionsColumn.ReadOnly = true;
-            this.colInEarly1.Visible = true;
-            this.colInEarly1.VisibleIndex = 4;
-            this.colInEarly1.Width = 198;
-            // 
-            // colOnArise1
-            // 
-            this.colOnArise1.Caption = "Nợ phát sinh";
-            this.colOnArise1.FieldName = "OnArise";
-            this.colOnArise1.Name = "colOnArise1";
-            this.colOnArise1.OptionsColumn.AllowEdit = false;
-            this.colOnArise1.OptionsColumn.AllowMove = false;
-            this.colOnArise1.OptionsColumn.ReadOnly = true;
-            this.colOnArise1.Visible = true;
-            this.colOnArise1.VisibleIndex = 3;
-            this.colOnArise1.Width = 197;
-            // 
-            // colInLast1
-            // 
-            this.colInLast1.Caption = "Nợ cuối";
-            this.colInLast1.FieldName = "InLast";
-            this.colInLast1.Name = "colInLast1";
-            this.colInLast1.OptionsColumn.AllowEdit = false;
-            this.colInLast1.OptionsColumn.AllowMove = false;
-            this.colInLast1.OptionsColumn.ReadOnly = true;
-            this.colInLast1.Visible = true;
-            this.colInLast1.VisibleIndex = 1;
-            this.colInLast1.Width = 196;
-            // 
-            // tlIndebtednessReport
-            // 
-            this.tlIndebtednessReport.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colCustomerID,
-            this.colCustomerName1,
-            this.colTime1,
-            this.colInEarly1,
-            this.colOnArise1,
-            this.colInLast1});
-            this.tlIndebtednessReport.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tlIndebtednessReport.DataSource = this.indebtednessReportBindingSource;
-            this.tlIndebtednessReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlIndebtednessReport.Location = new System.Drawing.Point(0, 72);
-            this.tlIndebtednessReport.Name = "tlIndebtednessReport";
-            this.tlIndebtednessReport.OptionsBehavior.ResizeNodes = false;
-            this.tlIndebtednessReport.Size = new System.Drawing.Size(1025, 379);
-            this.tlIndebtednessReport.TabIndex = 4;
-            this.tlIndebtednessReport.Visible = false;
-            // 
             // FrmDashboard
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -2757,7 +2763,7 @@
             this.bookstallNavigationPage.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlBookInBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantitiesSpinEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteBookInBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
@@ -2809,6 +2815,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNewStaff)).EndInit();
             this.panel14.ResumeLayout(false);
             this.reportNavigationPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tlIndebtednessReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.indebtednessReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlInventoryReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryReportBindingSource)).EndInit();
@@ -2847,7 +2854,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tlIndebtednessReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2920,7 +2926,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit quantitiesSpinEdit;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panelCheckout;
         private MaterialSkin.Controls.MaterialFlatButton btnCheckout;

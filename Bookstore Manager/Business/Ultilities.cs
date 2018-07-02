@@ -45,7 +45,10 @@ namespace Services
 
         public static bool IsValidName(string name)
         {
+            List<string> ch = new List<string>() { "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "=", "[", "]", @"\", "|", ";", ":", "'", "<", ">", ",", ".", "/", "?" };
             if (!name.Contains(' ') || name.Length < 7)
+                return false;
+            if (ch.Any(name.Contains))
                 return false;
             if (Regex.IsMatch(name, @"^[a-zA-Z]+$"))
                 return true;
@@ -89,7 +92,8 @@ namespace Services
             return Helper.CheckConnection();
         }
 
-        public static bool IsValidConnection(string connStr){
+        public static bool IsValidConnection(string connStr)
+        {
             return Helper.CheckConnection(connStr);
         }
 

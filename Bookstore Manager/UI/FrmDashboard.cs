@@ -494,6 +494,8 @@ namespace UI
         {
             tlInventoryReport.DataSource = null;
             tlInventoryReport.RefreshDataSource();
+            tlIndebtednessReport.DataSource = null;
+            tlIndebtednessReport.RefreshDataSource();
             MessageBox.Show(error, "Lỗi", MessageBoxButtons.OK);
         }
         public void DisplayIndebtednessReportsData(List<IndebtednessReport> listReports)
