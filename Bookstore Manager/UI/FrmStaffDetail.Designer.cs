@@ -522,6 +522,7 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmStaffDetail";

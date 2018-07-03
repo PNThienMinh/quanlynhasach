@@ -549,6 +549,7 @@
             this.Controls.Add(this.tbUID);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.materialLabel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmNewStaff";

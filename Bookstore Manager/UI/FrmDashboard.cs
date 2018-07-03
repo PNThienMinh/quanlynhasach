@@ -43,7 +43,9 @@ namespace UI
             InitializeComponent();
             InitialzeInstances();
             if (_user.IDFunc != 1)
+            {
                 adminTileBarItem.Visible = false;
+                staffTileBarItem.Visible = false;}
         }
 
         // initial instances of business layer

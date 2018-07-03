@@ -420,6 +420,7 @@
             this.Controls.Add(this.tbPhoneNo);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmNewCustomer";

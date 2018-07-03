@@ -112,6 +112,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCheckConn);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmDbConfiguration";
