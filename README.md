@@ -10,14 +10,14 @@
 - Hóa đơn được quyền tạo và xóa.
 - Chỉ có quản lí mới xem được lịch sử những đơn hàng đã bị xóa)
 
-*III. Xuất/Nhập kho*
+*III. Nhập kho*
 - Nhập hàng từ đơn vị đối tác
-- Xuất hàng số lượng lớn cho các đại lí
 
 *IV. Lập báo cáo*
 - Lập báo cáo theo tháng
 - Thống kê hàng tồn kho
 - Báo cáo công nợ
+
 *V. Quản lý khách hàng
 - Quản lý thông tin khách hàng
 **Technology**
