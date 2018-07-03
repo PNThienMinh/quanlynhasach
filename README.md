@@ -21,8 +21,8 @@
 *V. Quản lý khách hàng
 - Quản lý thông tin khách hàng
 **Technology**
-- Ngôn ngữ : C#,XAML
-- Công nghệ : Winform, Entity Framework, SQLServer
+- Ngôn ngữ : C#
+- Công nghệ : Winform, ADO.NET
 
  **Author**
 
