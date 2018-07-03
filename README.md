@@ -17,7 +17,9 @@
 *IV. Lập báo cáo*
 - Lập báo cáo theo tháng
 - Thống kê hàng tồn kho
-
+- Báo cáo công nợ
+*V. Quản lý khách hàng
+- Quản lý thông tin khách hàng
 **Technology**
 - Ngôn ngữ : C#,XAML
 - Công nghệ : Winform, Entity Framework, SQLServer
